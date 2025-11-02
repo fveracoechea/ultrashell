@@ -1,5 +1,4 @@
-import type { Setter } from "ags";
-import type { Accessor } from "ags";
+import type { Accessor, Setter } from "ags";
 import type AstalNotifd from "gi://AstalNotifd";
 import GLib from "gi://GLib";
 

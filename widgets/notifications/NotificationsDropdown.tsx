@@ -1,13 +1,7 @@
 import AstalNotifd from "gi://AstalNotifd";
 import { Dropdown } from "../../styles/components/Dropdown";
 import { Gtk } from "ags/gtk4";
-import {
-  createBinding,
-  createComputed,
-  createState,
-  For,
-  onCleanup,
-} from "ags";
+import { createBinding, createComputed, createState, For } from "ags";
 import { notificationHandler } from "./utils";
 import { NotificationCard } from "./NotificationCard";
 import { createPoll } from "ags/time";
@@ -20,7 +14,7 @@ export const [notifications, setNotifications] = createState(
 );
 
 setNotifications(notifd.notifications);
-onCleanup(notificationHandler(notifd, notifications, setNotifications));
+notificationHandler(notifd, notifications, setNotifications);
 
 export const dontDisturb = createBinding(notifd, "dont_disturb").as((v) => !v);
 

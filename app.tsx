@@ -16,4 +16,7 @@ function main() {
   );
 }
 
-app.start({ css, main });
+app.start({
+  css,
+  main,
+});
