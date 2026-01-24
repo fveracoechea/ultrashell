@@ -1,7 +1,15 @@
-import { Accessor, createBinding, createComputed, createState, For } from "ags";
+import {
+  Accessor,
+  createBinding,
+  createComputed,
+  createEffect,
+  createState,
+  For,
+  With,
+} from "ags";
 import { Gtk } from "ags/gtk4";
 
-import { Dropdown, DropdownHeader } from "../../styles/components/Dropdown";
+import { Dropdown } from "../../styles/components/Dropdown";
 
 import Mpris from "gi://AstalMpris";
 import { MediaPlayer } from "./MediaPlayer";
@@ -12,26 +20,42 @@ function MediaTabs() {
   const Media = Mpris.get_default();
   const players = createBinding(Media, "players").as((p) => p ?? []);
 
-  const hasPlayers = createComputed([players], (p) => p.length > 0);
+  const hasPlayers = players((p) => p.length > 0);
 
   const [activePlayer, setActivePlayer] = createState(
     Media.players.at(0)?.identity ?? null,
   );
 
-  const stackClassNames = createComputed([activePlayer, players], (active, all) => {
-    const first = all.at(0)?.identity ?? null;
-    return first === active ? "" : "rounded-top-left";
+  createEffect(() => {
+    const current = activePlayer();
+    const allPlayers = players();
+    const isPlayerInList = allPlayers.some((p) => p.identity === current);
+    const first = allPlayers.at(0)?.identity ?? null;
+    if (!isPlayerInList && first) {
+      setActivePlayer(first);
+    }
   });
 
+  const stackClassNames = createComputed(
+    () => {
+      const first = players().at(0)?.identity ?? null;
+      return first === activePlayer() ? "" : "rounded-top-left";
+    },
+  );
+
   return (
-    <box class="tabs" visible={hasPlayers} orientation={Gtk.Orientation.VERTICAL}>
+    <box
+      class="tabs"
+      visible={hasPlayers}
+      orientation={Gtk.Orientation.VERTICAL}
+    >
       <box>
         <For each={players}>
           {(player: Mpris.Player) => (
             <button
               onClicked={() => setActivePlayer(player.identity)}
               class={activePlayer.as((p) =>
-                p === player.identity ? "tab active" : "tab",
+                p === player.identity ? "tab active" : "tab"
               )}
             >
               {player.identity}
@@ -39,16 +63,23 @@ function MediaTabs() {
           )}
         </For>
       </box>
-      <stack
-        class={stackClassNames}
-        visibleChildName={activePlayer}
-        transitionDuration={250}
-        transitionType={Gtk.StackTransitionType.SLIDE_LEFT_RIGHT}
-      >
-        <For each={players}>
-          {(player: Mpris.Player) => <MediaPlayer player={player} />}
-        </For>
-      </stack>
+      <With value={activePlayer}>
+        {(playerId) => {
+          if (!playerId) return null;
+          return (
+            <stack
+              class={stackClassNames}
+              visibleChildName={playerId}
+              transitionDuration={250}
+              transitionType={Gtk.StackTransitionType.SLIDE_LEFT_RIGHT}
+            >
+              <For each={players}>
+                {(player: Mpris.Player) => <MediaPlayer player={player} />}
+              </For>
+            </stack>
+          );
+        }}
+      </With>
     </box>
   );
 }

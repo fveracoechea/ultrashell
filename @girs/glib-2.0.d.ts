@@ -5439,7 +5439,7 @@ declare module 'gi://GLib?version=2.0' {
          * @param val the value to add
          * @returns the value of @atomic before the add, signed
          */
-        function atomic_int_add(atomic: number, val: number): number;
+        function atomic_int_add(atomic: any | null, val: number): number;
         /**
          * Performs an atomic bitwise 'and' of the value of `atomic` and `val,`
          * storing the result back in `atomic`.
@@ -5455,7 +5455,7 @@ declare module 'gi://GLib?version=2.0' {
          * @param val the value to 'and'
          * @returns the value of @atomic before the operation, unsigned
          */
-        function atomic_int_and(atomic: number, val: number): number;
+        function atomic_int_and(atomic: any | null, val: number): number;
         /**
          * Compares `atomic` to `oldval` and, if equal, sets it to `newval`.
          * If `atomic` was not equal to `oldval` then no change occurs.
@@ -5474,7 +5474,7 @@ declare module 'gi://GLib?version=2.0' {
          * @param newval the value to conditionally replace with
          * @returns %TRUE if the exchange took place
          */
-        function atomic_int_compare_and_exchange(atomic: number, oldval: number, newval: number): boolean;
+        function atomic_int_compare_and_exchange(atomic: any | null, oldval: number, newval: number): boolean;
         /**
          * Compares `atomic` to `oldval` and, if equal, sets it to `newval`.
          * If `atomic` was not equal to `oldval` then no change occurs.
@@ -5494,7 +5494,7 @@ declare module 'gi://GLib?version=2.0' {
          * @returns %TRUE if the exchange took place
          */
         function atomic_int_compare_and_exchange_full(
-            atomic: number,
+            atomic: any | null,
             oldval: number,
             newval: number,
         ): [boolean, number];
@@ -5511,7 +5511,7 @@ declare module 'gi://GLib?version=2.0' {
          * @param atomic a pointer to a #gint or #guint
          * @returns %TRUE if the resultant value is zero
          */
-        function atomic_int_dec_and_test(atomic: number): boolean;
+        function atomic_int_dec_and_test(atomic?: any | null): boolean;
         /**
          * Sets the `atomic` to `newval` and returns the old value from `atomic`.
          *
@@ -5525,7 +5525,7 @@ declare module 'gi://GLib?version=2.0' {
          * @param newval the value to replace with
          * @returns the value of @atomic before the exchange, signed
          */
-        function atomic_int_exchange(atomic: number, newval: number): number;
+        function atomic_int_exchange(atomic: any | null, newval: number): number;
         /**
          * This function existed before g_atomic_int_add() returned the prior
          * value of the integer (which it now does).  It is retained only for
@@ -5534,7 +5534,7 @@ declare module 'gi://GLib?version=2.0' {
          * @param val the value to add
          * @returns the value of @atomic before the add, signed
          */
-        function atomic_int_exchange_and_add(atomic: number, val: number): number;
+        function atomic_int_exchange_and_add(atomic: any | null, val: number): number;
         /**
          * Gets the current value of `atomic`.
          *
@@ -5546,7 +5546,7 @@ declare module 'gi://GLib?version=2.0' {
          * @param atomic a pointer to a #gint or #guint
          * @returns the value of the integer
          */
-        function atomic_int_get(atomic: number): number;
+        function atomic_int_get(atomic?: any | null): number;
         /**
          * Increments the value of `atomic` by 1.
          *
@@ -5558,7 +5558,7 @@ declare module 'gi://GLib?version=2.0' {
          * the pointer passed to it should not be `volatile`.
          * @param atomic a pointer to a #gint or #guint
          */
-        function atomic_int_inc(atomic: number): void;
+        function atomic_int_inc(atomic?: any | null): void;
         /**
          * Performs an atomic bitwise 'or' of the value of `atomic` and `val,`
          * storing the result back in `atomic`.
@@ -5574,7 +5574,7 @@ declare module 'gi://GLib?version=2.0' {
          * @param val the value to 'or'
          * @returns the value of @atomic before the operation, unsigned
          */
-        function atomic_int_or(atomic: number, val: number): number;
+        function atomic_int_or(atomic: any | null, val: number): number;
         /**
          * Sets the value of `atomic` to `newval`.
          *
@@ -5586,7 +5586,7 @@ declare module 'gi://GLib?version=2.0' {
          * @param atomic a pointer to a #gint or #guint
          * @param newval a new value to store
          */
-        function atomic_int_set(atomic: number, newval: number): void;
+        function atomic_int_set(atomic: any | null, newval: number): void;
         /**
          * Performs an atomic bitwise 'xor' of the value of `atomic` and `val,`
          * storing the result back in `atomic`.
@@ -5602,7 +5602,7 @@ declare module 'gi://GLib?version=2.0' {
          * @param val the value to 'xor'
          * @returns the value of @atomic before the operation, unsigned
          */
-        function atomic_int_xor(atomic: number, val: number): number;
+        function atomic_int_xor(atomic: any | null, val: number): number;
         /**
          * Atomically adds `val` to the value of `atomic`.
          *
@@ -5857,9 +5857,8 @@ declare module 'gi://GLib?version=2.0' {
         function atomic_ref_count_inc(arc: number): void;
         /**
          * Initializes a reference count variable to 1.
-         * @param arc the address of an atomic reference count variable
          */
-        function atomic_ref_count_init(arc: number): void;
+        function atomic_ref_count_init(): number;
         /**
          * Decode a sequence of Base-64 encoded text into binary data.  Note
          * that the returned binary data is not necessarily zero-terminated,
@@ -5958,7 +5957,17 @@ declare module 'gi://GLib?version=2.0' {
          * @param address a pointer to an integer
          * @param lock_bit a bit value between 0 and 31
          */
-        function bit_lock(address: number, lock_bit: number): void;
+        function bit_lock(address: any | null, lock_bit: number): void;
+        /**
+         * Sets the indicated `lock_bit` in `address` and atomically returns the new value.
+         *
+         * This is like [func`GLib`.bit_lock], except it can atomically return the new value at
+         * `address` (right after obtaining the lock). Thus the value returned in `out_val`
+         * always has the `lock_bit` set.
+         * @param address a pointer to an integer
+         * @param lock_bit a bit value between 0 and 31
+         */
+        function bit_lock_and_get(address: any | null, lock_bit: number): number;
         /**
          * Find the position of the first bit set in `mask,` searching
          * from (but not including) `nth_bit` upwards. Bits are numbered
@@ -6005,7 +6014,7 @@ declare module 'gi://GLib?version=2.0' {
          * @param lock_bit a bit value between 0 and 31
          * @returns %TRUE if the lock was acquired
          */
-        function bit_trylock(address: number, lock_bit: number): boolean;
+        function bit_trylock(address: any | null, lock_bit: number): boolean;
         /**
          * Clears the indicated `lock_bit` in `address`.  If another thread is
          * currently blocked in g_bit_lock() on this same bit then it will be
@@ -6018,7 +6027,27 @@ declare module 'gi://GLib?version=2.0' {
          * @param address a pointer to an integer
          * @param lock_bit a bit value between 0 and 31
          */
-        function bit_unlock(address: number, lock_bit: number): void;
+        function bit_unlock(address: any | null, lock_bit: number): void;
+        /**
+         * This is like [func`GLib`.bit_unlock] but also atomically sets `address` to
+         * `val`.
+         *
+         * If `preserve_mask` is not zero, then the `preserve_mask` bits will be
+         * preserved in `address` and are not set to `val`.
+         *
+         * Note that the `lock_bit` bit will always be unset regardless of
+         * `val,` `preserve_mask` and the currently set value in `address`.
+         * @param address a pointer to an integer
+         * @param lock_bit a bit value between 0 and 31
+         * @param new_val the new value to set
+         * @param preserve_mask mask for bits from @address to preserve
+         */
+        function bit_unlock_and_set(
+            address: any | null,
+            lock_bit: number,
+            new_val: number,
+            preserve_mask: number,
+        ): void;
         function blow_chunks(): void;
         function bookmark_file_error_quark(): Quark;
         /**
@@ -6040,123 +6069,122 @@ declare module 'gi://GLib?version=2.0' {
          * as a string array, instead of variadic arguments.
          *
          * This function is mainly meant for language bindings.
-         * @param separator a string used to separator the elements of the path.
+         * @param separator a string used to separate the elements of the path.
          * @param args %NULL-terminated   array of strings containing the path elements.
          * @returns a newly-allocated string that     must be freed with g_free().
          */
         function build_pathv(separator: string, args: string[]): string;
         /**
-         * Adds the given bytes to the end of the #GByteArray.
+         * Adds the given bytes to the end of the `GByteArray`.
          * The array will grow in size automatically if necessary.
-         * @param array a #GByteArray
+         * @param array a byte array
          * @param data the byte data to be added
-         * @param len the number of bytes to add
-         * @returns the #GByteArray
+         * @returns The `GByteArray`
          */
-        function byte_array_append(array: Uint8Array | string, data: number, len: number): Uint8Array;
+        function byte_array_append(array: Uint8Array | string, data: Uint8Array | string): Uint8Array;
         /**
-         * Frees the memory allocated by the #GByteArray. If `free_segment` is
-         * %TRUE it frees the actual byte data. If the reference count of
-         * `array` is greater than one, the #GByteArray wrapper is preserved but
+         * Frees the memory allocated by the `GByteArray`. If `free_segment` is
+         * true it frees the actual byte data. If the reference count of
+         * `array` is greater than one, the `GByteArray` wrapper is preserved but
          * the size of `array` will be set to zero.
-         * @param array a #GByteArray
-         * @param free_segment if %TRUE the actual byte data is freed as well
-         * @returns the element data if @free_segment is %FALSE, otherwise          %NULL.  The element data should be freed using g_free().
+         * @param array a byte array
+         * @param free_segment if true, the actual byte data is freed as well
+         * @returns The allocated element data if   @free_segment is false, otherwise `NULL`.
          */
-        function byte_array_free(array: Uint8Array | string, free_segment: boolean): number;
+        function byte_array_free(array: Uint8Array | string, free_segment: boolean): Uint8Array | null;
         /**
-         * Transfers the data from the #GByteArray into a new immutable #GBytes.
+         * Transfers the data from the `GByteArray` into a new immutable
+         * [struct`GLib`.Bytes].
          *
-         * The #GByteArray is freed unless the reference count of `array` is greater
-         * than one, the #GByteArray wrapper is preserved but the size of `array`
-         * will be set to zero.
+         * The `GByteArray` is freed unless the reference count of `array` is greater
+         * than one, in which the `GByteArray` wrapper is preserved but the size of
+         * `array` will be set to zero.
          *
-         * This is identical to using g_bytes_new_take() and g_byte_array_free()
-         * together.
-         * @param array a #GByteArray
-         * @returns a new immutable #GBytes representing same     byte data that was in the array
+         * This is identical to using [ctor`GLib`.Bytes.new_take] and
+         * [func`GLib`.ByteArray.free] together.
+         * @param array a byte array
+         * @returns The new immutable [struct@GLib.Bytes] representing   same byte data that was in the array
          */
         function byte_array_free_to_bytes(array: Uint8Array | string): Bytes;
         /**
-         * Creates a new #GByteArray with a reference count of 1.
-         * @returns the new #GByteArray
+         * Creates a new `GByteArray` with a reference count of 1.
+         * @returns The new `GByteArray`
          */
         function byte_array_new(): Uint8Array;
         /**
          * Creates a byte array containing the `data`.
-         * After this call, `data` belongs to the #GByteArray and may no longer be
+         * After this call, `data` belongs to the `GByteArray` and may no longer be
          * modified by the caller. The memory of `data` has to be dynamically
-         * allocated and will eventually be freed with g_free().
+         * allocated and will eventually be freed with [func`GLib`.free].
          *
-         * Do not use it if `len` is greater than %G_MAXUINT. #GByteArray
-         * stores the length of its data in #guint, which may be shorter than
-         * #gsize.
-         * @param data byte data for the array
-         * @returns a new #GByteArray
+         * Do not use it if `len` is greater than [`G_MAXUINT`](types.html#guint).
+         * `GByteArray` stores the length of its data in `guint`, which may be shorter
+         * than `gsize`.
+         * @param data the byte data for the array
+         * @returns The new `GByteArray`
          */
         function byte_array_new_take(data: Uint8Array | string): Uint8Array;
         /**
-         * Adds the given data to the start of the #GByteArray.
+         * Adds the given data to the start of the `GByteArray`.
          * The array will grow in size automatically if necessary.
-         * @param array a #GByteArray
+         * @param array a byte array
          * @param data the byte data to be added
-         * @param len the number of bytes to add
-         * @returns the #GByteArray
+         * @returns The `GByteArray`
          */
-        function byte_array_prepend(array: Uint8Array | string, data: number, len: number): Uint8Array;
+        function byte_array_prepend(array: Uint8Array | string, data: Uint8Array | string): Uint8Array;
         /**
          * Atomically increments the reference count of `array` by one.
          * This function is thread-safe and may be called from any thread.
-         * @param array A #GByteArray
-         * @returns The passed in #GByteArray
+         * @param array a byte array
+         * @returns The passed in `GByteArray`
          */
         function byte_array_ref(array: Uint8Array | string): Uint8Array;
         /**
-         * Removes the byte at the given index from a #GByteArray.
+         * Removes the byte at the given index from a `GByteArray`.
          * The following bytes are moved down one place.
-         * @param array a #GByteArray
+         * @param array a byte array
          * @param index_ the index of the byte to remove
-         * @returns the #GByteArray
+         * @returns The `GByteArray`
          */
         function byte_array_remove_index(array: Uint8Array | string, index_: number): Uint8Array;
         /**
-         * Removes the byte at the given index from a #GByteArray. The last
+         * Removes the byte at the given index from a `GByteArray`. The last
          * element in the array is used to fill in the space, so this function
-         * does not preserve the order of the #GByteArray. But it is faster
-         * than g_byte_array_remove_index().
-         * @param array a #GByteArray
+         * does not preserve the order of the `GByteArray`. But it is faster
+         * than [func`GLib`.ByteArray.remove_index].
+         * @param array a byte array
          * @param index_ the index of the byte to remove
-         * @returns the #GByteArray
+         * @returns The `GByteArray`
          */
         function byte_array_remove_index_fast(array: Uint8Array | string, index_: number): Uint8Array;
         /**
          * Removes the given number of bytes starting at the given index from a
-         * #GByteArray.  The following elements are moved to close the gap.
-         * @param array a @GByteArray
+         * `GByteArray`. The following elements are moved to close the gap.
+         * @param array a byte array
          * @param index_ the index of the first byte to remove
          * @param length the number of bytes to remove
-         * @returns the #GByteArray
+         * @returns The `GByteArray`
          */
         function byte_array_remove_range(array: Uint8Array | string, index_: number, length: number): Uint8Array;
         /**
-         * Sets the size of the #GByteArray, expanding it if necessary.
-         * @param array a #GByteArray
-         * @param length the new size of the #GByteArray
-         * @returns the #GByteArray
+         * Sets the size of the `GByteArray`, expanding it if necessary.
+         * @param array a byte array
+         * @param length the new size of the `GByteArray`
+         * @returns The `GByteArray`
          */
         function byte_array_set_size(array: Uint8Array | string, length: number): Uint8Array;
         /**
-         * Creates a new #GByteArray with `reserved_size` bytes preallocated.
+         * Creates a new `GByteArray` with `reserved_size` bytes preallocated.
          * This avoids frequent reallocation, if you are going to add many
          * bytes to the array. Note however that the size of the array is still
          * 0.
-         * @param reserved_size number of bytes preallocated
-         * @returns the new #GByteArray
+         * @param reserved_size the number of bytes preallocated
+         * @returns The new `GByteArray`
          */
         function byte_array_sized_new(reserved_size: number): Uint8Array;
         /**
          * Sorts a byte array, using `compare_func` which should be a
-         * qsort()-style comparison function (returns less than zero for first
+         * `qsort()`-style comparison function (returns less than zero for first
          * arg is less than second arg, zero for equal, greater than zero if
          * first arg is greater than second arg).
          *
@@ -6165,31 +6193,31 @@ declare module 'gi://GLib?version=2.0' {
          * you want a stable sort) you can write a comparison function that,
          * if two elements would otherwise compare equal, compares them by
          * their addresses.
-         * @param array a #GByteArray
-         * @param compare_func comparison function
+         * @param array a byte array
+         * @param compare_func the comparison function
          */
         function byte_array_sort(array: Uint8Array | string, compare_func: CompareFunc): void;
         /**
-         * Like g_byte_array_sort(), but the comparison function takes an extra
+         * Like [func`GLib`.ByteArray.sort], but the comparison function takes an extra
          * user data argument.
-         * @param array a #GByteArray
-         * @param compare_func comparison function
+         * @param array a byte array
+         * @param compare_func the comparison function
          */
         function byte_array_sort_with_data(array: Uint8Array | string, compare_func: CompareDataFunc): void;
         /**
          * Frees the data in the array and resets the size to zero, while
          * the underlying array is preserved for use elsewhere and returned
          * to the caller.
-         * @param array a #GByteArray.
-         * @returns the element data, which should be     freed using g_free().
+         * @param array a byte array
+         * @returns The allocated element data
          */
-        function byte_array_steal(array: Uint8Array | string): [number, number];
+        function byte_array_steal(array: Uint8Array | string): Uint8Array;
         /**
          * Atomically decrements the reference count of `array` by one. If the
          * reference count drops to 0, all memory allocated by the array is
          * released. This function is thread-safe and may be called from any
          * thread.
-         * @param array A #GByteArray
+         * @param array a byte array
          */
         function byte_array_unref(array: Uint8Array | string): void;
         /**
@@ -6255,19 +6283,19 @@ declare module 'gi://GLib?version=2.0' {
          *
          * If you obtain `pid` from [func`GLib`.spawn_async] or
          * [func`GLib`.spawn_async_with_pipes] you will need to pass
-         * %G_SPAWN_DO_NOT_REAP_CHILD as flag to the spawn function for the child
-         * watching to work.
+         * [flags`GLib`.SpawnFlags.DO_NOT_REAP_CHILD] as a flag to the spawn function for
+         * the child watching to work.
          *
          * In many programs, you will want to call [func`GLib`.spawn_check_wait_status]
          * in the callback to determine whether or not the child exited
          * successfully.
          *
-         * Also, note that on platforms where #GPid must be explicitly closed
+         * Also, note that on platforms where [type`GLib`.Pid] must be explicitly closed
          * (see [func`GLib`.spawn_close_pid]) `pid` must not be closed while the source
          * is still active.  Typically, you should invoke [func`GLib`.spawn_close_pid]
          * in the callback function for the source.
          *
-         * GLib supports only a single callback per process id.
+         * GLib supports only a single callback per process ID.
          * On POSIX platforms, the same restrictions mentioned for
          * [func`GLib`.child_watch_source_new] apply to this function.
          *
@@ -6275,11 +6303,11 @@ declare module 'gi://GLib?version=2.0' {
          * [func`GLib`.child_watch_source_new] and attaches it to the main loop context
          * using [method`GLib`.Source.attach]. You can do these steps manually if you
          * need greater control.
-         * @param priority the priority of the idle source. Typically this will be in the   range between [const@GLib.PRIORITY_DEFAULT_IDLE] and   [const@GLib.PRIORITY_HIGH_IDLE].
-         * @param pid process to watch. On POSIX the positive pid of a child process. On Windows a handle for a process (which doesn't have to be a child).
+         * @param priority the priority of the idle source; typically this will be in the   range between [const@GLib.PRIORITY_DEFAULT_IDLE] and   [const@GLib.PRIORITY_HIGH_IDLE]
+         * @param pid process to watch — on POSIX systems, this is the positive PID of a   child process; on Windows it is a handle for a process (which doesn’t have   to be a child)
          * @param _function function to call
-         * @param notify function to call when the idle is removed, or %NULL
-         * @returns the ID (greater than 0) of the event source.
+         * @param notify function to call when the idle is removed
+         * @returns the ID (greater than 0) of the event source
          */
         function child_watch_add(
             priority: number,
@@ -6288,16 +6316,16 @@ declare module 'gi://GLib?version=2.0' {
             notify?: DestroyNotify | null,
         ): number;
         /**
-         * Creates a new child_watch source.
+         * Creates a new child watch source.
          *
          * The source will not initially be associated with any
          * [struct`GLib`.MainContext] and must be added to one with
          * [method`GLib`.Source.attach] before it will be executed.
          *
          * Note that child watch sources can only be used in conjunction with
-         * `g_spawn...` when the %G_SPAWN_DO_NOT_REAP_CHILD flag is used.
+         * `g_spawn...` when the [flags`GLib`.SpawnFlags.DO_NOT_REAP_CHILD] flag is used.
          *
-         * Note that on platforms where #GPid must be explicitly closed
+         * Note that on platforms where [type`GLib`.Pid] must be explicitly closed
          * (see [func`GLib`.spawn_close_pid]) `pid` must not be closed while the
          * source is still active. Typically, you will want to call
          * [func`GLib`.spawn_close_pid] in the callback function for the source.
@@ -6305,30 +6333,30 @@ declare module 'gi://GLib?version=2.0' {
          * On POSIX platforms, the following restrictions apply to this API
          * due to limitations in POSIX process interfaces:
          *
-         * * `pid` must be a child of this process
-         * * `pid` must be positive
-         * * the application must not call `waitpid` with a non-positive
-         *   first argument, for instance in another thread
-         * * the application must not wait for `pid` to exit by any other
+         * * `pid` must be a child of this process.
+         * * `pid` must be positive.
+         * * The application must not call [`waitpid()`](man:waitpid(1)) with a
+         *   non-positive first argument, for instance in another thread.
+         * * The application must not wait for `pid` to exit by any other
          *   mechanism, including `waitpid(pid, ...)` or a second child-watch
-         *   source for the same `pid`
-         * * the application must not ignore `SIGCHLD`
-         * * Before 2.78, the application could not send a signal (`kill()`) to the
+         *   source for the same `pid`.
+         * * The application must not ignore `SIGCHLD`.
+         * * Before 2.78, the application could not send a signal ([`kill()`](man:kill(2))) to the
          *   watched `pid` in a race free manner. Since 2.78, you can do that while the
          *   associated [struct`GLib`.MainContext] is acquired.
          * * Before 2.78, even after destroying the [struct`GLib`.Source], you could not
-         *   be sure that `pid` wasn't already reaped. Hence, it was also not
+         *   be sure that `pid` wasn’t already reaped. Hence, it was also not
          *   safe to `kill()` or `waitpid()` on the process ID after the child watch
          *   source was gone. Destroying the source before it fired made it
          *   impossible to reliably reap the process.
          *
          * If any of those conditions are not met, this and related APIs will
          * not work correctly. This can often be diagnosed via a GLib warning
-         * stating that `ECHILD` was received by `waitpid`.
+         * stating that `ECHILD` was received by `waitpid()`.
          *
-         * Calling `waitpid` for specific processes other than `pid` remains a
-         * valid thing to do.
-         * @param pid process to watch. On POSIX the positive pid of a child process. On Windows a handle for a process (which doesn't have to be a child).
+         * Calling [`waitpid()`](man:waitpid(2)) for specific processes other than `pid`
+         * remains a valid thing to do.
+         * @param pid process to watch — on POSIX systems, this is the positive PID of a   child process; on Windows it is a handle for a process (which doesn’t have   to be a child)
          * @returns the newly-created child watch source
          */
         function child_watch_source_new(pid: Pid): Source;
@@ -6686,6 +6714,21 @@ declare module 'gi://GLib?version=2.0' {
          * @returns the number of weeks in @year
          */
         function date_get_sunday_weeks_in_year(year: DateYear): number;
+        /**
+         * Calculates the number of weeks in the year.
+         *
+         * The result depends on which day is considered the first day of the week,
+         * which varies by locale. `first_day_of_week` must be valid.
+         *
+         * The result will be either 52 or 53. Years always have 52 seven-day periods,
+         * plus one or two extra days depending on whether it’s a leap year. This
+         * function effectively calculates how many `first_day_of_week` days there are in
+         * the year.
+         * @param year year to count weeks in
+         * @param first_day_of_week the day which is considered the first day of the week    (for example, this would be [enum@GLib.DateWeekday.SUNDAY] in US locales,    [enum@GLib.DateWeekday.MONDAY] in British locales, and    [enum@GLib.DateWeekday.SATURDAY] in Egyptian locales
+         * @returns the number of weeks in @year
+         */
+        function date_get_weeks_in_year(year: DateYear, first_day_of_week: DateWeekday | null): number;
         /**
          * Returns %TRUE if the year is a leap year.
          *
@@ -7163,8 +7206,8 @@ declare module 'gi://GLib?version=2.0' {
          * to 7 characters to `filename`.
          *
          * If the file didn’t exist before and is created, it will be given the
-         * permissions from `mode`. Otherwise, the permissions of the existing file may
-         * be changed to `mode` depending on `flags,` or they may remain unchanged.
+         * permissions from `mode`. Otherwise, the permissions of the existing file will
+         * remain unchanged.
          * @param filename name of a file to write @contents to, in the GLib file name   encoding
          * @param contents string to write to the file
          * @param flags flags controlling the safety vs speed of the operation
@@ -7378,6 +7421,13 @@ declare module 'gi://GLib?version=2.0' {
          * currently impossible to close a file if the application C library and the C library
          * used by GLib are different. Convenience functions like g_file_set_contents_full()
          * avoid this problem.
+         *
+         * Since GLib 2.86, the `e` option is supported in `mode` on all platforms. On
+         * Unix platforms it will set `O_CLOEXEC` on the opened file descriptor. On
+         * Windows platforms it will be converted to the
+         * [`N` modifier](https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/fopen-wfopen?view=msvc-170).
+         * It is recommended to set `e` unconditionally, unless you know the returned
+         * file should be shared between this process and a new fork.
          * @param filename a pathname in the GLib file name encoding     (UTF-8 on Windows)
          * @param mode a string describing the mode in which the file should be opened
          * @returns A `FILE*` if the file was successfully opened, or %NULL if     an error occurred
@@ -7463,6 +7513,9 @@ declare module 'gi://GLib?version=2.0' {
          * opens a file and associates it with an existing stream.
          *
          * See your C library manual for more details about freopen().
+         *
+         * Since GLib 2.86, the `e` option is supported in `mode` on all platforms. See
+         * the documentation for [func`GLib`.fopen] for more details.
          * @param filename a pathname in the GLib file name encoding     (UTF-8 on Windows)
          * @param mode a string describing the mode in which the file should be  opened
          * @param stream an existing stream which will be reused, or %NULL
@@ -7559,10 +7612,13 @@ declare module 'gi://GLib?version=2.0' {
          */
         function get_current_dir(): string;
         /**
-         * Equivalent to the UNIX gettimeofday() function, but portable.
+         * Queries the system wall-clock time.
+         *
+         * This is equivalent to the UNIX [`gettimeofday()`](man:gettimeofday(2))
+         * function, but portable.
          *
          * You may find [func`GLib`.get_real_time] to be more convenient.
-         * @param result #GTimeVal structure in which to store current time.
+         * @param result [struct@GLib.TimeVal] structure in which to store current time
          */
         function get_current_time(result: TimeVal): void;
         /**
@@ -7702,13 +7758,14 @@ declare module 'gi://GLib?version=2.0' {
         /**
          * Queries the system monotonic time.
          *
-         * The monotonic clock will always increase and doesn't suffer
+         * The monotonic clock will always increase and doesn’t suffer
          * discontinuities when the user (or NTP) changes the system time.  It
          * may or may not continue to tick during times where the machine is
          * suspended.
          *
          * We try to use the clock that corresponds as closely as possible to
-         * the passage of time as measured by system calls such as poll() but it
+         * the passage of time as measured by system calls such as
+         * [`poll()`](man:poll(2)) but it
          * may not always be possible to do this.
          * @returns the monotonic time, in microseconds
          */
@@ -7758,14 +7815,13 @@ declare module 'gi://GLib?version=2.0' {
         /**
          * Queries the system wall-clock time.
          *
-         * This call is functionally equivalent to [func`GLib`.get_current_time] except
-         * that the return value is often more convenient than dealing with a
-         * #GTimeVal.
+         * This is equivalent to the UNIX [`gettimeofday()`](man:gettimeofday(2))
+         * function, but portable.
          *
          * You should only use this call if you are actually interested in the real
          * wall-clock time. [func`GLib`.get_monotonic_time] is probably more useful for
          * measuring intervals.
-         * @returns the number of microseconds since January 1, 1970 UTC.
+         * @returns the number of microseconds since   [January 1, 1970 UTC](https://en.wikipedia.org/wiki/Unix_time)
          */
         function get_real_time(): number;
         /**
@@ -8376,10 +8432,10 @@ declare module 'gi://GLib?version=2.0' {
          * Adds a function to be called whenever there are no higher priority
          * events pending.
          *
-         * If the function returns [const`GLib`.SOURCE_REMOVE] or %FALSE it is automatically
+         * If the function returns [const`GLib`.SOURCE_REMOVE] it is automatically
          * removed from the list of event sources and will not be called again.
          *
-         * See [mainloop memory management](main-loop.html#memory-management-of-sources) for details
+         * See [main loop memory management](main-loop.html#memory-management-of-sources) for details
          * on how to handle the return value and memory management of `data`.
          *
          * This internally creates a main loop source using [func`GLib`.idle_source_new]
@@ -8387,16 +8443,16 @@ declare module 'gi://GLib?version=2.0' {
          * [method`GLib`.Source.attach], so the callback will be invoked in whichever
          * thread is running that main context. You can do these steps manually if you
          * need greater control or to use a custom main context.
-         * @param priority the priority of the idle source. Typically this will be in the   range between [const@GLib.PRIORITY_DEFAULT_IDLE] and   [const@GLib.PRIORITY_HIGH_IDLE].
+         * @param priority the priority of the idle source; typically this will be in the   range between [const@GLib.PRIORITY_DEFAULT_IDLE] and   [const@GLib.PRIORITY_HIGH_IDLE]
          * @param _function function to call
-         * @param notify function to call when the idle is removed, or %NULL
-         * @returns the ID (greater than 0) of the event source.
+         * @param notify function to call when the idle is removed
+         * @returns the ID (greater than 0) of the event source
          */
         function idle_add(priority: number, _function: SourceFunc, notify?: DestroyNotify | null): number;
         /**
          * Removes the idle function with the given data.
-         * @param data the data for the idle source's callback.
-         * @returns %TRUE if an idle source was found and removed.
+         * @param data the data for the idle source’s callback.
+         * @returns true if an idle source was found and removed, false otherwise
          */
         function idle_remove_by_data(data?: any | null): boolean;
         /**
@@ -8620,6 +8676,38 @@ declare module 'gi://GLib?version=2.0' {
             unused_data?: any | null,
         ): void;
         /**
+         * Gets the current fatal mask.
+         *
+         * This is mostly used by custom log writers to make fatal messages
+         * (`fatal-warnings`, `fatal-criticals`) work as expected, when using the
+         * `G_DEBUG` environment variable (see [Running GLib Applications](running.html)).
+         *
+         * An example usage is shown below:
+         *
+         * ```c
+         * static GLogWriterOutput
+         * my_custom_log_writer_fn (GLogLevelFlags log_level,
+         *                          const GLogField *fields,
+         *                          gsize n_fields,
+         *                          gpointer user_data)
+         * {
+         *
+         *    // abort if the message was fatal
+         *    if (log_level & g_log_get_always_fatal ())
+         *      g_abort ();
+         *
+         *    // custom log handling code
+         *    ...
+         *    ...
+         *
+         *    // success
+         *    return G_LOG_WRITER_HANDLED;
+         * }
+         * ```
+         * @returns the current fatal mask
+         */
+        function log_get_always_fatal(): LogLevelFlags;
+        /**
          * Return whether debug output from the GLib logging system is enabled.
          *
          * Note that this should not be used to conditionalise calls to [func`GLib`.debug] or
@@ -8650,7 +8738,7 @@ declare module 'gi://GLib?version=2.0' {
          *
          * You can also make some message levels fatal at runtime by setting
          * the `G_DEBUG` environment variable (see
-         * [Running GLib Applications](glib-running.html)).
+         * [Running GLib Applications](running.html)).
          *
          * Libraries should not call this function, as it affects all messages logged
          * by a process, including those from other libraries.
@@ -8991,56 +9079,62 @@ declare module 'gi://GLib?version=2.0' {
          */
         function lstat(filename: string, buf: StatBuf): number;
         /**
-         * Returns the global-default main context. This is the main context
+         * Returns the global-default main context.
+         *
+         * This is the main context
          * used for main loop functions when a main loop is not explicitly
-         * specified, and corresponds to the "main" main loop. See also
+         * specified, and corresponds to the ‘main’ main loop. See also
          * [func`GLib`.MainContext.get_thread_default].
          * @returns the global-default main context.
          */
         function main_context_default(): MainContext;
         /**
-         * Gets the thread-default #GMainContext for this thread. Asynchronous
-         * operations that want to be able to be run in contexts other than
+         * Gets the thread-default main context for this thread.
+         *
+         * Asynchronous operations that want to be able to be run in contexts other than
          * the default one should call this method or
          * [func`GLib`.MainContext.ref_thread_default] to get a
          * [struct`GLib`.MainContext] to add their [struct`GLib`.Source]s to. (Note that
          * even in single-threaded programs applications may sometimes want to
          * temporarily push a non-default context, so it is not safe to assume that
-         * this will always return %NULL if you are running in the default thread.)
+         * this will always return `NULL` if you are running in the default thread.)
          *
          * If you need to hold a reference on the context, use
          * [func`GLib`.MainContext.ref_thread_default] instead.
-         * @returns the thread-default #GMainContext, or %NULL if the thread-default context is the global-default main context.
+         * @returns the thread-default main context, or   `NULL` if the thread-default context is the global-default main context
          */
         function main_context_get_thread_default(): MainContext | null;
         /**
-         * Gets the thread-default [struct`GLib`.MainContext] for this thread, as with
-         * [func`GLib`.MainContext.get_thread_default], but also adds a reference to
-         * it with [method`GLib`.MainContext.ref]. In addition, unlike
+         * Gets a reference to the thread-default [struct`GLib`.MainContext] for this
+         * thread
+         *
+         * This is the same as [func`GLib`.MainContext.get_thread_default], but it also
+         * adds a reference to the returned main context with [method`GLib`.MainContext.ref].
+         * In addition, unlike
          * [func`GLib`.MainContext.get_thread_default], if the thread-default context
          * is the global-default context, this will return that
          * [struct`GLib`.MainContext] (with a ref added to it) rather than returning
-         * %NULL.
-         * @returns the thread-default #GMainContext. Unref     with [method@GLib.MainContext.unref] when you are done with it.
+         * `NULL`.
+         * @returns the thread-default main context
          */
         function main_context_ref_thread_default(): MainContext;
         /**
          * Returns the currently firing source for this thread.
-         * @returns The currently firing source or %NULL.
+         * @returns the currently firing source, or `NULL`   if none is firing
          */
         function main_current_source(): Source | null;
         /**
          * Returns the depth of the stack of calls to
          * [method`GLib`.MainContext.dispatch] on any #GMainContext in the current thread.
-         * That is, when called from the toplevel, it gives 0. When
+         *
+         * That is, when called from the top level, it gives `0`. When
          * called from within a callback from [method`GLib`.MainContext.iteration]
-         * (or [method`GLib`.MainLoop.run], etc.) it returns 1. When called from within
+         * (or [method`GLib`.MainLoop.run], etc.) it returns `1`. When called from within
          * a callback to a recursive call to [method`GLib`.MainContext.iteration],
-         * it returns 2. And so forth.
+         * it returns `2`. And so forth.
          *
          * This function is useful in a situation like the following:
-         * Imagine an extremely simple "garbage collected" system.
-         *
+         * Imagine an extremely simple ‘garbage collected’ system.
          *
          * ```c
          * static GList *free_list;
@@ -9072,14 +9166,12 @@ declare module 'gi://GLib?version=2.0' {
          *   }
          * ```
          *
-         *
          * This works from an application, however, if you want to do the same
          * thing from a library, it gets more difficult, since you no longer
          * control the main loop. You might think you can simply use an idle
-         * function to make the call to free_allocated_memory(), but that
-         * doesn't work, since the idle function could be called from a
+         * function to make the call to `free_allocated_memory()`, but that
+         * doesn’t work, since the idle function could be called from a
          * recursive callback. This can be fixed by using [func`GLib`.main_depth]
-         *
          *
          * ```c
          * gpointer
@@ -9114,28 +9206,27 @@ declare module 'gi://GLib?version=2.0' {
          *   }
          * ```
          *
-         *
          * There is a temptation to use [func`GLib`.main_depth] to solve
          * problems with reentrancy. For instance, while waiting for data
          * to be received from the network in response to a menu item,
          * the menu item might be selected again. It might seem that
-         * one could make the menu item's callback return immediately
+         * one could make the menu item’s callback return immediately
          * and do nothing if [func`GLib`.main_depth] returns a value greater than 1.
          * However, this should be avoided since the user then sees selecting
-         * the menu item do nothing. Furthermore, you'll find yourself adding
+         * the menu item do nothing. Furthermore, you’ll find yourself adding
          * these checks all over your code, since there are doubtless many,
          * many things that the user could do. Instead, you can use the
          * following techniques:
          *
-         * 1. Use gtk_widget_set_sensitive() or modal dialogs to prevent
+         * 1. Use `gtk_widget_set_sensitive()` or modal dialogs to prevent
          *    the user from interacting with elements while the main
          *    loop is recursing.
          *
-         * 2. Avoid main loop recursion in situations where you can't handle
+         * 2. Avoid main loop recursion in situations where you can’t handle
          *    arbitrary  callbacks. Instead, structure your code so that you
          *    simply return to the main loop and then get called again when
          *    there is more work to do.
-         * @returns The main loop recursion level in the current thread
+         * @returns the main loop recursion level in the current thread
          */
         function main_depth(): number;
         /**
@@ -9318,7 +9409,7 @@ declare module 'gi://GLib?version=2.0' {
          * This function may cause different actions on non-UNIX platforms.
          *
          * On Windows consider using the `G_DEBUGGER` environment
-         * variable (see [Running GLib Applications](glib-running.html)) and
+         * variable (see [Running GLib Applications](running.html)) and
          * calling g_on_error_stack_trace() instead.
          * @param prg_name the program name, needed by gdb for the "[S]tack trace"     option. If @prg_name is %NULL, g_get_prgname() is called to get     the program name (which will work correctly if gdk_init() or     gtk_init() has been called)
          */
@@ -9336,7 +9427,7 @@ declare module 'gi://GLib?version=2.0' {
          * g_on_error_query(). If called directly, it will raise an
          * exception, which will crash the program. If the `G_DEBUGGER` environment
          * variable is set, a debugger will be invoked to attach and
-         * handle that exception (see [Running GLib Applications](glib-running.html)).
+         * handle that exception (see [Running GLib Applications](running.html)).
          * @param prg_name the program name, needed by gdb for the   "[S]tack trace" option, or `NULL` to use a default string
          */
         function on_error_stack_trace(prg_name?: string | null): void;
@@ -9469,7 +9560,7 @@ declare module 'gi://GLib?version=2.0' {
          * Compares two path buffers for equality and returns `TRUE`
          * if they are equal.
          *
-         * The path inside the paths buffers are not going to be normalized,
+         * The paths inside the path buffers are not going to be normalized,
          * so `X/Y/Z/A/..`, `X/./Y/Z` and `X/Y/Z` are not going to be considered
          * equal.
          *
@@ -9629,7 +9720,7 @@ declare module 'gi://GLib?version=2.0' {
          * @param address a pointer to a #gpointer-sized value
          * @param lock_bit a bit value between 0 and 31
          * @param ptr the new pointer value to set
-         * @param preserve_mask if non-zero, those bits of the current pointer in @address   are preserved.   Note that the @lock_bit bit will be always set according to @set,   regardless of @preserve_mask and the currently set value in @address.
+         * @param preserve_mask if non-zero, those bits of the current pointer in @address   are preserved.   Note that the @lock_bit bit will be always unset regardless of   @ptr, @preserve_mask and the currently set value in @address.
          */
         function pointer_bit_unlock_and_set(
             address: any,
@@ -9885,17 +9976,16 @@ declare module 'gi://GLib?version=2.0' {
          * @param rc the address of a reference count variable
          * @returns %TRUE if the reference count reached 0, and %FALSE otherwise
          */
-        function ref_count_dec(rc: number): boolean;
+        function ref_count_dec(rc: number): [boolean, number];
         /**
          * Increases the reference count.
          * @param rc the address of a reference count variable
          */
-        function ref_count_inc(rc: number): void;
+        function ref_count_inc(rc: number): number;
         /**
          * Initializes a reference count variable to 1.
-         * @param rc the address of a reference count variable
          */
-        function ref_count_init(rc: number): void;
+        function ref_count_init(): number;
         /**
          * Acquires a reference on a string.
          * @param str a reference counted string
@@ -10449,10 +10539,12 @@ declare module 'gi://GLib?version=2.0' {
         function slist_pop_allocator(): void;
         function slist_push_allocator(allocator: Allocator): void;
         /**
-         * Removes the source with the given ID from the default main context. You must
+         * Removes the source with the given ID from the default main context.
+         *
+         * You must
          * use [method`GLib`.Source.destroy] for sources added to a non-default main context.
          *
-         * The ID of a #GSource is given by [method`GLib`.Source.get_id], or will be
+         * The ID of a [struct`GLib`.Source] is given by [method`GLib`.Source.get_id], or will be
          * returned by the functions [method`GLib`.Source.attach], [func`GLib`.idle_add],
          * [func`GLib`.idle_add_full], [func`GLib`.timeout_add],
          * [func`GLib`.timeout_add_full], [func`GLib`.child_watch_add],
@@ -10470,24 +10562,27 @@ declare module 'gi://GLib?version=2.0' {
          * been reissued, leading to the operation being performed against the
          * wrong source.
          * @param tag the ID of the source to remove.
-         * @returns %TRUE if the source was found and removed.
+         * @returns true if the source was found and removed, false otherwise
          */
         function source_remove(tag: number): boolean;
         /**
          * Removes a source from the default main loop context given the
-         * source functions and user data. If multiple sources exist with the
-         * same source functions and user data, only one will be destroyed.
-         * @param funcs The @source_funcs passed to [ctor@GLib.Source.new]
+         * source functions and user data.
+         *
+         * If multiple sources exist with the same source functions and user data, only
+         * one will be destroyed.
+         * @param funcs the @source_funcs passed to [ctor@GLib.Source.new]
          * @param user_data the user data for the callback
-         * @returns %TRUE if a source was found and removed.
+         * @returns true if a source was found and removed, false otherwise
          */
         function source_remove_by_funcs_user_data(funcs: SourceFuncs, user_data?: any | null): boolean;
         /**
          * Removes a source from the default main loop context given the user
-         * data for the callback. If multiple sources exist with the same user
-         * data, only one will be destroyed.
-         * @param user_data the user_data for the callback.
-         * @returns %TRUE if a source was found and removed.
+         * data for the callback.
+         *
+         * If multiple sources exist with the same user data, only one will be destroyed.
+         * @param user_data the user_data for the callback
+         * @returns true if a source was found and removed, false otherwise
          */
         function source_remove_by_user_data(user_data?: any | null): boolean;
         /**
@@ -10507,7 +10602,7 @@ declare module 'gi://GLib?version=2.0' {
          * is called on its (now invalid) source ID.  This source ID may have
          * been reissued, leading to the operation being performed against the
          * wrong source.
-         * @param tag a #GSource ID
+         * @param tag a source ID
          * @param name debug name for the source
          */
         function source_set_name_by_id(tag: number, name: string): void;
@@ -10525,8 +10620,9 @@ declare module 'gi://GLib?version=2.0' {
         /**
          * Executes a child program asynchronously.
          *
-         * See g_spawn_async_with_pipes() for a full description; this function
-         * simply calls the g_spawn_async_with_pipes() without any pipes.
+         * See g_spawn_async_with_pipes_and_fds() for a full description; this function
+         * simply calls the g_spawn_async_with_pipes() without any pipes, which in turn
+         * calls g_spawn_async_with_pipes_and_fds().
          *
          * You should call g_spawn_close_pid() on the returned child process
          * reference when you don't need it any more.
@@ -11600,7 +11696,7 @@ declare module 'gi://GLib?version=2.0' {
         /**
          * Creates a new test case.
          *
-         * In constract to [func`GLib`.test_add_data_func], this function
+         * In contrast to [func`GLib`.test_add_data_func], this function
          * is freeing `test_data` after the test run is complete.
          * @param testpath a /-separated name for the test
          * @param test_data data for @test_func
@@ -12115,7 +12211,7 @@ declare module 'gi://GLib?version=2.0' {
          *       }
          *
          *     // Reruns this same test in a subprocess
-         *     g_autoptr(GStrv) envp = g_get_environ ();
+         *     g_auto(GStrv) envp = g_get_environ ();
          *     envp = g_environ_setenv (g_steal_pointer (&envp), "USER", "charlie", TRUE);
          *     g_test_trap_subprocess_with_envp (NULL, envp, 0, G_TEST_SUBPROCESS_DEFAULT);
          *     g_test_trap_assert_passed ();
@@ -12257,8 +12353,11 @@ declare module 'gi://GLib?version=2.0' {
         function time_val_from_iso8601(iso_date: string): [boolean, TimeVal];
         /**
          * Sets a function to be called at regular intervals, with the given
-         * priority.  The function is called repeatedly until it returns
-         * %FALSE, at which point the timeout is automatically destroyed and
+         * priority.
+         *
+         * The function is called repeatedly until it returns
+         * [const`GLib`.SOURCE_REMOVE], at which point the timeout is automatically
+         * destroyed and
          * the function will not be called again.  The `notify` function is
          * called when the timeout is destroyed.  The first call to the
          * function will be at the end of the first `interval`.
@@ -12267,9 +12366,9 @@ declare module 'gi://GLib?version=2.0' {
          * event sources. Thus they should not be relied on for precise timing.
          * After each call to the timeout function, the time of the next
          * timeout is recalculated based on the current time and the given interval
-         * (it does not try to 'catch up' time lost in delays).
+         * (it does not try to ‘catch up’ time lost in delays).
          *
-         * See [mainloop memory management](main-loop.html#memory-management-of-sources) for details
+         * See [main loop memory management](main-loop.html#memory-management-of-sources) for details
          * on how to handle the return value and memory management of `data`.
          *
          * This internally creates a main loop source using
@@ -12281,11 +12380,11 @@ declare module 'gi://GLib?version=2.0' {
          *
          * The interval given is in terms of monotonic time, not wall clock time.
          * See [func`GLib`.get_monotonic_time].
-         * @param priority the priority of the timeout source. Typically this will be in   the range between [const@GLib.PRIORITY_DEFAULT] and   [const@GLib.PRIORITY_HIGH].
-         * @param interval the time between calls to the function, in milliseconds   (1/1000ths of a second)
+         * @param priority the priority of the timeout source; typically this will be in   the range between [const@GLib.PRIORITY_DEFAULT] and   [const@GLib.PRIORITY_HIGH]
+         * @param interval the time between calls to the function, in milliseconds
          * @param _function function to call
-         * @param notify function to call when the timeout is removed, or %NULL
-         * @returns the ID (greater than 0) of the event source.
+         * @param notify function to call when the timeout is removed
+         * @returns the ID (greater than 0) of the event source
          */
         function timeout_add(
             priority: number,
@@ -12296,15 +12395,15 @@ declare module 'gi://GLib?version=2.0' {
         /**
          * Sets a function to be called at regular intervals, with `priority`.
          *
-         * The function is called repeatedly until it returns [const`GLib`.SOURCE_REMOVE]
-         * or %FALSE, at which point the timeout is automatically destroyed and
+         * The function is called repeatedly until it returns [const`GLib`.SOURCE_REMOVE],
+         * at which point the timeout is automatically destroyed and
          * the function will not be called again.
          *
          * Unlike [func`GLib`.timeout_add], this function operates at whole second
          * granularity. The initial starting point of the timer is determined by the
          * implementation and the implementation is expected to group multiple timers
-         * together so that they fire all at the same time. To allow this grouping, the
-         * `interval` to the first timer is rounded and can deviate up to one second
+         * together so that they fire all at the same time. To allow this grouping,
+         * the `interval` to the first timer is rounded and can deviate up to one second
          * from the specified interval. Subsequent timer iterations will generally run
          * at the specified interval.
          *
@@ -12313,7 +12412,7 @@ declare module 'gi://GLib?version=2.0' {
          * After each call to the timeout function, the time of the next
          * timeout is recalculated based on the current time and the given `interval`
          *
-         * See [mainloop memory management](main-loop.html#memory-management-of-sources) for details
+         * See [main loop memory management](main-loop.html#memory-management-of-sources) for details
          * on how to handle the return value and memory management of `data`.
          *
          * If you want timing more precise than whole seconds, use
@@ -12321,7 +12420,7 @@ declare module 'gi://GLib?version=2.0' {
          *
          * The grouping of timers to fire at the same time results in a more power
          * and CPU efficient behavior so if your timer is in multiples of seconds
-         * and you don't require the first timer exactly one second from now, the
+         * and you don’t require the first timer exactly one second from now, the
          * use of [func`GLib`.timeout_add_seconds] is preferred over
          * [func`GLib`.timeout_add].
          *
@@ -12334,11 +12433,11 @@ declare module 'gi://GLib?version=2.0' {
          *
          * The interval given is in terms of monotonic time, not wall clock
          * time. See [func`GLib`.get_monotonic_time].
-         * @param priority the priority of the timeout source. Typically this will be in   the range between [const@GLib.PRIORITY_DEFAULT] and   [const@GLib.PRIORITY_HIGH].
+         * @param priority the priority of the timeout source; typically this will be in   the range between [const@GLib.PRIORITY_DEFAULT] and   [const@GLib.PRIORITY_HIGH]
          * @param interval the time between calls to the function, in seconds
          * @param _function function to call
-         * @param notify function to call when the timeout is removed, or %NULL
-         * @returns the ID (greater than 0) of the event source.
+         * @param notify function to call when the timeout is removed
+         * @returns the ID (greater than 0) of the event source
          */
         function timeout_add_seconds(
             priority: number,
@@ -12355,7 +12454,7 @@ declare module 'gi://GLib?version=2.0' {
          *
          * The interval given is in terms of monotonic time, not wall clock
          * time.  See [func`GLib`.get_monotonic_time].
-         * @param interval the timeout interval in milliseconds.
+         * @param interval the timeout interval in milliseconds
          * @returns the newly-created timeout source
          */
         function timeout_source_new(interval: number): Source;
@@ -13801,7 +13900,7 @@ declare module 'gi://GLib?version=2.0' {
          * @param str a pointer to character data
          * @returns `TRUE` if the text was valid UTF-8
          */
-        function utf8_validate(str: Uint8Array | string): [boolean, string];
+        function utf8_validate(str: Uint8Array | string): [boolean, Uint8Array | null];
         /**
          * Validates UTF-8 encoded text.
          *
@@ -13810,7 +13909,7 @@ declare module 'gi://GLib?version=2.0' {
          * @param str a pointer to character data
          * @returns `TRUE` if the text was valid UTF-8
          */
-        function utf8_validate_len(str: Uint8Array | string): [boolean, string];
+        function utf8_validate_len(str: Uint8Array | string): [boolean, Uint8Array | null];
         /**
          * A wrapper for the POSIX utime() function. The utime() function
          * sets the access and modification timestamps of a file.
@@ -15384,7 +15483,7 @@ declare module 'gi://GLib?version=2.0' {
         }
 
         /**
-         * Contains the public fields of a GArray.
+         * Contains the public fields of a `GArray`.
          */
         class Array {
             static $gtype: GObject.GType<Array>;
@@ -15476,7 +15575,7 @@ declare module 'gi://GLib?version=2.0' {
              * blocks until data becomes available.
              * @returns data from the queue
              */
-            pop(): any | null;
+            pop(): any;
             /**
              * Pops data from the `queue`. If `queue` is empty, this function
              * blocks until data becomes available.
@@ -15484,7 +15583,7 @@ declare module 'gi://GLib?version=2.0' {
              * This function must be called while holding the `queue'`s lock.
              * @returns data from the queue.
              */
-            pop_unlocked(): any | null;
+            pop_unlocked(): any;
             /**
              * Pushes the `data` into the `queue`.
              *
@@ -15544,7 +15643,7 @@ declare module 'gi://GLib?version=2.0' {
              * @param data the data to push into the @queue
              * @param func the #GCompareDataFunc is used to sort @queue
              */
-            push_sorted_unlocked(data: any | null, func: CompareDataFunc): void;
+            push_sorted_unlocked(data: any, func: CompareDataFunc): void;
             /**
              * Pushes the `data` into the `queue`.
              *
@@ -15577,7 +15676,7 @@ declare module 'gi://GLib?version=2.0' {
              * @param item the data to remove from the @queue
              * @returns %TRUE if the item was removed
              */
-            remove_unlocked(item?: any | null): boolean;
+            remove_unlocked(item: any): boolean;
             /**
              * Sorts `queue` using `func`.
              *
@@ -15628,7 +15727,7 @@ declare module 'gi://GLib?version=2.0' {
              * To easily calculate `end_time,` a combination of g_get_real_time()
              * and g_time_val_add() can be used.
              * @param end_time a #GTimeVal, determining the final time
-             * @returns data from the queue or %NULL, when no data is   received before @end_time.
+             * @returns data from the queue or %NULL, when no   data is received before @end_time.
              */
             timed_pop(end_time: TimeVal): any | null;
             /**
@@ -15642,7 +15741,7 @@ declare module 'gi://GLib?version=2.0' {
              *
              * This function must be called while holding the `queue'`s lock.
              * @param end_time a #GTimeVal, determining the final time
-             * @returns data from the queue or %NULL, when no data is   received before @end_time.
+             * @returns data from the queue or %NULL, when no   data is received before @end_time.
              */
             timed_pop_unlocked(end_time: TimeVal): any | null;
             /**
@@ -15651,7 +15750,7 @@ declare module 'gi://GLib?version=2.0' {
              *
              * If no data is received before the timeout, %NULL is returned.
              * @param timeout the number of microseconds to wait
-             * @returns data from the queue or %NULL, when no data is   received before the timeout.
+             * @returns data from the queue or %NULL, when no   data is received before the timeout.
              */
             timeout_pop(timeout: number): any | null;
             /**
@@ -15662,13 +15761,13 @@ declare module 'gi://GLib?version=2.0' {
              *
              * This function must be called while holding the `queue'`s lock.
              * @param timeout the number of microseconds to wait
-             * @returns data from the queue or %NULL, when no data is   received before the timeout.
+             * @returns data from the queue or %NULL, when no   data is received before the timeout.
              */
             timeout_pop_unlocked(timeout: number): any | null;
             /**
              * Tries to pop data from the `queue`. If no data is available,
              * %NULL is returned.
-             * @returns data from the queue or %NULL, when no data is   available immediately.
+             * @returns data from the queue or %NULL, when no   data is available immediately.
              */
             try_pop(): any | null;
             /**
@@ -15676,7 +15775,7 @@ declare module 'gi://GLib?version=2.0' {
              * %NULL is returned.
              *
              * This function must be called while holding the `queue'`s lock.
-             * @returns data from the queue or %NULL, when no data is   available immediately.
+             * @returns data from the queue or %NULL, when no   data is available immediately.
              */
             try_pop_unlocked(): any | null;
             /**
@@ -16303,7 +16402,7 @@ declare module 'gi://GLib?version=2.0' {
         }
 
         /**
-         * Contains the public fields of a GByteArray.
+         * Contains the public fields of a `GByteArray`.
          */
         class ByteArray {
             static $gtype: GObject.GType<ByteArray>;
@@ -16326,105 +16425,104 @@ declare module 'gi://GLib?version=2.0' {
             // Static methods
 
             /**
-             * Adds the given bytes to the end of the #GByteArray.
+             * Adds the given bytes to the end of the `GByteArray`.
              * The array will grow in size automatically if necessary.
-             * @param array a #GByteArray
+             * @param array a byte array
              * @param data the byte data to be added
-             * @param len the number of bytes to add
              */
-            static append(array: Uint8Array | string, data: number, len: number): Uint8Array;
+            static append(array: Uint8Array | string, data: Uint8Array | string): Uint8Array;
             /**
-             * Frees the memory allocated by the #GByteArray. If `free_segment` is
-             * %TRUE it frees the actual byte data. If the reference count of
-             * `array` is greater than one, the #GByteArray wrapper is preserved but
+             * Frees the memory allocated by the `GByteArray`. If `free_segment` is
+             * true it frees the actual byte data. If the reference count of
+             * `array` is greater than one, the `GByteArray` wrapper is preserved but
              * the size of `array` will be set to zero.
-             * @param array a #GByteArray
-             * @param free_segment if %TRUE the actual byte data is freed as well
+             * @param array a byte array
+             * @param free_segment if true, the actual byte data is freed as well
              */
-            static free(array: Uint8Array | string, free_segment: boolean): number;
+            static free(array: Uint8Array | string, free_segment: boolean): Uint8Array | null;
             /**
-             * Transfers the data from the #GByteArray into a new immutable #GBytes.
+             * Transfers the data from the `GByteArray` into a new immutable
+             * [struct`GLib`.Bytes].
              *
-             * The #GByteArray is freed unless the reference count of `array` is greater
-             * than one, the #GByteArray wrapper is preserved but the size of `array`
-             * will be set to zero.
+             * The `GByteArray` is freed unless the reference count of `array` is greater
+             * than one, in which the `GByteArray` wrapper is preserved but the size of
+             * `array` will be set to zero.
              *
-             * This is identical to using g_bytes_new_take() and g_byte_array_free()
-             * together.
-             * @param array a #GByteArray
+             * This is identical to using [ctor`GLib`.Bytes.new_take] and
+             * [func`GLib`.ByteArray.free] together.
+             * @param array a byte array
              */
             static free_to_bytes(array: Uint8Array | string): Bytes;
             /**
-             * Creates a new #GByteArray with a reference count of 1.
+             * Creates a new `GByteArray` with a reference count of 1.
              */
             static ['new'](): Uint8Array;
             /**
              * Creates a byte array containing the `data`.
-             * After this call, `data` belongs to the #GByteArray and may no longer be
+             * After this call, `data` belongs to the `GByteArray` and may no longer be
              * modified by the caller. The memory of `data` has to be dynamically
-             * allocated and will eventually be freed with g_free().
+             * allocated and will eventually be freed with [func`GLib`.free].
              *
-             * Do not use it if `len` is greater than %G_MAXUINT. #GByteArray
-             * stores the length of its data in #guint, which may be shorter than
-             * #gsize.
-             * @param data byte data for the array
+             * Do not use it if `len` is greater than [`G_MAXUINT`](types.html#guint).
+             * `GByteArray` stores the length of its data in `guint`, which may be shorter
+             * than `gsize`.
+             * @param data the byte data for the array
              */
             static new_take(data: Uint8Array | string): Uint8Array;
             /**
-             * Adds the given data to the start of the #GByteArray.
+             * Adds the given data to the start of the `GByteArray`.
              * The array will grow in size automatically if necessary.
-             * @param array a #GByteArray
+             * @param array a byte array
              * @param data the byte data to be added
-             * @param len the number of bytes to add
              */
-            static prepend(array: Uint8Array | string, data: number, len: number): Uint8Array;
+            static prepend(array: Uint8Array | string, data: Uint8Array | string): Uint8Array;
             /**
              * Atomically increments the reference count of `array` by one.
              * This function is thread-safe and may be called from any thread.
-             * @param array A #GByteArray
+             * @param array a byte array
              */
             static ref(array: Uint8Array | string): Uint8Array;
             /**
-             * Removes the byte at the given index from a #GByteArray.
+             * Removes the byte at the given index from a `GByteArray`.
              * The following bytes are moved down one place.
-             * @param array a #GByteArray
+             * @param array a byte array
              * @param index_ the index of the byte to remove
              */
             static remove_index(array: Uint8Array | string, index_: number): Uint8Array;
             /**
-             * Removes the byte at the given index from a #GByteArray. The last
+             * Removes the byte at the given index from a `GByteArray`. The last
              * element in the array is used to fill in the space, so this function
-             * does not preserve the order of the #GByteArray. But it is faster
-             * than g_byte_array_remove_index().
-             * @param array a #GByteArray
+             * does not preserve the order of the `GByteArray`. But it is faster
+             * than [func`GLib`.ByteArray.remove_index].
+             * @param array a byte array
              * @param index_ the index of the byte to remove
              */
             static remove_index_fast(array: Uint8Array | string, index_: number): Uint8Array;
             /**
              * Removes the given number of bytes starting at the given index from a
-             * #GByteArray.  The following elements are moved to close the gap.
-             * @param array a @GByteArray
+             * `GByteArray`. The following elements are moved to close the gap.
+             * @param array a byte array
              * @param index_ the index of the first byte to remove
              * @param length the number of bytes to remove
              */
             static remove_range(array: Uint8Array | string, index_: number, length: number): Uint8Array;
             /**
-             * Sets the size of the #GByteArray, expanding it if necessary.
-             * @param array a #GByteArray
-             * @param length the new size of the #GByteArray
+             * Sets the size of the `GByteArray`, expanding it if necessary.
+             * @param array a byte array
+             * @param length the new size of the `GByteArray`
              */
             static set_size(array: Uint8Array | string, length: number): Uint8Array;
             /**
-             * Creates a new #GByteArray with `reserved_size` bytes preallocated.
+             * Creates a new `GByteArray` with `reserved_size` bytes preallocated.
              * This avoids frequent reallocation, if you are going to add many
              * bytes to the array. Note however that the size of the array is still
              * 0.
-             * @param reserved_size number of bytes preallocated
+             * @param reserved_size the number of bytes preallocated
              */
             static sized_new(reserved_size: number): Uint8Array;
             /**
              * Sorts a byte array, using `compare_func` which should be a
-             * qsort()-style comparison function (returns less than zero for first
+             * `qsort()`-style comparison function (returns less than zero for first
              * arg is less than second arg, zero for equal, greater than zero if
              * first arg is greater than second arg).
              *
@@ -16433,30 +16531,30 @@ declare module 'gi://GLib?version=2.0' {
              * you want a stable sort) you can write a comparison function that,
              * if two elements would otherwise compare equal, compares them by
              * their addresses.
-             * @param array a #GByteArray
-             * @param compare_func comparison function
+             * @param array a byte array
+             * @param compare_func the comparison function
              */
             static sort(array: Uint8Array | string, compare_func: CompareFunc): void;
             /**
-             * Like g_byte_array_sort(), but the comparison function takes an extra
+             * Like [func`GLib`.ByteArray.sort], but the comparison function takes an extra
              * user data argument.
-             * @param array a #GByteArray
-             * @param compare_func comparison function
+             * @param array a byte array
+             * @param compare_func the comparison function
              */
             static sort_with_data(array: Uint8Array | string, compare_func: CompareDataFunc): void;
             /**
              * Frees the data in the array and resets the size to zero, while
              * the underlying array is preserved for use elsewhere and returned
              * to the caller.
-             * @param array a #GByteArray.
+             * @param array a byte array
              */
-            static steal(array: Uint8Array | string): [number, number];
+            static steal(array: Uint8Array | string): Uint8Array;
             /**
              * Atomically decrements the reference count of `array` by one. If the
              * reference count drops to 0, all memory allocated by the array is
              * released. This function is thread-safe and may be called from any
              * thread.
-             * @param array A #GByteArray
+             * @param array a byte array
              */
             static unref(array: Uint8Array | string): void;
         }
@@ -17162,6 +17260,20 @@ declare module 'gi://GLib?version=2.0' {
              */
             static get_sunday_weeks_in_year(year: DateYear): number;
             /**
+             * Calculates the number of weeks in the year.
+             *
+             * The result depends on which day is considered the first day of the week,
+             * which varies by locale. `first_day_of_week` must be valid.
+             *
+             * The result will be either 52 or 53. Years always have 52 seven-day periods,
+             * plus one or two extra days depending on whether it’s a leap year. This
+             * function effectively calculates how many `first_day_of_week` days there are in
+             * the year.
+             * @param year year to count weeks in
+             * @param first_day_of_week the day which is considered the first day of the week    (for example, this would be [enum@GLib.DateWeekday.SUNDAY] in US locales,    [enum@GLib.DateWeekday.MONDAY] in British locales, and    [enum@GLib.DateWeekday.SATURDAY] in Egyptian locales
+             */
+            static get_weeks_in_year(year: DateYear, first_day_of_week: DateWeekday): number;
+            /**
              * Returns %TRUE if the year is a leap year.
              *
              * For the purposes of this function, leap year is every year
@@ -17345,6 +17457,19 @@ declare module 'gi://GLib?version=2.0' {
              * @returns week number
              */
             get_sunday_week_of_year(): number;
+            /**
+             * Calculates the week of the year during which this date falls.
+             *
+             * The result depends on which day is considered the first day of the week,
+             * which varies by locale. Both `date` and `first_day_of_week` must be valid.
+             *
+             * If `date` is before the start of the first week of the year (for example,
+             * before the first Monday in January if `first_day_of_week` is
+             * [enum`GLib`.DateWeekday.MONDAY]) then zero will be returned.
+             * @param first_day_of_week the day which is considered the first day of the week    (for example, this would be [enum@GLib.DateWeekday.SUNDAY] in US locales,    [enum@GLib.DateWeekday.MONDAY] in British locales, and    [enum@GLib.DateWeekday.SATURDAY] in Egyptian locales
+             * @returns week number (starting from 1), or `0` if @date is before the start    of the first week of the year
+             */
+            get_week_of_year(first_day_of_week: DateWeekday | null): number;
             /**
              * Returns the day of the week for a #GDate. The date must be valid.
              * @returns day of the week as a #GDateWeekday.
@@ -19716,6 +19841,11 @@ declare module 'gi://GLib?version=2.0' {
              * If both `key` and `group_name` are `NULL`, then `comment` will be
              * written above the first group in the file.
              *
+             * Passing a non-existent `group_name` or `key` to this function returns
+             * false and populates `error`. (In contrast, passing a non-existent
+             * `group_name` or `key` to [method`GLib`.KeyFile.set_string]
+             * creates the associated group name and key.)
+             *
              * Note that this function prepends a `#` comment marker to
              * each line of `comment`.
              * @param group_name a group name, or `NULL` to write a top-level comment
@@ -19937,34 +20067,40 @@ declare module 'gi://GLib?version=2.0' {
             // Static methods
 
             /**
-             * Returns the global-default main context. This is the main context
+             * Returns the global-default main context.
+             *
+             * This is the main context
              * used for main loop functions when a main loop is not explicitly
-             * specified, and corresponds to the "main" main loop. See also
+             * specified, and corresponds to the ‘main’ main loop. See also
              * [func`GLib`.MainContext.get_thread_default].
              */
             static ['default'](): MainContext;
             /**
-             * Gets the thread-default #GMainContext for this thread. Asynchronous
-             * operations that want to be able to be run in contexts other than
+             * Gets the thread-default main context for this thread.
+             *
+             * Asynchronous operations that want to be able to be run in contexts other than
              * the default one should call this method or
              * [func`GLib`.MainContext.ref_thread_default] to get a
              * [struct`GLib`.MainContext] to add their [struct`GLib`.Source]s to. (Note that
              * even in single-threaded programs applications may sometimes want to
              * temporarily push a non-default context, so it is not safe to assume that
-             * this will always return %NULL if you are running in the default thread.)
+             * this will always return `NULL` if you are running in the default thread.)
              *
              * If you need to hold a reference on the context, use
              * [func`GLib`.MainContext.ref_thread_default] instead.
              */
             static get_thread_default(): MainContext | null;
             /**
-             * Gets the thread-default [struct`GLib`.MainContext] for this thread, as with
-             * [func`GLib`.MainContext.get_thread_default], but also adds a reference to
-             * it with [method`GLib`.MainContext.ref]. In addition, unlike
+             * Gets a reference to the thread-default [struct`GLib`.MainContext] for this
+             * thread
+             *
+             * This is the same as [func`GLib`.MainContext.get_thread_default], but it also
+             * adds a reference to the returned main context with [method`GLib`.MainContext.ref].
+             * In addition, unlike
              * [func`GLib`.MainContext.get_thread_default], if the thread-default context
              * is the global-default context, this will return that
              * [struct`GLib`.MainContext] (with a ref added to it) rather than returning
-             * %NULL.
+             * `NULL`.
              */
             static ref_thread_default(): MainContext;
 
@@ -19972,8 +20108,9 @@ declare module 'gi://GLib?version=2.0' {
 
             /**
              * Tries to become the owner of the specified context.
+             *
              * If some other thread is the owner of the context,
-             * returns %FALSE immediately. Ownership is properly
+             * returns false immediately. Ownership is properly
              * recursive: the owner can require ownership again
              * and will release ownership when [method`GLib`.MainContext.release]
              * is called as many times as [method`GLib`.MainContext.acquire].
@@ -19983,21 +20120,25 @@ declare module 'gi://GLib?version=2.0' {
              * [method`GLib`.MainContext.check], [method`GLib`.MainContext.dispatch],
              * [method`GLib`.MainContext.release].
              *
-             * Since 2.76 `context` can be %NULL to use the global-default
+             * Since 2.76 `context` can be `NULL` to use the global-default
              * main context.
-             * @returns %TRUE if the operation succeeded, and   this thread is now the owner of @context.
+             * @returns true if this thread is now the owner of @context, false otherwise
              */
             acquire(): boolean;
             /**
              * Adds a file descriptor to the set of file descriptors polled for
-             * this context. This will very seldom be used directly. Instead
-             * a typical event source will use `g_source_add_unix_fd` instead.
-             * @param fd a #GPollFD structure holding information about a file      descriptor to watch.
-             * @param priority the priority for this file descriptor which should be      the same as the priority used for [method@GLib.Source.attach] to ensure      that the file descriptor is polled whenever the results may be needed.
+             * this context.
+             *
+             * This will very seldom be used directly. Instead
+             * a typical event source will use `g_source_add_unix_fd()` instead.
+             * @param fd a [struct@GLib.PollFD] structure holding information about a file   descriptor to watch.
+             * @param priority the priority for this file descriptor which should be   the same as the priority used for [method@GLib.Source.attach] to ensure   that the file descriptor is polled whenever the results may be needed.
              */
             add_poll(fd: PollFD, priority: number): void;
             /**
-             * Passes the results of polling back to the main loop. You should be
+             * Passes the results of polling back to the main loop.
+             *
+             * You should be
              * careful to pass `fds` and its length `n_fds` as received from
              * [method`GLib`.MainContext.query], as this functions relies on assumptions
              * on how `fds` is filled.
@@ -20005,11 +20146,11 @@ declare module 'gi://GLib?version=2.0' {
              * You must have successfully acquired the context with
              * [method`GLib`.MainContext.acquire] before you may call this function.
              *
-             * Since 2.76 `context` can be %NULL to use the global-default
+             * Since 2.76 `context` can be `NULL` to use the global-default
              * main context.
              * @param max_priority the maximum numerical priority of sources to check
-             * @param fds array of #GPollFD's that was passed to       the last call to [method@GLib.MainContext.query]
-             * @returns %TRUE if some sources are ready to be dispatched.
+             * @param fds array of [struct@GLib.PollFD]s that was passed to   the last call to [method@GLib.MainContext.query]
+             * @returns true if some sources are ready to be dispatched, false otherwise
              */
             check(max_priority: number, fds: PollFD[]): boolean;
             /**
@@ -20018,21 +20159,22 @@ declare module 'gi://GLib?version=2.0' {
              * You must have successfully acquired the context with
              * [method`GLib`.MainContext.acquire] before you may call this function.
              *
-             * Since 2.76 `context` can be %NULL to use the global-default
+             * Since 2.76 `context` can be `NULL` to use the global-default
              * main context.
              */
             dispatch(): void;
             /**
-             * Finds a source with the given source functions and user data.  If
-             * multiple sources exist with the same source function and user data,
+             * Finds a source with the given source functions and user data.
+             *
+             * If multiple sources exist with the same source function and user data,
              * the first one found will be returned.
-             * @param funcs the @source_funcs passed to [ctor@GLib.Source.new].
-             * @param user_data the user data from the callback.
-             * @returns the source, if one was found, otherwise %NULL
+             * @param funcs the @source_funcs passed to [ctor@GLib.Source.new]
+             * @param user_data the user data from the callback
+             * @returns the source, if one was found,   otherwise `NULL`
              */
-            find_source_by_funcs_user_data(funcs: SourceFuncs, user_data?: any | null): Source;
+            find_source_by_funcs_user_data(funcs: SourceFuncs, user_data?: any | null): Source | null;
             /**
-             * Finds a #GSource given a pair of context and ID.
+             * Finds a [struct`GLib`.Source] given a pair of context and ID.
              *
              * It is a programmer error to attempt to look up a non-existent source.
              *
@@ -20044,61 +20186,66 @@ declare module 'gi://GLib?version=2.0' {
              * is called on its (now invalid) source ID.  This source ID may have
              * been reissued, leading to the operation being performed against the
              * wrong source.
-             * @param source_id the source ID, as returned by [method@GLib.Source.get_id].
-             * @returns the #GSource
+             * @param source_id the source ID, as returned by [method@GLib.Source.get_id]
+             * @returns the source
              */
             find_source_by_id(source_id: number): Source;
             /**
-             * Finds a source with the given user data for the callback.  If
-             * multiple sources exist with the same user data, the first
+             * Finds a source with the given user data for the callback.
+             *
+             * If multiple sources exist with the same user data, the first
              * one found will be returned.
-             * @param user_data the user_data for the callback.
-             * @returns the source, if one was found, otherwise %NULL
+             * @param user_data the user_data for the callback
+             * @returns the source, if one was found,   otherwise `NULL`
              */
-            find_source_by_user_data(user_data?: any | null): Source;
+            find_source_by_user_data(user_data?: any | null): Source | null;
             /**
              * Invokes a function in such a way that `context` is owned during the
              * invocation of `function`.
              *
              * This function is the same as [method`GLib`.MainContext.invoke] except that it
              * lets you specify the priority in case `function` ends up being
-             * scheduled as an idle and also lets you give a #GDestroyNotify for `data`.
+             * scheduled as an idle and also lets you give a [callback`GLib`.DestroyNotify]
+             * for `data`.
              *
-             * `notify` should not assume that it is called from any particular
+             * The `notify` function should not assume that it is called from any particular
              * thread or with any particular context acquired.
              * @param priority the priority at which to run @function
              * @param _function function to call
-             * @param notify a function to call when @data is no longer in use, or %NULL.
+             * @param notify a function to call when @data is no longer in use
              */
             invoke_full(priority: number, _function: SourceFunc, notify?: DestroyNotify | null): void;
             /**
              * Determines whether this thread holds the (recursive)
-             * ownership of this [struct`GLib`.MainContext]. This is useful to
+             * ownership of this [struct`GLib`.MainContext].
+             *
+             * This is useful to
              * know before waiting on another thread that may be
              * blocking to get ownership of `context`.
-             * @returns %TRUE if current thread is owner of @context.
+             * @returns true if current thread is owner of @context, false otherwise
              */
             is_owner(): boolean;
             /**
-             * Runs a single iteration for the given main loop. This involves
-             * checking to see if any event sources are ready to be processed,
-             * then if no events sources are ready and `may_block` is %TRUE, waiting
-             * for a source to become ready, then dispatching the highest priority
-             * events sources that are ready. Otherwise, if `may_block` is %FALSE
-             * sources are not waited to become ready, only those highest priority
-             * events sources will be dispatched (if any), that are ready at this
-             * given moment without further waiting.
+             * Runs a single iteration for the given main loop.
              *
-             * Note that even when `may_block` is %TRUE, it is still possible for
-             * [method`GLib`.MainContext.iteration] to return %FALSE, since the wait may
+             * This involves
+             * checking to see if any event sources are ready to be processed,
+             * then if no events sources are ready and `may_block` is true, waiting
+             * for a source to become ready, then dispatching the highest priority
+             * events sources that are ready. Otherwise, if `may_block` is false,
+             * this function does not wait for sources to become ready, and only the highest
+             * priority sources which are already ready (if any) will be dispatched.
+             *
+             * Note that even when `may_block` is true, it is still possible for
+             * [method`GLib`.MainContext.iteration] to return false, since the wait may
              * be interrupted for other reasons than an event source becoming ready.
-             * @param may_block whether the call may block.
-             * @returns %TRUE if events were dispatched.
+             * @param may_block whether the call may block
+             * @returns true if events were dispatched, false otherwise
              */
             iteration(may_block: boolean): boolean;
             /**
              * Checks if any sources have pending events for the given context.
-             * @returns %TRUE if events are pending.
+             * @returns true if events are pending, false otherwise
              */
             pending(): boolean;
             /**
@@ -20107,12 +20254,14 @@ declare module 'gi://GLib?version=2.0' {
              */
             pop_thread_default(): void;
             /**
-             * Prepares to poll sources within a main loop. The resulting information
+             * Prepares to poll sources within a main loop.
+             *
+             * The resulting information
              * for polling is determined by calling [method`GLib`.MainContext.query].
              *
              * You must have successfully acquired the context with
              * [method`GLib`.MainContext.acquire] before you may call this function.
-             * @returns %TRUE if some source is ready to be dispatched               prior to polling.
+             * @returns true if some source is ready to be dispatched prior to polling,   false otherwise
              */
             prepare(): [boolean, number];
             /**
@@ -20134,8 +20283,8 @@ declare module 'gi://GLib?version=2.0' {
              * the new [struct`GLib`.MainContext] to be the default for the whole lifecycle
              * of the thread.
              *
-             * If you don't have control over how the new thread was created (e.g.
-             * in the new thread isn't newly created, or if the thread life
+             * If you don’t have control over how the new thread was created (e.g.
+             * in the new thread isn’t newly created, or if the thread life
              * cycle is managed by a #GThreadPool), it is always suggested to wrap
              * the logic that needs to use the new [struct`GLib`.MainContext] inside a
              * [method`GLib`.MainContext.push_thread_default] /
@@ -20153,8 +20302,8 @@ declare module 'gi://GLib?version=2.0' {
              * started while the non-default context is active.
              *
              * Beware that libraries that predate this function may not correctly
-             * handle being used from a thread with a thread-default context. Eg,
-             * see g_file_supports_thread_contexts().
+             * handle being used from a thread with a thread-default context. For example,
+             * see `g_file_supports_thread_contexts()`.
              */
             push_thread_default(): void;
             /**
@@ -20201,15 +20350,17 @@ declare module 'gi://GLib?version=2.0' {
              */
             pusher_new(): MainContextPusher;
             /**
-             * Determines information necessary to poll this main loop. You should
+             * Determines information necessary to poll this main loop.
+             *
+             * You should
              * be careful to pass the resulting `fds` array and its length `n_fds`
-             * as is when calling [method`GLib`.MainContext.check], as this function relies
+             * as-is when calling [method`GLib`.MainContext.check], as this function relies
              * on assumptions made when the array is filled.
              *
              * You must have successfully acquired the context with
              * [method`GLib`.MainContext.acquire] before you may call this function.
              * @param max_priority maximum priority source to check
-             * @returns the number of records actually stored in @fds,   or, if more than @n_fds records need to be stored, the number   of records that need to be stored.
+             * @returns the number of records actually stored in @fds,   or, if more than @n_fds records need to be stored, the number   of records that need to be stored
              */
             query(max_priority: number): [number, number, PollFD[]];
             /**
@@ -20219,7 +20370,9 @@ declare module 'gi://GLib?version=2.0' {
             ref(): MainContext;
             /**
              * Releases ownership of a context previously acquired by this thread
-             * with [method`GLib`.MainContext.acquire]. If the context was acquired multiple
+             * with [method`GLib`.MainContext.acquire].
+             *
+             * If the context was acquired multiple
              * times, the ownership will be released only when [method`GLib`.MainContext.release]
              * is called as many times as it was acquired.
              *
@@ -20230,7 +20383,7 @@ declare module 'gi://GLib?version=2.0' {
             /**
              * Removes file descriptor from the set of file descriptors to be
              * polled for a particular context.
-             * @param fd a #GPollFD descriptor previously added with   [method@GLib.MainContext.add_poll]
+             * @param fd a [struct@GLib.PollFD] descriptor previously added with   [method@GLib.MainContext.add_poll]
              */
             remove_poll(fd: PollFD): void;
             /**
@@ -20240,21 +20393,26 @@ declare module 'gi://GLib?version=2.0' {
              */
             unref(): void;
             /**
-             * Tries to become the owner of the specified context,
-             * as with [method`GLib`.MainContext.acquire]. But if another thread
+             * Tries to become the owner of the specified context, and waits on `cond` if
+             * another thread is the owner.
+             *
+             * This is the same as [method`GLib`.MainContext.acquire], but if another thread
              * is the owner, atomically drop `mutex` and wait on `cond` until
              * that owner releases ownership or until `cond` is signaled, then
              * try again (once) to become the owner.
              * @param cond a condition variable
              * @param mutex a mutex, currently held
-             * @returns %TRUE if the operation succeeded, and   this thread is now the owner of @context.
+             * @returns true if this thread is now the owner of @context, false otherwise
              */
             wait(cond: Cond, mutex: Mutex): boolean;
             /**
-             * If `context` is currently blocking in [method`GLib`.MainContext.iteration]
-             * waiting for a source to become ready, cause it to stop blocking
-             * and return.  Otherwise, cause the next invocation of
-             * [method`GLib`.MainContext.iteration] to return without blocking.
+             * Wake up `context` if it’s currently blocking in
+             * [method`GLib`.MainContext.iteration], causing it to stop blocking.
+             *
+             * The `context` could be blocking waiting for a source to become ready.
+             * Otherwise, if `context` is not currently blocking, this function causes the
+             * next invocation of [method`GLib`.MainContext.iteration] to return without
+             * blocking.
              *
              * This API is useful for low-level control over [struct`GLib`.MainContext]; for
              * example, integrating it with main loop implementations such as
@@ -20262,7 +20420,6 @@ declare module 'gi://GLib?version=2.0' {
              *
              * Another related use for this function is when implementing a main
              * loop with a termination condition, computed from multiple threads:
-             *
              *
              * ```c
              *   #define NUM_TASKS 10
@@ -20273,16 +20430,13 @@ declare module 'gi://GLib?version=2.0' {
              *     g_main_context_iteration (NULL, TRUE);
              * ```
              *
-             *
              * Then in a thread:
-             *
              * ```c
-             *   perform_work();
+             *   perform_work ();
              *
              *   if (g_atomic_int_dec_and_test (&tasks_remaining))
              *     g_main_context_wakeup (NULL);
              * ```
-             *
              */
             wakeup(): void;
         }
@@ -20311,7 +20465,7 @@ declare module 'gi://GLib?version=2.0' {
             /**
              * Checks to see if the main loop is currently being run via
              * [method`GLib`.MainLoop.run].
-             * @returns %TRUE if the mainloop is currently being run.
+             * @returns true if the main loop is currently being run, false otherwise
              */
             is_running(): boolean;
             /**
@@ -20329,14 +20483,16 @@ declare module 'gi://GLib?version=2.0' {
             ref(): MainLoop;
             /**
              * Runs a main loop until [method`GLib`.MainLoop.quit] is called on the loop.
-             * If this is called for the thread of the loop's #GMainContext,
+             *
+             * If this is called from the thread of the loop’s [struct`GLib`.MainContext],
              * it will process events from the loop, otherwise it will
              * simply wait.
              */
             run(): void;
             /**
-             * Decreases the reference count on a [struct`GLib`.MainLoop] object by one. If
-             * the result is zero, free the loop and free all associated memory.
+             * Decreases the reference count on a [struct`GLib`.MainLoop] object by one.
+             *
+             * If the result is zero, the loop and all associated memory are freed.
              */
             unref(): void;
             /**
@@ -20662,6 +20818,10 @@ declare module 'gi://GLib?version=2.0' {
          * errors are intended to be set from these callbacks. If you set an error
          * from a callback, g_markup_parse_context_parse() will report that error
          * back to its caller.
+         *
+         * Refer to the [GMarkup](../glib/markup.html) documentation to understand
+         * the scope and limitations of `GMarkupParser`. In particular, it is not a
+         * full XML parser and it must not be used to process untrusted data.
          */
         class MarkupParser {
             static $gtype: GObject.GType<MarkupParser>;
@@ -20766,26 +20926,219 @@ declare module 'gi://GLib?version=2.0' {
              * If `name` is a valid sub pattern name but it didn't match anything
              * (e.g. sub pattern `"X"`, matching `"b"` against `"(?P<X>a)?b"`)
              * then `start_pos` and `end_pos` are set to -1 and %TRUE is returned.
+             *
+             * As `end_pos` is set to the byte after the final byte of the match (on success),
+             * the length of the match can be calculated as `end_pos - start_pos`.
              * @param name name of the subexpression
              * @returns %TRUE if the position was fetched, %FALSE otherwise.     If the position cannot be fetched, @start_pos and @end_pos     are left unchanged.
              */
             fetch_named_pos(name: string): [boolean, number, number];
             /**
-             * Retrieves the position in bytes of the `match_num'`th capturing
-             * parentheses. 0 is the full text of the match, 1 is the first
-             * paren set, 2 the second, and so on.
+             * Returns the start and end positions (in bytes) of a successfully matching
+             * capture parenthesis.
              *
-             * If `match_num` is a valid sub pattern but it didn't match anything
-             * (e.g. sub pattern 1, matching "b" against "(a)?b") then `start_pos`
-             * and `end_pos` are set to -1 and %TRUE is returned.
+             * Valid values for `match_num` are `0` for the full text of the match,
+             * `1` for the first paren set, `2` for the second, and so on.
              *
-             * If the match was obtained using the DFA algorithm, that is using
-             * g_regex_match_all() or g_regex_match_all_full(), the retrieved
-             * position is not that of a set of parentheses but that of a matched
-             * substring. Substrings are matched in reverse order of length, so
-             * 0 is the longest match.
-             * @param match_num number of the sub expression
-             * @returns %TRUE if the position was fetched, %FALSE otherwise. If   the position cannot be fetched, @start_pos and @end_pos are left   unchanged
+             * As `end_pos` is set to the byte after the final byte of the match (on success),
+             * the length of the match can be calculated as `end_pos - start_pos`.
+             *
+             * As a best practice, initialize `start_pos` and `end_pos` to identifiable
+             * values, such as `G_MAXINT`, so that you can test if
+             * `g_match_info_fetch_pos()` actually changed the value for a given
+             * capture parenthesis.
+             *
+             * The parameter `match_num` corresponds to a matched capture parenthesis. The
+             * actual value you use for `match_num` depends on the method used to generate
+             * `match_info`. The following sections describe those methods.
+             *
+             * ## Methods Using Non-deterministic Finite Automata Matching
+             *
+             * The methods [method`GLib`.Regex.match] and [method`GLib`.Regex.match_full]
+             * return a [struct`GLib`.MatchInfo] using traditional (greedy) pattern
+             * matching, also known as
+             * [Non-deterministic Finite Automaton](https://en.wikipedia.org/wiki/Nondeterministic_finite_automaton)
+             * (NFA) matching. You pass the returned `GMatchInfo` from these methods to
+             * `g_match_info_fetch_pos()` to determine the start and end positions
+             * of capture parentheses. The values for `match_num` correspond to the capture
+             * parentheses in order, with `0` corresponding to the entire matched string.
+             *
+             * `match_num` can refer to a capture parenthesis with no match. For example,
+             * the string `b` matches against the pattern `(a)?b`, but the capture
+             * parenthesis `(a)` has no match. In this case, `g_match_info_fetch_pos()`
+             * returns true and sets `start_pos` and `end_pos` to `-1` when called with
+             * `match_num` as `1` (for `(a)`).
+             *
+             * For an expanded example, a regex pattern is `(a)?(.*?)the (.*)`,
+             * and a candidate string is `glib regexes are the best`. In this scenario
+             * there are four capture parentheses numbered 0–3: an implicit one
+             * for the entire string, and three explicitly declared in the regex pattern.
+             *
+             * Given this example, the following table describes the return values
+             * from `g_match_info_fetch_pos()` for various values of `match_num`.
+             *
+             * `match_num` | Contents | Return value | Returned `start_pos` | Returned `end_pos`
+             * ----------- | -------- | ------------ | -------------------- | ------------------
+             * 0 | Matches entire string | True | 0 | 25
+             * 1 | Does not match first character | True | -1 | -1
+             * 2 | All text before `the ` | True | 0 | 17
+             * 3 | All text after `the ` | True | 21 | 25
+             * 4 | Capture paren out of range | False | Unchanged | Unchanged
+             *
+             * The following code sample and output implements this example.
+             *
+             * ``` { .c }
+             * #include <glib.h>
+             *
+             * int
+             * main (int argc, char *argv[])
+             * {
+             *   g_autoptr(GError) local_error = NULL;
+             *   const char *regex_pattern = "(a)?(.*?)the (.*)";
+             *   const char *test_string = "glib regexes are the best";
+             *   g_autoptr(GRegex) regex = NULL;
+             *
+             *   regex = g_regex_new (regex_pattern,
+             *                        G_REGEX_DEFAULT,
+             *                        G_REGEX_MATCH_DEFAULT,
+             *                        &local_error);
+             *   if (regex == NULL)
+             *     {
+             *       g_printerr ("Error creating regex: %s\n", local_error->message);
+             *       return 1;
+             *     }
+             *
+             *   g_autoptr(GMatchInfo) match_info = NULL;
+             *   g_regex_match (regex, test_string, G_REGEX_MATCH_DEFAULT, &match_info);
+             *
+             *   int n_matched_strings = g_match_info_get_match_count (match_info);
+             *
+             *   // Print header line
+             *   g_print ("match_num Contents                  Return value returned start_pos returned end_pos\n");
+             *
+             *   // Iterate over each capture paren, including one that is out of range as a demonstration.
+             *   for (int match_num = 0; match_num <= n_matched_strings; match_num++)
+             *     {
+             *       gboolean found_match;
+             *       g_autofree char *paren_string = NULL;
+             *       int start_pos = G_MAXINT;
+             *       int end_pos = G_MAXINT;
+             *
+             *       found_match = g_match_info_fetch_pos (match_info,
+             *                                             match_num,
+             *                                             &start_pos,
+             *                                             &end_pos);
+             *
+             *       // If no match, display N/A as the found string.
+             *       if (start_pos == G_MAXINT || start_pos == -1)
+             *         paren_string = g_strdup ("N/A");
+             *       else
+             *         paren_string = g_strndup (test_string + start_pos, end_pos - start_pos);
+             *
+             *       g_print ("%-9d %-25s %-12d %-18d %d\n", match_num, paren_string, found_match, start_pos, end_pos);
+             *     }
+             *
+             *   return 0;
+             * }
+             * ```
+             *
+             * ```
+             * match_num Contents                  Return value returned start_pos returned end_pos
+             * 0         glib regexes are the best 1            0                  25
+             * 1         N/A                       1            -1                 -1
+             * 2         glib regexes are          1            0                  17
+             * 3         best                      1            21                 25
+             * 4         N/A                       0            2147483647         2147483647
+             * ```
+             * ## Methods Using Deterministic Finite Automata Matching
+             *
+             * The methods [method`GLib`.Regex.match_all] and
+             * [method`GLib`.Regex.match_all_full]
+             * return a `GMatchInfo` using
+             * [Deterministic Finite Automaton](https://en.wikipedia.org/wiki/Deterministic_finite_automaton)
+             * (DFA) pattern matching. This algorithm detects overlapping matches. You pass
+             * the returned `GMatchInfo` from these methods to `g_match_info_fetch_pos()`
+             * to determine the start and end positions of each overlapping match. Use the
+             * method [method`GLib`.MatchInfo.get_match_count] to determine the number
+             * of overlapping matches.
+             *
+             * For example, a regex pattern is `<.*>`, and a candidate string is
+             * `<a> <b> <c>`. In this scenario there are three implicit capture
+             * parentheses: one for the entire string, one for `<a> <b>`, and one for `<a>`.
+             *
+             * Given this example, the following table describes the return values from
+             * `g_match_info_fetch_pos()` for various values of `match_num`.
+             *
+             * `match_num` | Contents | Return value | Returned `start_pos` | Returned `end_pos`
+             * ----------- | -------- | ------------ | -------------------- | ------------------
+             * 0 | Matches entire string | True | 0 | 11
+             * 1 | Matches `<a> <b>` | True | 0 | 7
+             * 2 | Matches `<a>` | True | 0 | 3
+             * 3 | Capture paren out of range | False | Unchanged | Unchanged
+             *
+             * The following code sample and output implements this example.
+             *
+             * ``` { .c }
+             * #include <glib.h>
+             *
+             * int
+             * main (int argc, char *argv[])
+             * {
+             *   g_autoptr(GError) local_error = NULL;
+             *   const char *regex_pattern = "<.*>";
+             *   const char *test_string = "<a> <b> <c>";
+             *   g_autoptr(GRegex) regex = NULL;
+             *
+             *   regex = g_regex_new (regex_pattern,
+             *                        G_REGEX_DEFAULT,
+             *                        G_REGEX_MATCH_DEFAULT,
+             *                        &local_error);
+             *   if (regex == NULL)
+             *     {
+             *       g_printerr ("Error creating regex: %s\n", local_error->message);
+             *       return -1;
+             *     }
+             *
+             *   g_autoptr(GMatchInfo) match_info = NULL;
+             *   g_regex_match_all (regex, test_string, G_REGEX_MATCH_DEFAULT, &match_info);
+             *
+             *   int n_matched_strings = g_match_info_get_match_count (match_info);
+             *
+             *   // Print header line
+             *   g_print ("match_num Contents                  Return value returned start_pos returned end_pos\n");
+             *
+             *   // Iterate over each capture paren, including one that is out of range as a demonstration.
+             *   for (int match_num = 0; match_num <= n_matched_strings; match_num++)
+             *     {
+             *       gboolean found_match;
+             *       g_autofree char *paren_string = NULL;
+             *       int start_pos = G_MAXINT;
+             *       int end_pos = G_MAXINT;
+             *
+             *       found_match = g_match_info_fetch_pos (match_info, match_num, &start_pos, &end_pos);
+             *
+             *       // If no match, display N/A as the found string.
+             *       if (start_pos == G_MAXINT || start_pos == -1)
+             *         paren_string = g_strdup ("N/A");
+             *       else
+             *         paren_string = g_strndup (test_string + start_pos, end_pos - start_pos);
+             *
+             *       g_print ("%-9d %-25s %-12d %-18d %d\n", match_num, paren_string, found_match, start_pos, end_pos);
+             *     }
+             *
+             *   return 0;
+             * }
+             * ```
+             *
+             * ```
+             * match_num Contents                  Return value returned start_pos returned end_pos
+             * 0         <a> <b> <c>               1            0                  11
+             * 1         <a> <b>                   1            0                  7
+             * 2         <a>                       1            0                  3
+             * 3         N/A                       0            2147483647         2147483647
+             * ```
+             * @param match_num number of the capture parenthesis
+             * @returns True if @match_num is within range, false otherwise. If   the capture paren has a match, @start_pos and @end_pos contain the   start and end positions (in bytes) of the matching substring. If the   capture paren has no match, @start_pos and @end_pos are `-1`. If   @match_num is out of range, @start_pos and @end_pos are left unchanged.
              */
             fetch_pos(match_num: number): [boolean, number, number];
             /**
@@ -21515,7 +21868,7 @@ declare module 'gi://GLib?version=2.0' {
              * Compares two path buffers for equality and returns `TRUE`
              * if they are equal.
              *
-             * The path inside the paths buffers are not going to be normalized,
+             * The paths inside the path buffers are not going to be normalized,
              * so `X/Y/Z/A/..`, `X/./Y/Z` and `X/Y/Z` are not going to be considered
              * equal.
              *
@@ -21861,7 +22214,7 @@ declare module 'gi://GLib?version=2.0' {
         }
 
         /**
-         * Contains the public fields of a pointer array.
+         * Contains the public fields of a `GPtrArray`.
          */
         class PtrArray {
             static $gtype: GObject.GType<PtrArray>;
@@ -22387,58 +22740,133 @@ declare module 'gi://GLib?version=2.0' {
         }
 
         /**
-         * A `GRegex` is the "compiled" form of a regular expression pattern.
+         * A `GRegex` is a compiled form of a regular expression.
+         *
+         * After instantiating a `GRegex`, you can use its methods to find matches
+         * in a string, replace matches within a string, or split the string at matches.
          *
          * `GRegex` implements regular expression pattern matching using syntax and
-         * semantics similar to Perl regular expression. See the
-         * [PCRE documentation](man:pcrepattern(3)) for the syntax definition.
+         * semantics (such as character classes, quantifiers, and capture groups)
+         * similar to Perl regular expression. See the
+         * [PCRE documentation](man:pcre2pattern(3)) for details.
          *
-         * Some functions accept a `start_position` argument, setting it differs
-         * from just passing over a shortened string and setting %G_REGEX_MATCH_NOTBOL
-         * in the case of a pattern that begins with any kind of lookbehind assertion.
-         * For example, consider the pattern "\Biss\B" which finds occurrences of "iss"
-         * in the middle of words. ("\B" matches only if the current position in the
-         * subject is not a word boundary.) When applied to the string "Mississipi"
-         * from the fourth byte, namely "issipi", it does not match, because "\B" is
-         * always false at the start of the subject, which is deemed to be a word
-         * boundary. However, if the entire string is passed , but with
-         * `start_position` set to 4, it finds the second occurrence of "iss" because
-         * it is able to look behind the starting point to discover that it is
-         * preceded by a letter.
+         * A typical scenario for regex pattern matching is to check if a string
+         * matches a pattern. The following statements implement this scenario.
          *
-         * Note that, unless you set the %G_REGEX_RAW flag, all the strings passed
-         * to these functions must be encoded in UTF-8. The lengths and the positions
-         * inside the strings are in bytes and not in characters, so, for instance,
-         * "\xc3\xa0" (i.e. "à") is two bytes long but it is treated as a
-         * single character. If you set %G_REGEX_RAW the strings can be non-valid
-         * UTF-8 strings and a byte is treated as a character, so "\xc3\xa0" is two
-         * bytes and two characters long.
+         * ``` { .c }
+         * const char *regex_pattern = ".*GLib.*";
+         * const char *string_to_search = "You will love the GLib implementation of regex";
+         * g_autoptr(GMatchInfo) match_info = NULL;
+         * g_autoptr(GRegex) regex = NULL;
          *
-         * When matching a pattern, "\n" matches only against a "\n" character in
-         * the string, and "\r" matches only a "\r" character. To match any newline
-         * sequence use "\R". This particular group matches either the two-character
-         * sequence CR + LF ("\r\n"), or one of the single characters LF (linefeed,
-         * U+000A, "\n"), VT vertical tab, U+000B, "\v"), FF (formfeed, U+000C, "\f"),
-         * CR (carriage return, U+000D, "\r"), NEL (next line, U+0085), LS (line
-         * separator, U+2028), or PS (paragraph separator, U+2029).
+         * regex = g_regex_new (regex_pattern, G_REGEX_DEFAULT, G_REGEX_MATCH_DEFAULT, NULL);
+         * g_assert (regex != NULL);
+         *
+         * if (g_regex_match (regex, string_to_search, G_REGEX_MATCH_DEFAULT, &match_info))
+         *   {
+         *     int start_pos, end_pos;
+         *     g_match_info_fetch_pos (match_info, 0, &start_pos, &end_pos);
+         *     g_print ("Match successful! Overall pattern matches bytes %d to %d\n", start_pos, end_pos);
+         *   }
+         * else
+         *   {
+         *     g_print ("No match!\n");
+         *   }
+         * ```
+         *
+         * The constructor for `GRegex` includes two sets of bitmapped flags:
+         *
+         * * [flags`GLib`.RegexCompileFlags]—These flags
+         * control how GLib compiles the regex. There are options for case
+         * sensitivity, multiline, ignoring whitespace, etc.
+         * * [flags`GLib`.RegexMatchFlags]—These flags control
+         * `GRegex`’s matching behavior, such as anchoring and customizing definitions
+         * for newline characters.
+         *
+         * Some regex patterns include backslash assertions, such as `\d` (digit) or
+         * `\D` (non-digit). The regex pattern must escape those backslashes. For
+         * example, the pattern `"\\d\\D"` matches a digit followed by a non-digit.
+         *
+         * GLib’s implementation of pattern matching includes a `start_position`
+         * argument for some of the match, replace, and split methods. Specifying
+         * a start position provides flexibility when you want to ignore the first
+         * _n_ characters of a string, but want to incorporate backslash assertions
+         * at character _n_ - 1. For example, a database field contains inconsistent
+         * spelling for a job title: `healthcare provider` and `health-care provider`.
+         * The database manager wants to make the spelling consistent by adding a
+         * hyphen when it is missing. The following regex pattern tests for the string
+         * `care` preceded by a non-word boundary character (instead of a hyphen)
+         * and followed by a space.
+         *
+         * ``` { .c }
+         * const char *regex_pattern = "\\Bcare\\s";
+         * ```
+         *
+         * An efficient way to match with this pattern is to start examining at
+         * `start_position` 6 in the string `healthcare` or `health-care`.
+         *
+         * ``` { .c }
+         * const char *regex_pattern = "\\Bcare\\s";
+         * const char *string_to_search = "healthcare provider";
+         * g_autoptr(GMatchInfo) match_info = NULL;
+         * g_autoptr(GRegex) regex = NULL;
+         *
+         * regex = g_regex_new (
+         *   regex_pattern,
+         *   G_REGEX_DEFAULT,
+         *   G_REGEX_MATCH_DEFAULT,
+         *   NULL);
+         * g_assert (regex != NULL);
+         *
+         * g_regex_match_full (
+         *   regex,
+         *   string_to_search,
+         *   -1,
+         *   6, // position of 'c' in the test string.
+         *   G_REGEX_MATCH_DEFAULT,
+         *   &match_info,
+         *   NULL);
+         * ```
+         *
+         * The method [method`GLib`.Regex.match_full] (and other methods implementing
+         * `start_pos`) allow for lookback before the start position to determine if
+         * the previous character satisfies an assertion.
+         *
+         * Unless you set the [flags`GLib`.RegexCompileFlags.RAW] as one of
+         * the `GRegexCompileFlags`, all the strings passed to `GRegex` methods must
+         * be encoded in UTF-8. The lengths and the positions inside the strings are
+         * in bytes and not in characters, so, for instance, `\xc3\xa0` (i.e., `à`)
+         * is two bytes long but it is treated as a single character. If you set
+         * `G_REGEX_RAW`, the strings can be non-valid UTF-8 strings and a byte is
+         * treated as a character, so `\xc3\xa0` is two bytes and two characters long.
+         *
+         * Regarding line endings, `\n` matches a `\n` character, and `\r` matches
+         * a `\r` character. More generally, `\R` matches all typical line endings:
+         * CR + LF (`\r\n`), LF (linefeed, U+000A, `\n`), VT (vertical tab, U+000B,
+         * `\v`), FF (formfeed, U+000C, `\f`), CR (carriage return, U+000D, `\r`),
+         * NEL (next line, U+0085), LS (line separator, U+2028), and PS (paragraph
+         * separator, U+2029).
          *
          * The behaviour of the dot, circumflex, and dollar metacharacters are
-         * affected by newline characters, the default is to recognize any newline
-         * character (the same characters recognized by "\R"). This can be changed
-         * with `G_REGEX_NEWLINE_CR`, `G_REGEX_NEWLINE_LF` and `G_REGEX_NEWLINE_CRLF`
-         * compile options, and with `G_REGEX_MATCH_NEWLINE_ANY`,
-         * `G_REGEX_MATCH_NEWLINE_CR`, `G_REGEX_MATCH_NEWLINE_LF` and
-         * `G_REGEX_MATCH_NEWLINE_CRLF` match options. These settings are also
-         * relevant when compiling a pattern if `G_REGEX_EXTENDED` is set, and an
-         * unescaped "#" outside a character class is encountered. This indicates
-         * a comment that lasts until after the next newline.
+         * affected by newline characters. By default, `GRegex` matches any newline
+         * character matched by `\R`. You can limit the matched newline characters by
+         * specifying the [flags`GLib`.RegexMatchFlags.NEWLINE_CR],
+         * [flags`GLib`.RegexMatchFlags.NEWLINE_LF], and
+         * [flags`GLib`.RegexMatchFlags.NEWLINE_CRLF] compile options, and
+         * with [flags`GLib`.RegexMatchFlags.NEWLINE_ANY],
+         * [flags`GLib`.RegexMatchFlags.NEWLINE_CR],
+         * [flags`GLib`.RegexMatchFlags.NEWLINE_LF] and
+         * [flags`GLib`.RegexMatchFlags.NEWLINE_CRLF] match options.
+         * These settings are also relevant when compiling a pattern if
+         * [flags`GLib`.RegexCompileFlags.EXTENDED] is set and an unescaped
+         * `#` outside a character class is encountered. This indicates a comment
+         * that lasts until after the next newline.
          *
-         * Creating and manipulating the same `GRegex` structure from different
-         * threads is not a problem as `GRegex` does not modify its internal
-         * state between creation and destruction, on the other hand `GMatchInfo`
-         * is not threadsafe.
+         * Because `GRegex` does not modify its internal state between creation and
+         * destruction, you can create and modify the same `GRegex` instance from
+         * different threads. In contrast, [struct`GLib`.MatchInfo] is not thread safe.
          *
-         * The regular expressions low-level functionalities are obtained through
+         * The regular expression low-level functionalities are obtained through
          * the excellent [PCRE](http://www.pcre.org/) library written by Philip Hazel.
          */
         class Regex {
@@ -23736,10 +24164,12 @@ declare module 'gi://GLib?version=2.0' {
             // Static methods
 
             /**
-             * Removes the source with the given ID from the default main context. You must
+             * Removes the source with the given ID from the default main context.
+             *
+             * You must
              * use [method`GLib`.Source.destroy] for sources added to a non-default main context.
              *
-             * The ID of a #GSource is given by [method`GLib`.Source.get_id], or will be
+             * The ID of a [struct`GLib`.Source] is given by [method`GLib`.Source.get_id], or will be
              * returned by the functions [method`GLib`.Source.attach], [func`GLib`.idle_add],
              * [func`GLib`.idle_add_full], [func`GLib`.timeout_add],
              * [func`GLib`.timeout_add_full], [func`GLib`.child_watch_add],
@@ -23761,17 +24191,20 @@ declare module 'gi://GLib?version=2.0' {
             static remove(tag: number): boolean;
             /**
              * Removes a source from the default main loop context given the
-             * source functions and user data. If multiple sources exist with the
-             * same source functions and user data, only one will be destroyed.
-             * @param funcs The @source_funcs passed to [ctor@GLib.Source.new]
+             * source functions and user data.
+             *
+             * If multiple sources exist with the same source functions and user data, only
+             * one will be destroyed.
+             * @param funcs the @source_funcs passed to [ctor@GLib.Source.new]
              * @param user_data the user data for the callback
              */
             static remove_by_funcs_user_data(funcs: SourceFuncs, user_data?: any | null): boolean;
             /**
              * Removes a source from the default main loop context given the user
-             * data for the callback. If multiple sources exist with the same user
-             * data, only one will be destroyed.
-             * @param user_data the user_data for the callback.
+             * data for the callback.
+             *
+             * If multiple sources exist with the same user data, only one will be destroyed.
+             * @param user_data the user_data for the callback
              */
             static remove_by_user_data(user_data?: any | null): boolean;
             /**
@@ -23791,7 +24224,7 @@ declare module 'gi://GLib?version=2.0' {
              * is called on its (now invalid) source ID.  This source ID may have
              * been reissued, leading to the operation being performed against the
              * wrong source.
-             * @param tag a #GSource ID
+             * @param tag a source ID
              * @param name debug name for the source
              */
             static set_name_by_id(tag: number, name: string): void;
@@ -23799,75 +24232,82 @@ declare module 'gi://GLib?version=2.0' {
             // Methods
 
             /**
-             * Adds `child_source` to `source` as a "polled" source; when `source` is
-             * added to a [struct`GLib`.MainContext], `child_source` will be automatically
-             * added with the same priority, when `child_source` is triggered, it will
-             * cause `source` to dispatch (in addition to calling its own
-             * callback), and when `source` is destroyed, it will destroy
-             * `child_source` as well. (`source` will also still be dispatched if
-             * its own prepare/check functions indicate that it is ready.)
+             * Adds `child_source` to `source` as a ‘polled’ source.
              *
-             * If you don't need `child_source` to do anything on its own when it
-             * triggers, you can call g_source_set_dummy_callback() on it to set a
-             * callback that does nothing (except return %TRUE if appropriate).
+             * When `source` is added to a [struct`GLib`.MainContext], `child_source` will be
+             * automatically added with the same priority. When `child_source` is triggered,
+             * it will cause `source` to dispatch (in addition to calling its own callback),
+             * and when `source` is destroyed, it will destroy `child_source` as well.
              *
-             * `source` will hold a reference on `child_source` while `child_source`
+             * The `source` will also still be dispatched if its own prepare/check functions
+             * indicate that it is ready.
+             *
+             * If you don’t need `child_source` to do anything on its own when it
+             * triggers, you can call `g_source_set_dummy_callback()` on it to set a
+             * callback that does nothing (except return true if appropriate).
+             *
+             * The `source` will hold a reference on `child_source` while `child_source`
              * is attached to it.
              *
-             * This API is only intended to be used by implementations of
-             * [struct`GLib`.Source]. Do not call this API on a [struct`GLib`.Source] that
-             * you did not create.
-             * @param child_source a second #GSource that @source should "poll"
+             * This API is only intended to be used by implementations of [struct`GLib`.Source].
+             * Do not call this API on a [struct`GLib`.Source] that you did not create.
+             * @param child_source a second source that @source should ‘poll’
              */
             add_child_source(child_source: Source): void;
             /**
              * Adds a file descriptor to the set of file descriptors polled for
-             * this source. This is usually combined with [ctor`GLib`.Source.new] to add an
-             * event source. The event source's check function will typically test
-             * the `revents` field in the #GPollFD struct and return %TRUE if events need
-             * to be processed.
+             * this source.
+             *
+             * This is usually combined with [ctor`GLib`.Source.new] to add an
+             * event source. The event source’s check function will typically test
+             * the `revents` field in the [struct`GLib`.PollFD] struct and return true if
+             * events need to be processed.
              *
              * This API is only intended to be used by implementations of [struct`GLib`.Source].
              * Do not call this API on a [struct`GLib`.Source] that you did not create.
              *
              * Using this API forces the linear scanning of event sources on each
              * main loop iteration.  Newly-written event sources should try to use
-             * `g_source_add_unix_fd` instead of this API.
-             * @param fd a #GPollFD structure holding information about a file      descriptor to watch.
+             * `g_source_add_unix_fd()` instead of this API.
+             * @param fd a [struct@GLib.PollFD] structure holding information about a file   descriptor to watch
              */
             add_poll(fd: PollFD): void;
             /**
              * Monitors `fd` for the IO events in `events`.
              *
              * The tag returned by this function can be used to remove or modify the
-             * monitoring of the fd using [method`GLib`.Source.remove_unix_fd] or
+             * monitoring of the `fd` using [method`GLib`.Source.remove_unix_fd] or
              * [method`GLib`.Source.modify_unix_fd].
              *
-             * It is not necessary to remove the fd before destroying the source; it
-             * will be cleaned up automatically.
+             * It is not necessary to remove the file descriptor before destroying the
+             * source; it will be cleaned up automatically.
              *
-             * This API is only intended to be used by implementations of #GSource.
-             * Do not call this API on a #GSource that you did not create.
+             * This API is only intended to be used by implementations of [struct`GLib`.Source].
+             * Do not call this API on a [struct`GLib`.Source] that you did not create.
              *
              * As the name suggests, this function is not available on Windows.
-             * @param fd the fd to monitor
+             * @param fd the file descriptor to monitor
              * @param events an event mask
              * @returns an opaque tag
              */
             add_unix_fd(fd: number, events: IOCondition | null): any;
             /**
              * Adds a [struct`GLib`.Source] to a `context` so that it will be executed within
-             * that context. Remove it by calling [method`GLib`.Source.destroy].
+             * that context.
+             *
+             * Remove it by calling [method`GLib`.Source.destroy].
              *
              * This function is safe to call from any thread, regardless of which thread
              * the `context` is running in.
-             * @param context a #GMainContext (if %NULL, the global-default   main context will be used)
-             * @returns the ID (greater than 0) for the source within the   #GMainContext.
+             * @param context a main context (if `NULL`, the global-default   main context will be used)
+             * @returns the ID (greater than 0) for the source within the   [struct@GLib.MainContext]
              */
             attach(context?: MainContext | null): number;
             /**
-             * Removes a source from its [struct`GLib`.MainContext], if any, and mark it as
-             * destroyed.  The source cannot be subsequently added to another
+             * Removes a source from its [struct`GLib`.MainContext], if any, and marks it as
+             * destroyed.
+             *
+             * The source cannot be subsequently added to another
              * context. It is safe to call this on sources which have already been
              * removed from their context.
              *
@@ -23879,14 +24319,25 @@ declare module 'gi://GLib?version=2.0' {
              *
              * If the source is currently attached to a [struct`GLib`.MainContext],
              * destroying it will effectively unset the callback similar to calling
-             * [method`GLib`.Source.set_callback]. This can mean, that the data's
-             * #GDestroyNotify gets called right away.
+             * [method`GLib`.Source.set_callback]. This can mean, that the data’s
+             * [callback`GLib`.DestroyNotify] gets called right away.
              */
             destroy(): void;
             /**
+             * Gets a reference to the [struct`GLib`.MainContext] with which the source is
+             * associated.
+             *
+             * You can call this on a source that has been destroyed. You can
+             * always call this function on the source returned from
+             * [func`GLib`.main_current_source].
+             * @returns the [struct@GLib.MainContext] with which   the source is associated, or `NULL` if the context has not yet been added   to a source
+             */
+            dup_context(): MainContext | null;
+            /**
              * Checks whether a source is allowed to be called recursively.
-             * see [method`GLib`.Source.set_can_recurse].
-             * @returns whether recursion is allowed.
+             *
+             * See [method`GLib`.Source.set_can_recurse].
+             * @returns whether recursion is allowed
              */
             get_can_recurse(): boolean;
             /**
@@ -23898,17 +24349,23 @@ declare module 'gi://GLib?version=2.0' {
              * always call this function on the source returned from
              * [func`GLib`.main_current_source]. But calling this function on a source
              * whose [struct`GLib`.MainContext] has been destroyed is an error.
-             * @returns the #GMainContext with which the               source is associated, or %NULL if the context has not               yet been added to a source.
+             *
+             * If the associated [struct`GLib`.MainContext] could be destroy concurrently from
+             * a different thread, then this function is not safe to call and
+             * [method`GLib`.Source.dup_context] should be used instead.
+             * @returns the main context with which the   source is associated, or `NULL` if the context has not yet been added to a   source
              */
             get_context(): MainContext | null;
             /**
              * This function ignores `source` and is otherwise the same as
              * [func`GLib`.get_current_time].
-             * @param timeval #GTimeVal structure in which to store current time.
+             * @param timeval [struct@GLib.TimeVal] structure in which to store current time
              */
             get_current_time(timeval: TimeVal): void;
             /**
-             * Returns the numeric ID for a particular source. The ID of a source
+             * Returns the numeric ID for a particular source.
+             *
+             * The ID of a source
              * is a positive integer which is unique within a particular main loop
              * context. The reverse mapping from ID to source is done by
              * [method`GLib`.MainContext.find_source_by_id].
@@ -23922,8 +24379,10 @@ declare module 'gi://GLib?version=2.0' {
              */
             get_id(): number;
             /**
-             * Gets a name for the source, used in debugging and profiling.  The
-             * name may be #NULL if it has never been set with [method`GLib`.Source.set_name].
+             * Gets a name for the source, used in debugging and profiling.
+             *
+             * The
+             * name may be `NULL` if it has never been set with [method`GLib`.Source.set_name].
              * @returns the name of the source
              */
             get_name(): string | null;
@@ -23933,16 +24392,18 @@ declare module 'gi://GLib?version=2.0' {
              */
             get_priority(): number;
             /**
-             * Gets the "ready time" of `source,` as set by
+             * Gets the ‘ready time’ of `source,` as set by
              * [method`GLib`.Source.set_ready_time].
              *
-             * Any time before or equal to the current monotonic time (including 0)
+             * Any time before or equal to the current monotonic time (including zero)
              * is an indication that the source will fire immediately.
-             * @returns the monotonic ready time, -1 for "never"
+             * @returns the monotonic ready time, `-1` for ‘never’
              */
             get_ready_time(): number;
             /**
-             * Gets the time to be used when checking this source. The advantage of
+             * Gets the time to be used when checking this source.
+             *
+             * The advantage of
              * calling this function over calling [func`GLib`.get_monotonic_time] directly is
              * that when checking multiple sources, GLib can cache a single value
              * instead of having to repeatedly get the system monotonic time.
@@ -23958,7 +24419,6 @@ declare module 'gi://GLib?version=2.0' {
              * This is important when you operate upon your objects
              * from within idle handlers, but may have freed the object
              * before the dispatch of your idle handler.
-             *
              *
              * ```c
              * static gboolean
@@ -24004,13 +24464,11 @@ declare module 'gi://GLib?version=2.0' {
              * }
              * ```
              *
-             *
              * This will fail in a multi-threaded application if the
              * widget is destroyed before the idle handler fires due
              * to the use after free in the callback. A solution, to
              * this particular problem, is to check to if the source
              * has already been destroy within the callback.
-             *
              *
              * ```c
              * static gboolean
@@ -24029,25 +24487,24 @@ declare module 'gi://GLib?version=2.0' {
              * }
              * ```
              *
-             *
              * Calls to this function from a thread other than the one acquired by the
-             * [struct`GLib`.MainContext] the #GSource is attached to are typically
+             * [struct`GLib`.MainContext] the [struct`GLib`.Source] is attached to are typically
              * redundant, as the source could be destroyed immediately after this function
              * returns. However, once a source is destroyed it cannot be un-destroyed, so
              * this function can be used for opportunistic checks from any thread.
-             * @returns %TRUE if the source has been destroyed
+             * @returns true if the source has been destroyed, false otherwise
              */
             is_destroyed(): boolean;
             /**
-             * Updates the event mask to watch for the fd identified by `tag`.
+             * Updates the event mask to watch for the file descriptor identified by `tag`.
              *
-             * `tag` is the tag returned from [method`GLib`.Source.add_unix_fd].
+             * The `tag` is the tag returned from [method`GLib`.Source.add_unix_fd].
              *
-             * If you want to remove a fd, don't set its event mask to zero.
+             * If you want to remove a file descriptor, don’t set its event mask to zero.
              * Instead, call [method`GLib`.Source.remove_unix_fd].
              *
-             * This API is only intended to be used by implementations of #GSource.
-             * Do not call this API on a #GSource that you did not create.
+             * This API is only intended to be used by implementations of [struct`GLib`.Source].
+             * Do not call this API on a [struct`GLib`.Source] that you did not create.
              *
              * As the name suggests, this function is not available on Windows.
              * @param tag the tag from [method@GLib.Source.add_unix_fd]
@@ -24055,18 +24512,18 @@ declare module 'gi://GLib?version=2.0' {
              */
             modify_unix_fd(tag: any, new_events: IOCondition | null): void;
             /**
-             * Queries the events reported for the fd corresponding to `tag` on
-             * `source` during the last poll.
+             * Queries the events reported for the file descriptor corresponding to `tag`
+             * on `source` during the last poll.
              *
              * The return value of this function is only defined when the function
              * is called from the check or dispatch functions for `source`.
              *
-             * This API is only intended to be used by implementations of #GSource.
-             * Do not call this API on a #GSource that you did not create.
+             * This API is only intended to be used by implementations of [struct`GLib`.Source].
+             * Do not call this API on a [struct`GLib`.Source] that you did not create.
              *
              * As the name suggests, this function is not available on Windows.
              * @param tag the tag from [method@GLib.Source.add_unix_fd]
-             * @returns the conditions reported on the fd
+             * @returns the conditions reported on the file descriptor
              */
             query_unix_fd(tag: any): IOCondition;
             /**
@@ -24077,9 +24534,9 @@ declare module 'gi://GLib?version=2.0' {
             /**
              * Detaches `child_source` from `source` and destroys it.
              *
-             * This API is only intended to be used by implementations of #GSource.
-             * Do not call this API on a #GSource that you did not create.
-             * @param child_source a #GSource previously passed to     [method@GLib.Source.add_child_source].
+             * This API is only intended to be used by implementations of [struct`GLib`.Source].
+             * Do not call this API on a [struct`GLib`.Source] that you did not create.
+             * @param child_source a source previously passed to   [method@GLib.Source.add_child_source]
              */
             remove_child_source(child_source: Source): void;
             /**
@@ -24088,18 +24545,18 @@ declare module 'gi://GLib?version=2.0' {
              *
              * This API is only intended to be used by implementations of [struct`GLib`.Source].
              * Do not call this API on a [struct`GLib`.Source] that you did not create.
-             * @param fd a #GPollFD structure previously passed to [method@GLib.Source.add_poll].
+             * @param fd a [struct@GLib.PollFD] structure previously passed to   [method@GLib.Source.add_poll]
              */
             remove_poll(fd: PollFD): void;
             /**
              * Reverses the effect of a previous call to [method`GLib`.Source.add_unix_fd].
              *
-             * You only need to call this if you want to remove an fd from being
+             * You only need to call this if you want to remove a file descriptor from being
              * watched while keeping the same source around.  In the normal case you
              * will just want to destroy the source.
              *
-             * This API is only intended to be used by implementations of #GSource.
-             * Do not call this API on a #GSource that you did not create.
+             * This API is only intended to be used by implementations of [struct`GLib`.Source].
+             * Do not call this API on a [struct`GLib`.Source] that you did not create.
              *
              * As the name suggests, this function is not available on Windows.
              * @param tag the tag from [method@GLib.Source.add_unix_fd]
@@ -24107,17 +24564,17 @@ declare module 'gi://GLib?version=2.0' {
             remove_unix_fd(tag: any): void;
             /**
              * Sets the callback function for a source. The callback for a source is
-             * called from the source's dispatch function.
+             * called from the source’s dispatch function.
              *
              * The exact type of `func` depends on the type of source; ie. you
              * should not count on `func` being called with `data` as its first
              * parameter. Cast `func` with [func`GLib`.SOURCE_FUNC] to avoid warnings about
              * incompatible function types.
              *
-             * See [mainloop memory management](main-loop.html#memory-management-of-sources) for details
+             * See [main loop memory management](main-loop.html#memory-management-of-sources) for details
              * on how to handle memory management of `data`.
              *
-             * Typically, you won't use this function. Instead use functions specific
+             * Typically, you won’t use this function. Instead use functions specific
              * to the type of source you are using, such as [func`GLib`.idle_add] or
              * [func`GLib`.timeout_add].
              *
@@ -24128,50 +24585,57 @@ declare module 'gi://GLib?version=2.0' {
              * Note that [method`GLib`.Source.destroy] for a currently attached source has the effect
              * of also unsetting the callback.
              * @param func a callback function
-             * @param notify a function to call when @data is no longer in use, or %NULL.
+             * @param notify a function to call when @data is no longer in use
              */
             set_callback(func: SourceFunc, notify?: DestroyNotify | null): void;
             /**
-             * Sets the callback function storing the data as a refcounted callback
-             * "object". This is used internally. Note that calling
+             * Sets the callback function storing the data as a reference counted callback
+             * ‘object’.
+             *
+             * This is used internally. Note that calling
              * [method`GLib`.Source.set_callback_indirect] assumes
              * an initial reference count on `callback_data,` and thus
-             * `callback_funcs->`unref will eventually be called once more
-             * than `callback_funcs->`ref.
+             * `callback_funcs->unref` will eventually be called once more than
+             * `callback_funcs->ref`.
              *
              * It is safe to call this function multiple times on a source which has already
              * been attached to a context. The changes will take effect for the next time
              * the source is dispatched after this call returns.
-             * @param callback_data pointer to callback data "object"
-             * @param callback_funcs functions for reference counting @callback_data                  and getting the callback and data
+             * @param callback_data pointer to callback data ‘object’
+             * @param callback_funcs functions for reference counting @callback_data   and getting the callback and data
              */
             set_callback_indirect(callback_data: any | null, callback_funcs: SourceCallbackFuncs): void;
             /**
-             * Sets whether a source can be called recursively. If `can_recurse` is
-             * %TRUE, then while the source is being dispatched then this source
-             * will be processed normally. Otherwise, all processing of this
+             * Sets whether a source can be called recursively.
+             *
+             * If `can_recurse` is true, then while the source is being dispatched then this
+             * source will be processed normally. Otherwise, all processing of this
              * source is blocked until the dispatch function returns.
              * @param can_recurse whether recursion is allowed for this source
              */
             set_can_recurse(can_recurse: boolean): void;
             /**
-             * Sets the source functions (can be used to override
-             * default implementations) of an unattached source.
-             * @param funcs the new #GSourceFuncs
+             * Sets the source functions of an unattached source.
+             *
+             * These can be used to override the default implementations for the type
+             * of `source`.
+             * @param funcs the new source functions
              */
             set_funcs(funcs: SourceFuncs): void;
             /**
              * Sets a name for the source, used in debugging and profiling.
-             * The name defaults to #NULL.
+             *
+             * The name defaults to `NULL`.
              *
              * The source name should describe in a human-readable way
-             * what the source does. For example, "X11 event queue"
-             * or "GTK repaint idle handler" or whatever it is.
+             * what the source does. For example, ‘X11 event queue’
+             * or ‘GTK repaint idle handler’.
              *
              * It is permitted to call this function multiple times, but is not
              * recommended due to the potential performance impact.  For example,
-             * one could change the name in the "check" function of a #GSourceFuncs
-             * to include details like the event type in the source name.
+             * one could change the name in the `check` function of a
+             * [struct`GLib`.SourceFuncs] to include details like the event type in the
+             * source name.
              *
              * Use caution if changing the name while another thread may be
              * accessing it with [method`GLib`.Source.get_name]; that function does not copy
@@ -24183,7 +24647,9 @@ declare module 'gi://GLib?version=2.0' {
              */
             set_name(name: string): void;
             /**
-             * Sets the priority of a source. While the main loop is being run, a
+             * Sets the priority of a source.
+             *
+             * While the main loop is being run, a
              * source will be dispatched if it is ready to be dispatched and no
              * sources at a higher (numerically smaller) priority are ready to be
              * dispatched.
@@ -24191,16 +24657,18 @@ declare module 'gi://GLib?version=2.0' {
              * A child source always has the same priority as its parent.  It is not
              * permitted to change the priority of a source once it has been added
              * as a child of another source.
-             * @param priority the new priority.
+             * @param priority the new priority
              */
             set_priority(priority: number): void;
             /**
-             * Sets a #GSource to be dispatched when the given monotonic time is
-             * reached (or passed).  If the monotonic time is in the past (as it
-             * always will be if `ready_time` is 0) then the source will be
+             * Sets a source to be dispatched when the given monotonic time is
+             * reached (or passed).
+             *
+             * If the monotonic time is in the past (as it
+             * always will be if `ready_time` is `0`) then the source will be
              * dispatched immediately.
              *
-             * If `ready_time` is -1 then the source is never woken up on the basis
+             * If `ready_time` is `-1` then the source is never woken up on the basis
              * of the passage of time.
              *
              * Dispatching the source does not reset the ready time.  You should do
@@ -24212,12 +24680,12 @@ declare module 'gi://GLib?version=2.0' {
              * for both sources is reached during the same main context iteration,
              * then the order of dispatch is undefined.
              *
-             * It is a no-op to call this function on a #GSource which has already been
-             * destroyed with [method`GLib`.Source.destroy].
+             * It is a no-op to call this function on a [struct`GLib`.Source] which has
+             * already been destroyed with [method`GLib`.Source.destroy].
              *
-             * This API is only intended to be used by implementations of #GSource.
-             * Do not call this API on a #GSource that you did not create.
-             * @param ready_time the monotonic time at which the source will be ready,              0 for "immediately", -1 for "never"
+             * This API is only intended to be used by implementations of [struct`GLib`.Source].
+             * Do not call this API on a [struct`GLib`.Source] that you did not create.
+             * @param ready_time the monotonic time at which the source will be ready;   `0` for ‘immediately’, `-1` for ‘never’
              */
             set_ready_time(ready_time: number): void;
             /**
@@ -24228,8 +24696,9 @@ declare module 'gi://GLib?version=2.0' {
              */
             set_static_name(name: string): void;
             /**
-             * Decreases the reference count of a source by one. If the
-             * resulting reference count is zero the source and associated
+             * Decreases the reference count of a source by one.
+             *
+             * If the resulting reference count is zero the source and associated
              * memory will be destroyed.
              */
             unref(): void;
@@ -24411,6 +24880,14 @@ declare module 'gi://GLib?version=2.0' {
              * @returns @string
              */
             assign(rval: string): String;
+            /**
+             * Copies the [struct`GLib`.String] instance and its contents.
+             *
+             * This will preserve the allocation length of the [struct`GLib`.String] in the
+             * copy.
+             * @returns a copy of @string
+             */
+            copy(): String;
             /**
              * Converts a #GString to lowercase.
              * @returns the #GString

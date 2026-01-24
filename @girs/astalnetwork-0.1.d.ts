@@ -183,6 +183,10 @@ declare module 'gi://AstalNetwork?version=0.1' {
              */
             $signals: AccessPoint.SignalSignatures;
 
+            // Fields
+
+            ap: NM.AccessPoint;
+
             // Constructors
 
             constructor(properties?: Partial<AccessPoint.ConstructorProps>, ...args: any[]);
@@ -341,6 +345,8 @@ declare module 'gi://AstalNetwork?version=0.1' {
         namespace Wifi {
             // Signal signatures
             interface SignalSignatures extends GObject.Object.SignalSignatures {
+                'access-point-added': (arg0: AccessPoint) => void;
+                'access-point-removed': (arg0: AccessPoint) => void;
                 'state-changed': (arg0: DeviceState, arg1: DeviceState, arg2: NM.DeviceStateReason) => void;
                 'notify::device': (pspec: GObject.ParamSpec) => void;
                 'notify::active-connection': (pspec: GObject.ParamSpec) => void;

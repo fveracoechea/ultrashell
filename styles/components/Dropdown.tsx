@@ -1,7 +1,5 @@
 import { Accessor, createState, State, With } from "ags";
-import { Astal, Gdk, Gtk } from "ags/gtk4";
-import Graphene from "gi://Graphene";
-import app from "ags/gtk4/app";
+import { Gtk } from "ags/gtk4";
 
 type DropdownHeaderProps = {
   name: string | Accessor<string>;

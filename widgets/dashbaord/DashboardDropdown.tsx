@@ -89,7 +89,7 @@ const UtilsActions = {
 } as const;
 
 type UtilsActionProps = {
-  type: keyof (typeof UtilsActionBtn);
+  type: keyof (typeof UtilsActions);
   onClicked?: () => void;
 };
 
