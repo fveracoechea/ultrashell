@@ -1109,10 +1109,15 @@ declare module 'gi://NM?version=1.0' {
              */
             UNMANAGED_QUITTING,
             /**
-             * The device is unmanaged because networking is
-             *   disabled or the system is suspended. Since: 1.48
+             * Since: 1.48. Deprecated: 1.56: Use
+             *   %NM_DEVICE_STATE_REASON_UNMANAGED_MANAGER_DISABLED instead.
              */
             UNMANAGED_SLEEPING,
+            /**
+             * The device is unmanaged because networking is
+             *   disabled or the system is suspended. Since: 1.56
+             */
+            UNMANAGED_MANAGER_DISABLED,
             /**
              * The device is unmanaged by user decision in
              *   NetworkManager.conf ('unmanaged' in a [device*] section). Since: 1.48
@@ -1133,6 +1138,10 @@ declare module 'gi://NM?version=1.0' {
              * The device is unmanaged via udev rule. Since: 1.48
              */
             UNMANAGED_USER_UDEV,
+            /**
+             * NetworkManager was disabled (networking off). Since: 1.56
+             */
+            NETWORKING_OFF,
         }
         /**
          * #NMDeviceType values indicate the type of hardware represented by a
@@ -1998,6 +2007,31 @@ declare module 'gi://NM?version=1.0' {
             IN_B_DEFAULT,
         }
         /**
+         * #NMSettingHsrProtocolVersion values indicate the HSR protocol version.
+         */
+
+        /**
+         * #NMSettingHsrProtocolVersion values indicate the HSR protocol version.
+         */
+        export namespace SettingHsrProtocolVersion {
+            export const $gtype: GObject.GType<SettingHsrProtocolVersion>;
+        }
+
+        enum SettingHsrProtocolVersion {
+            /**
+             * Default version for the protocol
+             */
+            DEFAULT,
+            /**
+             * HSRv0, IEC 62439-3:2010
+             */
+            HSR_2010,
+            /**
+             * HSRv1, IEC 62439-3:2012
+             */
+            HSR_2012,
+        }
+        /**
          * #NMSettingIP4DhcpIpv6OnlyPreferred values specify if the "IPv6-Only Preferred"
          * option (RFC 8925) for DHCPv4 is enabled.
          */
@@ -2131,6 +2165,40 @@ declare module 'gi://NM?version=1.0' {
              * are enabled and temporary addresses are preferred over public addresses
              */
             PREFER_TEMP_ADDR,
+        }
+        /**
+         * #NMSettingIPConfigForwarding indicates whether to configure sysctl
+         * interface-specific forwarding. When enabled, the interface will act
+         * as a router to forward the packet from one interface to another.
+         */
+
+        /**
+         * #NMSettingIPConfigForwarding indicates whether to configure sysctl
+         * interface-specific forwarding. When enabled, the interface will act
+         * as a router to forward the packet from one interface to another.
+         */
+        export namespace SettingIPConfigForwarding {
+            export const $gtype: GObject.GType<SettingIPConfigForwarding>;
+        }
+
+        enum SettingIPConfigForwarding {
+            /**
+             * use the global default value
+             */
+            DEFAULT,
+            /**
+             * disable forwarding
+             */
+            NO,
+            /**
+             * enable forwarding
+             */
+            YES,
+            /**
+             * enable forwarding if any shared
+             *  connection is active, use kernel default otherwise
+             */
+            AUTO,
         }
         /**
          * #NMSettingIPConfigRoutedDns indicates whether routes are added
@@ -2319,6 +2387,33 @@ declare module 'gi://NM?version=1.0' {
              * source mode
              */
             SOURCE,
+        }
+        /**
+         * #NMSettingOvsDpdkLscInterrupt indicates whether the interface uses interrupts
+         * or poll mode for Link State Change (LSC) detection on the OVS DPDK interface.
+         */
+
+        /**
+         * #NMSettingOvsDpdkLscInterrupt indicates whether the interface uses interrupts
+         * or poll mode for Link State Change (LSC) detection on the OVS DPDK interface.
+         */
+        export namespace SettingOvsDpdkLscInterrupt {
+            export const $gtype: GObject.GType<SettingOvsDpdkLscInterrupt>;
+        }
+
+        enum SettingOvsDpdkLscInterrupt {
+            /**
+             * leave the value set to Open vSwitch default
+             */
+            IGNORE,
+            /**
+             * interrupt disabled (poll mode)
+             */
+            DISABLED,
+            /**
+             * interrupt enabled
+             */
+            ENABLED,
         }
         /**
          * The Proxy method.
@@ -2640,6 +2735,27 @@ declare module 'gi://NM?version=1.0' {
              */
             SWITCHDEV,
         }
+
+        export namespace SriovPreserveOnDown {
+            export const $gtype: GObject.GType<SriovPreserveOnDown>;
+        }
+
+        enum SriovPreserveOnDown {
+            /**
+             * use the default value
+             */
+            DEFAULT,
+            /**
+             * reset the SR-IOV parameters when the
+             *     connection is deactivated
+             */
+            NO,
+            /**
+             * preserve the SR-IOV parameters set on
+             * the device when the connection is deactivated
+             */
+            YES,
+        }
         /**
          * #NMSriovVFVlanProtocol indicates the VLAN protocol to use.
          */
@@ -2683,10 +2799,15 @@ declare module 'gi://NM?version=1.0' {
              */
             UNKNOWN,
             /**
-             * Networking is not enabled, the system is being suspended or
-             *    resumed from suspend.
+             * Deprecated: 1.56: Use %NM_STATE_DISABLED instead.
              */
             ASLEEP,
+            /**
+             * NetworkManager is disabled, either because the user requested
+             *    to disable networking or because the system is suspended or resuming from suspend.
+             *    Since: 1.56.
+             */
+            DISABLED,
             /**
              * There is no active network connection.
              *    The graphical shell should indicate  no network connectivity and the
@@ -2837,7 +2958,17 @@ declare module 'gi://NM?version=1.0' {
              *   https://issues.redhat.com/browse/RHEL-66262
              *   https://issues.redhat.com/browse/RHEL-67324
              */
-            TABLE,
+            SYNC_ROUTE_WITH_TABLE,
+            /**
+             * Indicates that NetworkManager supports
+             * configuring per-device IPv4 sysctl forwarding setting. Since: 1.54.
+             */
+            IP4_FORWARDING,
+            /**
+             * NetworkManager supports the
+             *   "sriov.preserve-on-down" property. Since: 1.54
+             */
+            SRIOV_PRESERVE_ON_DOWN,
         }
         /**
          * A selector for traffic priority maps; these map Linux SKB priorities
@@ -3942,9 +4073,11 @@ declare module 'gi://NM?version=1.0' {
         const SETTING_HOSTNAME_ONLY_FROM_DEFAULT: string;
         const SETTING_HOSTNAME_PRIORITY: string;
         const SETTING_HOSTNAME_SETTING_NAME: string;
+        const SETTING_HSR_INTERLINK: string;
         const SETTING_HSR_MULTICAST_SPEC: string;
         const SETTING_HSR_PORT1: string;
         const SETTING_HSR_PORT2: string;
+        const SETTING_HSR_PROTOCOL_VERSION: string;
         const SETTING_HSR_PRP: string;
         const SETTING_HSR_SETTING_NAME: string;
         const SETTING_INFINIBAND_MAC_ADDRESS: string;
@@ -4060,6 +4193,7 @@ declare module 'gi://NM?version=1.0' {
         const SETTING_IP_CONFIG_DNS_OPTIONS: string;
         const SETTING_IP_CONFIG_DNS_PRIORITY: string;
         const SETTING_IP_CONFIG_DNS_SEARCH: string;
+        const SETTING_IP_CONFIG_FORWARDING: string;
         const SETTING_IP_CONFIG_GATEWAY: string;
         const SETTING_IP_CONFIG_IGNORE_AUTO_DNS: string;
         const SETTING_IP_CONFIG_IGNORE_AUTO_ROUTES: string;
@@ -4132,6 +4266,7 @@ declare module 'gi://NM?version=1.0' {
         const SETTING_OVS_BRIDGE_SETTING_NAME: string;
         const SETTING_OVS_BRIDGE_STP_ENABLE: string;
         const SETTING_OVS_DPDK_DEVARGS: string;
+        const SETTING_OVS_DPDK_LSC_INTERRUPT: string;
         const SETTING_OVS_DPDK_N_RXQ: string;
         const SETTING_OVS_DPDK_N_RXQ_DESC: string;
         const SETTING_OVS_DPDK_N_TXQ_DESC: string;
@@ -4181,6 +4316,8 @@ declare module 'gi://NM?version=1.0' {
         const SETTING_PPP_REQUIRE_MPPE: string;
         const SETTING_PPP_REQUIRE_MPPE_128: string;
         const SETTING_PPP_SETTING_NAME: string;
+        const SETTING_PREFIX_DELEGATION_SETTING_NAME: string;
+        const SETTING_PREFIX_DELEGATION_SUBNET_ID: string;
         const SETTING_PROXY_BROWSER_ONLY: string;
         const SETTING_PROXY_METHOD: string;
         const SETTING_PROXY_PAC_SCRIPT: string;
@@ -4196,6 +4333,7 @@ declare module 'gi://NM?version=1.0' {
         const SETTING_SRIOV_ESWITCH_ENCAP_MODE: string;
         const SETTING_SRIOV_ESWITCH_INLINE_MODE: string;
         const SETTING_SRIOV_ESWITCH_MODE: string;
+        const SETTING_SRIOV_PRESERVE_ON_DOWN: string;
         const SETTING_SRIOV_SETTING_NAME: string;
         const SETTING_SRIOV_TOTAL_VFS: string;
         const SETTING_SRIOV_VFS: string;
@@ -4665,6 +4803,19 @@ declare module 'gi://NM?version=1.0' {
             virtual_type: GObject.GType,
             other_type: GObject.GType,
         ): boolean;
+        /**
+         * Reads `filename` on behalf of user `user` and writes the
+         * content to a new file in /run/NetworkManager/cert/.
+         * The new file has permission 600 and is owned by root.
+         *
+         * This function is useful for VPN plugins that run as root and need
+         * to verify that the user owning the connection (the one listed in the
+         * connection.permissions property) can access the file.
+         * @param filename the file name of the certificate or key to copy
+         * @param user the user to impersonate when reading the file
+         * @returns the name of the new temporary file. Or %NULL   if an error occurred, including when the given user can't access the   file.
+         */
+        function utils_copy_cert_as_user(filename: string, user: string): string;
         /**
          * This ensures that all NMSetting GTypes are created. For example,
          * after this call, g_type_from_name("NMSettingConnection") will work.
@@ -5654,7 +5805,7 @@ declare module 'gi://NM?version=1.0' {
              *   checkpoints is allowed, however, if an older checkpoint
              *   that references overlapping devices gets rolled back, it will
              *   automatically destroy this checkpoint during rollback. This
-             *   allows to create several overlapping checkpoints in parallel,
+             *   allows one to create several overlapping checkpoints in parallel,
              *   and rollback to them at will. With the special case that
              *   rolling back to an older checkpoint will invalidate all
              *   overlapping younger checkpoints. This opts-in that the
@@ -10924,7 +11075,7 @@ declare module 'gi://NM?version=1.0' {
              * Attempts to update device with changes to the currently active connection
              * made since it was last applied.
              * @param connection the #NMConnection to replace the applied   settings with or %NULL to reuse existing
-             * @param version_id zero or the expected version id of the applied connection.   If specified and the version id mismatches, the call fails without   modification. This allows to catch concurrent accesses.
+             * @param version_id zero or the expected version id of the applied connection.   If specified and the version id mismatches, the call fails without   modification. This allows one to catch concurrent accesses.
              * @param flags always set this to zero
              * @param cancellable a #GCancellable, or %NULL
              * @returns %TRUE on success, %FALSE on error, in which case @error will be set.
@@ -10939,7 +11090,7 @@ declare module 'gi://NM?version=1.0' {
              * Asynchronously begins an attempt to update device with changes to the
              * currently active connection made since it was last applied.
              * @param connection the #NMConnection to replace the applied   settings with or %NULL to reuse existing
-             * @param version_id zero or the expected version id of the applied   connection. If specified and the version id mismatches, the call   fails without modification. This allows to catch concurrent   accesses.
+             * @param version_id zero or the expected version id of the applied   connection. If specified and the version id mismatches, the call   fails without modification. This allows one to catch concurrent   accesses.
              * @param flags always set this to zero
              * @param cancellable a #GCancellable, or %NULL
              */
@@ -10953,7 +11104,7 @@ declare module 'gi://NM?version=1.0' {
              * Asynchronously begins an attempt to update device with changes to the
              * currently active connection made since it was last applied.
              * @param connection the #NMConnection to replace the applied   settings with or %NULL to reuse existing
-             * @param version_id zero or the expected version id of the applied   connection. If specified and the version id mismatches, the call   fails without modification. This allows to catch concurrent   accesses.
+             * @param version_id zero or the expected version id of the applied   connection. If specified and the version id mismatches, the call   fails without modification. This allows one to catch concurrent   accesses.
              * @param flags always set this to zero
              * @param cancellable a #GCancellable, or %NULL
              * @param callback callback to be called when the reapply operation completes
@@ -10969,7 +11120,7 @@ declare module 'gi://NM?version=1.0' {
              * Asynchronously begins an attempt to update device with changes to the
              * currently active connection made since it was last applied.
              * @param connection the #NMConnection to replace the applied   settings with or %NULL to reuse existing
-             * @param version_id zero or the expected version id of the applied   connection. If specified and the version id mismatches, the call   fails without modification. This allows to catch concurrent   accesses.
+             * @param version_id zero or the expected version id of the applied   connection. If specified and the version id mismatches, the call   fails without modification. This allows one to catch concurrent   accesses.
              * @param flags always set this to zero
              * @param cancellable a #GCancellable, or %NULL
              * @param callback callback to be called when the reapply operation completes
@@ -21799,7 +21950,7 @@ declare module 'gi://NM?version=1.0' {
             set slaveType(val: string);
             /**
              * This represents the identity of the connection used for various purposes.
-             * It allows to configure multiple profiles to share the identity. Also,
+             * It allows configuring multiple profiles to share the identity. Also,
              * the stable-id can contain placeholders that are substituted dynamically and
              * deterministically depending on the context.
              *
@@ -21841,7 +21992,7 @@ declare module 'gi://NM?version=1.0' {
             set stable_id(val: string);
             /**
              * This represents the identity of the connection used for various purposes.
-             * It allows to configure multiple profiles to share the identity. Also,
+             * It allows configuring multiple profiles to share the identity. Also,
              * the stable-id can contain placeholders that are substituted dynamically and
              * deterministically depending on the context.
              *
@@ -23484,9 +23635,11 @@ declare module 'gi://NM?version=1.0' {
         namespace SettingHsr {
             // Signal signatures
             interface SignalSignatures extends Setting.SignalSignatures {
+                'notify::interlink': (pspec: GObject.ParamSpec) => void;
                 'notify::multicast-spec': (pspec: GObject.ParamSpec) => void;
                 'notify::port1': (pspec: GObject.ParamSpec) => void;
                 'notify::port2': (pspec: GObject.ParamSpec) => void;
+                'notify::protocol-version': (pspec: GObject.ParamSpec) => void;
                 'notify::prp': (pspec: GObject.ParamSpec) => void;
                 'notify::name': (pspec: GObject.ParamSpec) => void;
             }
@@ -23494,10 +23647,13 @@ declare module 'gi://NM?version=1.0' {
             // Constructor properties interface
 
             interface ConstructorProps extends Setting.ConstructorProps {
+                interlink: string;
                 multicast_spec: number;
                 multicastSpec: number;
                 port1: string;
                 port2: string;
+                protocol_version: number;
+                protocolVersion: number;
                 prp: boolean;
             }
         }
@@ -23510,6 +23666,11 @@ declare module 'gi://NM?version=1.0' {
 
             // Properties
 
+            /**
+             * The optional interlink port name of the HSR interface.
+             */
+            get interlink(): string;
+            set interlink(val: string);
             /**
              * The last byte of supervision address.
              */
@@ -23530,6 +23691,22 @@ declare module 'gi://NM?version=1.0' {
              */
             get port2(): string;
             set port2(val: string);
+            /**
+             * Configures the protocol version to be used for the HSR/PRP interface.
+             * %NM_SETTING_HSR_PROTOCOL_VERSION_DEFAULT sets the protocol version to the default version for the protocol.
+             * %NM_SETTING_HSR_PROTOCOL_VERSION_HSR_2010 sets the protocol version to HSRv0 (IEC 62439-3:2010).
+             * %NM_SETTING_HSR_PROTOCOL_VERSION_HSR_2012 sets the protocol version to HSRv1 (IEC 62439-3:2012).
+             */
+            get protocol_version(): number;
+            set protocol_version(val: number);
+            /**
+             * Configures the protocol version to be used for the HSR/PRP interface.
+             * %NM_SETTING_HSR_PROTOCOL_VERSION_DEFAULT sets the protocol version to the default version for the protocol.
+             * %NM_SETTING_HSR_PROTOCOL_VERSION_HSR_2010 sets the protocol version to HSRv0 (IEC 62439-3:2010).
+             * %NM_SETTING_HSR_PROTOCOL_VERSION_HSR_2012 sets the protocol version to HSRv1 (IEC 62439-3:2012).
+             */
+            get protocolVersion(): number;
+            set protocolVersion(val: number);
             /**
              * The protocol used by the interface, whether it is PRP or HSR.
              */
@@ -23573,9 +23750,11 @@ declare module 'gi://NM?version=1.0' {
 
             // Methods
 
+            get_interlink(): string;
             get_multicast_spec(): number;
             get_port1(): string;
             get_port2(): string;
+            get_protocol_version(): SettingHsrProtocolVersion;
             get_prp(): boolean;
         }
 
@@ -23603,6 +23782,7 @@ declare module 'gi://NM?version=1.0' {
                 'notify::dns-options': (pspec: GObject.ParamSpec) => void;
                 'notify::dns-priority': (pspec: GObject.ParamSpec) => void;
                 'notify::dns-search': (pspec: GObject.ParamSpec) => void;
+                'notify::forwarding': (pspec: GObject.ParamSpec) => void;
                 'notify::gateway': (pspec: GObject.ParamSpec) => void;
                 'notify::ignore-auto-dns': (pspec: GObject.ParamSpec) => void;
                 'notify::ignore-auto-routes': (pspec: GObject.ParamSpec) => void;
@@ -23926,6 +24106,7 @@ declare module 'gi://NM?version=1.0' {
                 'notify::dns-options': (pspec: GObject.ParamSpec) => void;
                 'notify::dns-priority': (pspec: GObject.ParamSpec) => void;
                 'notify::dns-search': (pspec: GObject.ParamSpec) => void;
+                'notify::forwarding': (pspec: GObject.ParamSpec) => void;
                 'notify::gateway': (pspec: GObject.ParamSpec) => void;
                 'notify::ignore-auto-dns': (pspec: GObject.ParamSpec) => void;
                 'notify::ignore-auto-routes': (pspec: GObject.ParamSpec) => void;
@@ -24364,6 +24545,7 @@ declare module 'gi://NM?version=1.0' {
                 'notify::dns-options': (pspec: GObject.ParamSpec) => void;
                 'notify::dns-priority': (pspec: GObject.ParamSpec) => void;
                 'notify::dns-search': (pspec: GObject.ParamSpec) => void;
+                'notify::forwarding': (pspec: GObject.ParamSpec) => void;
                 'notify::gateway': (pspec: GObject.ParamSpec) => void;
                 'notify::ignore-auto-dns': (pspec: GObject.ParamSpec) => void;
                 'notify::ignore-auto-routes': (pspec: GObject.ParamSpec) => void;
@@ -24414,6 +24596,7 @@ declare module 'gi://NM?version=1.0' {
                 dnsPriority: number;
                 dns_search: string[];
                 dnsSearch: string[];
+                forwarding: number;
                 gateway: string;
                 ignore_auto_dns: boolean;
                 ignoreAutoDns: boolean;
@@ -24949,6 +25132,22 @@ declare module 'gi://NM?version=1.0' {
             get dnsSearch(): string[];
             set dnsSearch(val: string[]);
             /**
+             * Whether to configure sysctl interface-specific forwarding. When enabled, the interface
+             * will act as a router to forward the packet from one interface to another. When set to
+             * %NM_SETTING_IP_CONFIG_FORWARDING_DEFAULT, the value from global configuration is used;
+             * if no global default is defined, %NM_SETTING_IP_CONFIG_FORWARDING_AUTO will be used.
+             * The #NMSettingIPConfig:forwarding property is ignored when #NMSettingIPConfig:method
+             * is set to "shared", because forwarding is always enabled in this case.
+             * The accepted values are:
+             *   %NM_SETTING_IP_CONFIG_FORWARDING_DEFAULT: use global default.
+             *   %NM_SETTING_IP_CONFIG_FORWARDING_NO: disabled.
+             *   %NM_SETTING_IP_CONFIG_FORWARDING_YES: enabled.
+             *   %NM_SETTING_IP_CONFIG_FORWARDING_AUTO: enable if any shared connection is active,
+             *        use kernel default otherwise.
+             */
+            get forwarding(): number;
+            set forwarding(val: number);
+            /**
              * The gateway associated with this configuration. This is only meaningful
              * if #NMSettingIPConfig:addresses is also set.
              *
@@ -25422,6 +25621,7 @@ declare module 'gi://NM?version=1.0' {
              * @returns the DNS search domain at index @idx
              */
             get_dns_search(idx: number): string;
+            get_forwarding(): SettingIPConfigForwarding;
             get_gateway(): string;
             /**
              * Returns the value contained in the #NMSettingIPConfig:ignore-auto-dns
@@ -26829,7 +27029,7 @@ declare module 'gi://NM?version=1.0' {
             clear_paths(): void;
             /**
              * Since 1.46, access at index "len" is allowed and returns NULL.
-             * @param idx index number of the DNS search domain to return
+             * @param idx index number of the driver to return
              * @returns the driver at index @idx
              */
             get_driver(idx: number): string;
@@ -26856,8 +27056,8 @@ declare module 'gi://NM?version=1.0' {
              */
             get_kernel_command_line(idx: number): string;
             /**
-             * Returns all the interface names.
-             * @returns the configured interface names.
+             * Returns all the kernel command line arguments.
+             * @returns the configured kernel command    line arguments.
              */
             get_kernel_command_lines(): string[];
             get_num_drivers(): number;
@@ -27157,6 +27357,7 @@ declare module 'gi://NM?version=1.0' {
             // Signal signatures
             interface SignalSignatures extends Setting.SignalSignatures {
                 'notify::devargs': (pspec: GObject.ParamSpec) => void;
+                'notify::lsc-interrupt': (pspec: GObject.ParamSpec) => void;
                 'notify::n-rxq': (pspec: GObject.ParamSpec) => void;
                 'notify::n-rxq-desc': (pspec: GObject.ParamSpec) => void;
                 'notify::n-txq-desc': (pspec: GObject.ParamSpec) => void;
@@ -27167,6 +27368,8 @@ declare module 'gi://NM?version=1.0' {
 
             interface ConstructorProps extends Setting.ConstructorProps {
                 devargs: string;
+                lsc_interrupt: number;
+                lscInterrupt: number;
                 n_rxq: number;
                 nRxq: number;
                 n_rxq_desc: number;
@@ -27189,6 +27392,26 @@ declare module 'gi://NM?version=1.0' {
              */
             get devargs(): string;
             set devargs(val: string);
+            /**
+             * Configures the Link State Change (LSC) detection mode for the OVS DPDK interface.
+             * When set to %NM_SETTING_OVS_DPDK_LSC_INTERRUPT_IGNORE, NetworkManager doesn't
+             * change the default value configured by Open vSwitch.
+             * %NM_SETTING_OVS_DPDK_LSC_INTERRUPT_ENABLED enables interrupts.
+             * %NM_SETTING_OVS_DPDK_LSC_INTERRUPT_DISABLED disables interrupts, thus setting the
+             * interface in poll mode.
+             */
+            get lsc_interrupt(): number;
+            set lsc_interrupt(val: number);
+            /**
+             * Configures the Link State Change (LSC) detection mode for the OVS DPDK interface.
+             * When set to %NM_SETTING_OVS_DPDK_LSC_INTERRUPT_IGNORE, NetworkManager doesn't
+             * change the default value configured by Open vSwitch.
+             * %NM_SETTING_OVS_DPDK_LSC_INTERRUPT_ENABLED enables interrupts.
+             * %NM_SETTING_OVS_DPDK_LSC_INTERRUPT_DISABLED disables interrupts, thus setting the
+             * interface in poll mode.
+             */
+            get lscInterrupt(): number;
+            set lscInterrupt(val: number);
             /**
              * Open vSwitch DPDK number of rx queues.
              * Defaults to zero which means to leave the parameter in OVS unspecified
@@ -27278,6 +27501,7 @@ declare module 'gi://NM?version=1.0' {
             // Methods
 
             get_devargs(): string;
+            get_lsc_interrupt(): SettingOvsDpdkLscInterrupt;
             get_n_rxq(): number;
             get_n_rxq_desc(): number;
             get_n_txq_desc(): number;
@@ -28202,6 +28426,88 @@ declare module 'gi://NM?version=1.0' {
             get_username(): string;
         }
 
+        namespace SettingPrefixDelegation {
+            // Signal signatures
+            interface SignalSignatures extends Setting.SignalSignatures {
+                'notify::subnet-id': (pspec: GObject.ParamSpec) => void;
+                'notify::name': (pspec: GObject.ParamSpec) => void;
+            }
+
+            // Constructor properties interface
+
+            interface ConstructorProps extends Setting.ConstructorProps {
+                subnet_id: number;
+                subnetId: number;
+            }
+        }
+
+        /**
+         * IPv6 prefix delegation settings
+         */
+        class SettingPrefixDelegation extends Setting {
+            static $gtype: GObject.GType<SettingPrefixDelegation>;
+
+            // Properties
+
+            /**
+             * The subnet ID to use on the interface from the prefix delegation received via
+             * an upstream interface. Set to a value between 0 and 0xffffffff (2^32 - 1)
+             * to indicate a specific subnet ID; or set to -1 to automatically choose
+             * an available subnet ID.
+             */
+            get subnet_id(): number;
+            set subnet_id(val: number);
+            /**
+             * The subnet ID to use on the interface from the prefix delegation received via
+             * an upstream interface. Set to a value between 0 and 0xffffffff (2^32 - 1)
+             * to indicate a specific subnet ID; or set to -1 to automatically choose
+             * an available subnet ID.
+             */
+            get subnetId(): number;
+            set subnetId(val: number);
+
+            /**
+             * Compile-time signal type information.
+             *
+             * This instance property is generated only for TypeScript type checking.
+             * It is not defined at runtime and should not be accessed in JS code.
+             * @internal
+             */
+            $signals: SettingPrefixDelegation.SignalSignatures;
+
+            // Constructors
+
+            constructor(properties?: Partial<SettingPrefixDelegation.ConstructorProps>, ...args: any[]);
+
+            _init(...args: any[]): void;
+
+            static ['new'](): SettingPrefixDelegation;
+
+            // Signals
+
+            connect<K extends keyof SettingPrefixDelegation.SignalSignatures>(
+                signal: K,
+                callback: GObject.SignalCallback<this, SettingPrefixDelegation.SignalSignatures[K]>,
+            ): number;
+            connect(signal: string, callback: (...args: any[]) => any): number;
+            connect_after<K extends keyof SettingPrefixDelegation.SignalSignatures>(
+                signal: K,
+                callback: GObject.SignalCallback<this, SettingPrefixDelegation.SignalSignatures[K]>,
+            ): number;
+            connect_after(signal: string, callback: (...args: any[]) => any): number;
+            emit<K extends keyof SettingPrefixDelegation.SignalSignatures>(
+                signal: K,
+                ...args: GObject.GjsParameters<SettingPrefixDelegation.SignalSignatures[K]> extends [any, ...infer Q]
+                    ? Q
+                    : never
+            ): void;
+            emit(signal: string, ...args: any[]): void;
+
+            // Methods
+
+            get_subnet_id(): number;
+        }
+
         namespace SettingProxy {
             // Signal signatures
             interface SignalSignatures extends Setting.SignalSignatures {
@@ -28436,6 +28742,7 @@ declare module 'gi://NM?version=1.0' {
                 'notify::eswitch-encap-mode': (pspec: GObject.ParamSpec) => void;
                 'notify::eswitch-inline-mode': (pspec: GObject.ParamSpec) => void;
                 'notify::eswitch-mode': (pspec: GObject.ParamSpec) => void;
+                'notify::preserve-on-down': (pspec: GObject.ParamSpec) => void;
                 'notify::total-vfs': (pspec: GObject.ParamSpec) => void;
                 'notify::vfs': (pspec: GObject.ParamSpec) => void;
                 'notify::name': (pspec: GObject.ParamSpec) => void;
@@ -28452,6 +28759,8 @@ declare module 'gi://NM?version=1.0' {
                 eswitchInlineMode: number;
                 eswitch_mode: number;
                 eswitchMode: number;
+                preserve_on_down: number;
+                preserveOnDown: number;
                 total_vfs: number;
                 totalVfs: number;
                 vfs: SriovVF[];
@@ -28567,6 +28876,38 @@ declare module 'gi://NM?version=1.0' {
             get eswitchMode(): number;
             set eswitchMode(val: number);
             /**
+             * This controls whether NetworkManager preserves the SR-IOV parameters set on
+             * the device when the connection is deactivated, or whether it resets them to
+             * their default value. The SR-IOV parameters are those specified in this setting
+             * (the "sriov" setting), like the number of VFs to create, the eswitch
+             * configuration, etc.
+             *
+             * If set to %NM_SRIOV_PRESERVE_ON_DOWN_NO, NetworkManager resets the SR-IOV
+             * parameters when the connection is deactivated. When set to
+             * %NM_SRIOV_PRESERVE_ON_DOWN_YES, NetworkManager preserves those parameters
+             * on the device. If the value is %NM_SRIOV_PRESERVE_ON_DOWN_DEFAULT, NetworkManager
+             * looks up a global default value in the configuration; in case no such value is
+             * defined, it uses %NM_SRIOV_PRESERVE_ON_DOWN_NO as fallback.
+             */
+            get preserve_on_down(): number;
+            set preserve_on_down(val: number);
+            /**
+             * This controls whether NetworkManager preserves the SR-IOV parameters set on
+             * the device when the connection is deactivated, or whether it resets them to
+             * their default value. The SR-IOV parameters are those specified in this setting
+             * (the "sriov" setting), like the number of VFs to create, the eswitch
+             * configuration, etc.
+             *
+             * If set to %NM_SRIOV_PRESERVE_ON_DOWN_NO, NetworkManager resets the SR-IOV
+             * parameters when the connection is deactivated. When set to
+             * %NM_SRIOV_PRESERVE_ON_DOWN_YES, NetworkManager preserves those parameters
+             * on the device. If the value is %NM_SRIOV_PRESERVE_ON_DOWN_DEFAULT, NetworkManager
+             * looks up a global default value in the configuration; in case no such value is
+             * defined, it uses %NM_SRIOV_PRESERVE_ON_DOWN_NO as fallback.
+             */
+            get preserveOnDown(): number;
+            set preserveOnDown(val: number);
+            /**
              * The total number of virtual functions to create.
              *
              * Note that when the sriov setting is present NetworkManager
@@ -28675,6 +29016,7 @@ declare module 'gi://NM?version=1.0' {
             get_eswitch_inline_mode(): SriovEswitchInlineMode;
             get_eswitch_mode(): SriovEswitchMode;
             get_num_vfs(): number;
+            get_preserve_on_down(): SriovPreserveOnDown;
             /**
              * Returns the value contained in the #NMSettingSriov:total-vfs
              * property.
@@ -31034,7 +31376,7 @@ declare module 'gi://NM?version=1.0' {
             /**
              * With #NMSettingWired:cloned-mac-address setting "random" or "stable",
              * by default all bits of the MAC address are scrambled and a locally-administered,
-             * unicast MAC address is created. This property allows to specify that certain bits
+             * unicast MAC address is created. This property allows one to specify that certain bits
              * are fixed. Note that the least significant bit of the first MAC address will
              * always be unset to create a unicast MAC address.
              *
@@ -31066,7 +31408,7 @@ declare module 'gi://NM?version=1.0' {
             /**
              * With #NMSettingWired:cloned-mac-address setting "random" or "stable",
              * by default all bits of the MAC address are scrambled and a locally-administered,
-             * unicast MAC address is created. This property allows to specify that certain bits
+             * unicast MAC address is created. This property allows one to specify that certain bits
              * are fixed. Note that the least significant bit of the first MAC address will
              * always be unset to create a unicast MAC address.
              *
@@ -31667,7 +32009,7 @@ declare module 'gi://NM?version=1.0' {
             /**
              * With #NMSettingWireless:cloned-mac-address setting "random" or "stable",
              * by default all bits of the MAC address are scrambled and a locally-administered,
-             * unicast MAC address is created. This property allows to specify that certain bits
+             * unicast MAC address is created. This property allows one to specify that certain bits
              * are fixed. Note that the least significant bit of the first MAC address will
              * always be unset to create a unicast MAC address.
              *
@@ -31699,7 +32041,7 @@ declare module 'gi://NM?version=1.0' {
             /**
              * With #NMSettingWireless:cloned-mac-address setting "random" or "stable",
              * by default all bits of the MAC address are scrambled and a locally-administered,
-             * unicast MAC address is created. This property allows to specify that certain bits
+             * unicast MAC address is created. This property allows one to specify that certain bits
              * are fixed. Note that the least significant bit of the first MAC address will
              * always be unset to create a unicast MAC address.
              *
@@ -33842,6 +34184,7 @@ declare module 'gi://NM?version=1.0' {
             set_editor_plugin(plugin?: VpnEditorPlugin | null): void;
             supports_hints(): boolean;
             supports_multiple(): boolean;
+            supports_safe_private_file_access(): boolean;
 
             // Inherited methods
             /**
@@ -36801,6 +37144,7 @@ declare module 'gi://NM?version=1.0' {
         type SettingOvsPortClass = typeof SettingOvsPort;
         type SettingPppClass = typeof SettingPpp;
         type SettingPppoeClass = typeof SettingPppoe;
+        type SettingPrefixDelegationClass = typeof SettingPrefixDelegation;
         type SettingProxyClass = typeof SettingProxy;
         type SettingSerialClass = typeof SettingSerial;
         type SettingSriovClass = typeof SettingSriov;

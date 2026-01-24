@@ -130,7 +130,7 @@ declare module 'gi://Wp?version=0.5' {
         }
         const ITERATOR_METHODS_VERSION: number;
         /**
-         * A custom GLib log level for trace messages (extension of GLogLevelFlags)
+         * A custom GLib log level for trace messages (extension of GLogLevelFlags).
          */
         const LOG_LEVEL_TRACE: number;
         /**
@@ -388,7 +388,7 @@ declare module 'gi://Wp?version=0.5' {
          */
         function spa_id_value_short_name(id: SpaIdValue): string;
         /**
-         * Gets WirePlumber's instance of spa_log
+         * Gets WirePlumber's instance of spa_log.
          * @returns WirePlumber's instance of spa_log, which can be used to redirect PipeWire's log messages to the currently installed GLogWriterFunc. This is installed automatically when you call wp_init() with WP_INIT_SET_PW_LOG set in the flags
          */
         function spa_log_get_instance(): any | null;
@@ -775,7 +775,7 @@ declare module 'gi://Wp?version=0.5' {
              */
             enum_params_sync(id: string, filter?: SpaPod | null): Iterator | null;
             /**
-             * Retrieves the native info structure of this object (pw_node_info, pw_port_info, etc...)
+             * Retrieves the native info structure of this object (pw_node_info, pw_port_info, etc...).
              *
              *
              * Requires WP_PIPEWIRE_OBJECT_FEATURE_INFO
@@ -865,7 +865,7 @@ declare module 'gi://Wp?version=0.5' {
              */
             vfunc_enum_params_sync(id: string, filter?: SpaPod | null): Iterator | null;
             /**
-             * Retrieves the native info structure of this object (pw_node_info, pw_port_info, etc...)
+             * Retrieves the native info structure of this object (pw_node_info, pw_port_info, etc...).
              *
              *
              * Requires WP_PIPEWIRE_OBJECT_FEATURE_INFO
@@ -1584,7 +1584,7 @@ declare module 'gi://Wp?version=0.5' {
              */
             enum_params_sync(id: string, filter?: SpaPod | null): Iterator | null;
             /**
-             * Retrieves the native info structure of this object (pw_node_info, pw_port_info, etc...)
+             * Retrieves the native info structure of this object (pw_node_info, pw_port_info, etc...).
              *
              *
              * Requires WP_PIPEWIRE_OBJECT_FEATURE_INFO
@@ -1674,7 +1674,7 @@ declare module 'gi://Wp?version=0.5' {
              */
             vfunc_enum_params_sync(id: string, filter?: SpaPod | null): Iterator | null;
             /**
-             * Retrieves the native info structure of this object (pw_node_info, pw_port_info, etc...)
+             * Retrieves the native info structure of this object (pw_node_info, pw_port_info, etc...).
              *
              *
              * Requires WP_PIPEWIRE_OBJECT_FEATURE_INFO
@@ -1804,6 +1804,12 @@ declare module 'gi://Wp?version=0.5' {
             // Methods
 
             /**
+             * Returns an iterator to iterate over the registered hooks for a particular event type.
+             * @param event_type the event type
+             * @returns a new iterator
+             */
+            new_hooks_for_event_type_iterator(event_type: string): Iterator;
+            /**
              * Returns an iterator to iterate over all the registered hooks.
              * @returns a new iterator
              */
@@ -1897,10 +1903,14 @@ declare module 'gi://Wp?version=0.5' {
             // Virtual methods
 
             /**
-             * Finishes the async operation that was started by wp_event_hook_run()
+             * Finishes the async operation that was started by wp_event_hook_run().
              * @param res the async operation result
              */
             vfunc_finish(res: Gio.AsyncResult): boolean;
+            /**
+             * Gets all the matching event types for this hook if any.
+             */
+            vfunc_get_matching_event_types(): string[] | null;
             /**
              * Runs the hook on the given event.
              * @param event the event that triggered the hook
@@ -1921,11 +1931,16 @@ declare module 'gi://Wp?version=0.5' {
             // Methods
 
             /**
-             * Finishes the async operation that was started by wp_event_hook_run()
+             * Finishes the async operation that was started by wp_event_hook_run().
              * @param res the async operation result
              * @returns FALSE if there was an error, TRUE otherwise
              */
             finish(res: Gio.AsyncResult): boolean;
+            /**
+             * Gets all the matching event types for this hook if any.
+             * @returns the matching event types for this hook if any.
+             */
+            get_matching_event_types(): string[] | null;
             /**
              * Returns the name of the hook.
              * @returns the event hook name
@@ -2098,7 +2113,7 @@ declare module 'gi://Wp?version=0.5' {
              */
             enum_params_sync(id: string, filter?: SpaPod | null): Iterator | null;
             /**
-             * Retrieves the native info structure of this object (pw_node_info, pw_port_info, etc...)
+             * Retrieves the native info structure of this object (pw_node_info, pw_port_info, etc...).
              *
              *
              * Requires WP_PIPEWIRE_OBJECT_FEATURE_INFO
@@ -2188,7 +2203,7 @@ declare module 'gi://Wp?version=0.5' {
              */
             vfunc_enum_params_sync(id: string, filter?: SpaPod | null): Iterator | null;
             /**
-             * Retrieves the native info structure of this object (pw_node_info, pw_port_info, etc...)
+             * Retrieves the native info structure of this object (pw_node_info, pw_port_info, etc...).
              *
              *
              * Requires WP_PIPEWIRE_OBJECT_FEATURE_INFO
@@ -3220,7 +3235,7 @@ declare module 'gi://Wp?version=0.5' {
              */
             enum_params_sync(id: string, filter?: SpaPod | null): Iterator | null;
             /**
-             * Retrieves the native info structure of this object (pw_node_info, pw_port_info, etc...)
+             * Retrieves the native info structure of this object (pw_node_info, pw_port_info, etc...).
              *
              *
              * Requires WP_PIPEWIRE_OBJECT_FEATURE_INFO
@@ -3310,7 +3325,7 @@ declare module 'gi://Wp?version=0.5' {
              */
             vfunc_enum_params_sync(id: string, filter?: SpaPod | null): Iterator | null;
             /**
-             * Retrieves the native info structure of this object (pw_node_info, pw_port_info, etc...)
+             * Retrieves the native info structure of this object (pw_node_info, pw_port_info, etc...).
              *
              *
              * Requires WP_PIPEWIRE_OBJECT_FEATURE_INFO
@@ -3599,7 +3614,7 @@ declare module 'gi://Wp?version=0.5' {
              */
             enum_params_sync(id: string, filter?: SpaPod | null): Iterator | null;
             /**
-             * Retrieves the native info structure of this object (pw_node_info, pw_port_info, etc...)
+             * Retrieves the native info structure of this object (pw_node_info, pw_port_info, etc...).
              *
              *
              * Requires WP_PIPEWIRE_OBJECT_FEATURE_INFO
@@ -3689,7 +3704,7 @@ declare module 'gi://Wp?version=0.5' {
              */
             vfunc_enum_params_sync(id: string, filter?: SpaPod | null): Iterator | null;
             /**
-             * Retrieves the native info structure of this object (pw_node_info, pw_port_info, etc...)
+             * Retrieves the native info structure of this object (pw_node_info, pw_port_info, etc...).
              *
              *
              * Requires WP_PIPEWIRE_OBJECT_FEATURE_INFO
@@ -4086,7 +4101,7 @@ declare module 'gi://Wp?version=0.5' {
              */
             enum_params_sync(id: string, filter?: SpaPod | null): Iterator | null;
             /**
-             * Retrieves the native info structure of this object (pw_node_info, pw_port_info, etc...)
+             * Retrieves the native info structure of this object (pw_node_info, pw_port_info, etc...).
              *
              *
              * Requires WP_PIPEWIRE_OBJECT_FEATURE_INFO
@@ -4176,7 +4191,7 @@ declare module 'gi://Wp?version=0.5' {
              */
             vfunc_enum_params_sync(id: string, filter?: SpaPod | null): Iterator | null;
             /**
-             * Retrieves the native info structure of this object (pw_node_info, pw_port_info, etc...)
+             * Retrieves the native info structure of this object (pw_node_info, pw_port_info, etc...).
              *
              *
              * Requires WP_PIPEWIRE_OBJECT_FEATURE_INFO
@@ -4347,13 +4362,13 @@ declare module 'gi://Wp?version=0.5' {
              */
             abort_activation(msg: string): void;
             /**
-             * Callback version of wp_object_activate_closure()
+             * Callback version of wp_object_activate_closure().
              * @param features the features to enable
              * @param cancellable a cancellable for the async operation
              */
             activate(features: ObjectFeatures, cancellable?: Gio.Cancellable | null): globalThis.Promise<boolean>;
             /**
-             * Callback version of wp_object_activate_closure()
+             * Callback version of wp_object_activate_closure().
              * @param features the features to enable
              * @param cancellable a cancellable for the async operation
              * @param callback a function to call when activation is complete
@@ -4364,7 +4379,7 @@ declare module 'gi://Wp?version=0.5' {
                 callback: Gio.AsyncReadyCallback<this> | null,
             ): void;
             /**
-             * Callback version of wp_object_activate_closure()
+             * Callback version of wp_object_activate_closure().
              * @param features the features to enable
              * @param cancellable a cancellable for the async operation
              * @param callback a function to call when activation is complete
@@ -4390,7 +4405,7 @@ declare module 'gi://Wp?version=0.5' {
                 closure: GObject.Closure,
             ): void;
             /**
-             * Finishes the async operation that was started with wp_object_activate()
+             * Finishes the async operation that was started with wp_object_activate().
              * @param res the async operation result
              * @returns TRUE if the requested features were activated, FALSE if there was an error
              */
@@ -4801,7 +4816,7 @@ declare module 'gi://Wp?version=0.5' {
              */
             enum_params_sync(id: string, filter?: SpaPod | null): Iterator | null;
             /**
-             * Retrieves the native info structure of this object (pw_node_info, pw_port_info, etc...)
+             * Retrieves the native info structure of this object (pw_node_info, pw_port_info, etc...).
              *
              *
              * Requires WP_PIPEWIRE_OBJECT_FEATURE_INFO
@@ -4891,7 +4906,7 @@ declare module 'gi://Wp?version=0.5' {
              */
             vfunc_enum_params_sync(id: string, filter?: SpaPod | null): Iterator | null;
             /**
-             * Retrieves the native info structure of this object (pw_node_info, pw_port_info, etc...)
+             * Retrieves the native info structure of this object (pw_node_info, pw_port_info, etc...).
              *
              *
              * Requires WP_PIPEWIRE_OBJECT_FEATURE_INFO
@@ -6512,12 +6527,12 @@ declare module 'gi://Wp?version=0.5' {
              */
             collect_hooks(dispatcher: EventDispatcher): boolean;
             /**
-             * Returns the internal GCancellable that is used to track whether this event has been stopped by wp_event_stop_processing()
+             * Returns the internal GCancellable that is used to track whether this event has been stopped by wp_event_stop_processing().
              * @returns the cancellable
              */
             get_cancellable(): Gio.Cancellable;
             /**
-             * Gets the data that was previously associated with `key` by wp_event_set_data()
+             * Gets the data that was previously associated with `key` by wp_event_set_data().
              * @param key the key
              * @returns the data associated with @key or %NULL
              */
@@ -6548,7 +6563,7 @@ declare module 'gi://Wp?version=0.5' {
              */
             get_subject<T = GObject.Object>(): T;
             /**
-             * Returns an iterator that iterates over all the hooks that were collected by wp_event_collect_hooks()
+             * Returns an iterator that iterates over all the hooks that were collected by wp_event_collect_hooks().
              * @returns the new iterator
              */
             new_hooks_iterator(): Iterator;
@@ -6797,6 +6812,16 @@ declare module 'gi://Wp?version=0.5' {
                 value?: GLib.Variant | null,
             ): void;
             /**
+             * Finds all the defined constraint values for a subject in `self`.
+             *
+             *
+             * A defined constraint value is the value of a constraint with the 'equal' or 'in-list' verb, because the full value must be defined with those verbs. This can be useful for cases where we want to enumerate interests that are interested in specific subjects.
+             * @param type the constraint type
+             * @param subject the subject that the constraint applies to
+             * @returns the defined constraint values for this object interest.
+             */
+            find_defined_constraint_values(type: ConstraintType | null, subject: string): GLib.Variant[] | null;
+            /**
              * Checks if the specified `object` matches the type and all the constraints that are described in `self`.
              *
              *
@@ -7021,7 +7046,7 @@ declare module 'gi://Wp?version=0.5' {
              */
             sort(): void;
             /**
-             * Gets a copy of the properties object as a struct pw_properties
+             * Gets a copy of the properties object as a struct pw_properties.
              * @returns a copy of the properties in @self as a struct pw_properties
              */
             to_pw_properties(): any | null;
@@ -7565,7 +7590,7 @@ declare module 'gi://Wp?version=0.5' {
              */
             get_choice_child(): SpaPod;
             /**
-             * If the pod is a Choice, this gets the choice type (Range, Step, Enum, ...)
+             * If the pod is a Choice, this gets the choice type (Range, Step, Enum, ...).
              * @returns the choice type of the choice pod
              */
             get_choice_type(): SpaIdValue;
@@ -8127,7 +8152,7 @@ declare module 'gi://Wp?version=0.5' {
                  */
                 vfunc_enum_params_sync(id: string, filter?: SpaPod | null): Iterator | null;
                 /**
-                 * Retrieves the native info structure of this object (pw_node_info, pw_port_info, etc...)
+                 * Retrieves the native info structure of this object (pw_node_info, pw_port_info, etc...).
                  *
                  *
                  * Requires WP_PIPEWIRE_OBJECT_FEATURE_INFO
@@ -8252,7 +8277,7 @@ declare module 'gi://Wp?version=0.5' {
              */
             enum_params_sync(id: string, filter?: SpaPod | null): Iterator | null;
             /**
-             * Retrieves the native info structure of this object (pw_node_info, pw_port_info, etc...)
+             * Retrieves the native info structure of this object (pw_node_info, pw_port_info, etc...).
              *
              *
              * Requires WP_PIPEWIRE_OBJECT_FEATURE_INFO

@@ -334,12 +334,15 @@ declare module 'gi://AstalTray?version=0.1' {
                 'item-added': (arg0: string) => void;
                 'item-removed': (arg0: string) => void;
                 'notify::items': (pspec: GObject.ParamSpec) => void;
+                'notify::items-model': (pspec: GObject.ParamSpec) => void;
             }
 
             // Constructor properties interface
 
             interface ConstructorProps extends GObject.Object.ConstructorProps {
                 items: TrayItem[];
+                items_model: Gio.ListModel;
+                itemsModel: Gio.ListModel;
             }
         }
 
@@ -352,6 +355,14 @@ declare module 'gi://AstalTray?version=0.1' {
              * List of currently registered tray items
              */
             get items(): TrayItem[];
+            /**
+             * ListModel containing the currently registered tray items.
+             */
+            get items_model(): Gio.ListModel;
+            /**
+             * ListModel containing the currently registered tray items.
+             */
+            get itemsModel(): Gio.ListModel;
 
             /**
              * Compile-time signal type information.
@@ -403,6 +414,7 @@ declare module 'gi://AstalTray?version=0.1' {
              */
             get_item(item_id: string): TrayItem;
             get_items(): TrayItem[];
+            get_items_model(): Gio.ListModel;
         }
 
         type TrayItemClass = typeof TrayItem;

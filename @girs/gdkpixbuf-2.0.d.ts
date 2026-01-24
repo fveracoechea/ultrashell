@@ -398,9 +398,6 @@ declare module 'gi://GdkPixbuf?version=2.0' {
          * function will compute an optimal rowstride so that rendering can be
          * performed with an efficient algorithm.
          *
-         * As a special case, you can use the [`ctor`GdkPixbuf`.Pixbuf.new_from_xpm_data`]
-         * function to create a pixbuf from inline XPM image data.
-         *
          * You can also copy an existing pixbuf with the [method`Pixbuf`.copy]
          * function. This is not the same as just acquiring a reference to
          * the old pixbuf instance: the copy function will actually duplicate
@@ -1183,8 +1180,8 @@ declare module 'gi://GdkPixbuf?version=2.0' {
              * If `error` is set, `FALSE` will be returned.
              *
              * See [method`GdkPixbuf`.Pixbuf.save_to_callback] for more details.
-             * @param save_func a function that is called to save each block of data that   the save routine generates.
-             * @param type name of file format.
+             * @param save_func a function that is called to   save each block of data that the save routine generates
+             * @param type name of file format
              * @param option_keys name of options to set
              * @param option_values values for named options
              * @returns whether an error was set
