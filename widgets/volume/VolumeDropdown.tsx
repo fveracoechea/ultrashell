@@ -12,17 +12,16 @@ function MediaTabs() {
   const Media = Mpris.get_default();
   const players = createBinding(Media, "players").as((p) => p ?? []);
 
-  const hasPlayers = createComputed([players], (p) => p.length > 0);
+  const hasPlayers = players((p) => p.length > 0);
 
   const [activePlayer, setActivePlayer] = createState(
     Media.players.at(0)?.identity ?? null,
   );
 
   const stackClassNames = createComputed(
-    [activePlayer, players],
-    (active, all) => {
-      const first = all.at(0)?.identity ?? null;
-      return first === active ? "" : "rounded-top-left";
+    () => {
+      const first = players().at(0)?.identity ?? null;
+      return first === activePlayer() ? "" : "rounded-top-left";
     },
   );
 
