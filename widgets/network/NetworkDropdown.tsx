@@ -6,7 +6,7 @@ import AstalNetwork from "gi://AstalNetwork";
 
 import { Dropdown } from "../../styles/components/Dropdown";
 
-export function getNetworkIcon(network: AstalNetwork) {
+export function getNetworkIcon(network: AstalNetwork.Network) {
   return createComputed([createBinding(network, "primary")], (p) => {
     switch (p) {
       case AstalNetwork.Primary.WIRED:

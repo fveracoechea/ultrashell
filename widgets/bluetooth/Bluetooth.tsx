@@ -1,8 +1,6 @@
 import AstalBluetooth from "gi://AstalBluetooth";
-import { Accessor, createBinding, createComputed, createConnection, With } from "ags";
-import { execAsync } from "ags/process";
+import { Accessor, createBinding, With } from "ags";
 import { Gtk } from "ags/gtk4";
-import app from "ags/gtk4/app";
 import { BluetoothDropdown } from "./BluetoothDropdown";
 
 export function Bluetooth() {

@@ -1,7 +1,5 @@
 import { Gtk } from "ags/gtk4";
 import AstalNetwork from "gi://AstalNetwork";
-import { execAsync } from "ags/process";
-import { createBinding, createComputed } from "gnim";
 import { getNetworkIcon, NetworkDropdown } from "./NetworkDropdown";
 
 export function Network() {
