@@ -1,7 +1,15 @@
-import { Accessor, createBinding, createComputed, createState, For } from "ags";
+import {
+  Accessor,
+  createBinding,
+  createComputed,
+  createEffect,
+  createState,
+  For,
+  With,
+} from "ags";
 import { Gtk } from "ags/gtk4";
 
-import { Dropdown, DropdownHeader } from "../../styles/components/Dropdown";
+import { Dropdown } from "../../styles/components/Dropdown";
 
 import Mpris from "gi://AstalMpris";
 import { MediaPlayer } from "./MediaPlayer";
@@ -17,6 +25,16 @@ function MediaTabs() {
   const [activePlayer, setActivePlayer] = createState(
     Media.players.at(0)?.identity ?? null,
   );
+
+  createEffect(() => {
+    const current = activePlayer();
+    const allPlayers = players();
+    const isPlayerInList = allPlayers.some((p) => p.identity === current);
+    const first = allPlayers.at(0)?.identity ?? null;
+    if (!isPlayerInList && first) {
+      setActivePlayer(first);
+    }
+  });
 
   const stackClassNames = createComputed(
     () => {
@@ -45,16 +63,23 @@ function MediaTabs() {
           )}
         </For>
       </box>
-      <stack
-        class={stackClassNames}
-        visibleChildName={activePlayer}
-        transitionDuration={250}
-        transitionType={Gtk.StackTransitionType.SLIDE_LEFT_RIGHT}
-      >
-        <For each={players}>
-          {(player: Mpris.Player) => <MediaPlayer player={player} />}
-        </For>
-      </stack>
+      <With value={activePlayer}>
+        {(playerId) => {
+          if (!playerId) return null;
+          return (
+            <stack
+              class={stackClassNames}
+              visibleChildName={playerId}
+              transitionDuration={250}
+              transitionType={Gtk.StackTransitionType.SLIDE_LEFT_RIGHT}
+            >
+              <For each={players}>
+                {(player: Mpris.Player) => <MediaPlayer player={player} />}
+              </For>
+            </stack>
+          );
+        }}
+      </With>
     </box>
   );
 }
