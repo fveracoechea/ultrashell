@@ -1,10 +1,9 @@
 import { Gtk } from "ags/gtk4";
 import AstalWp from "gi://AstalWp";
-import { createBinding, createComputed, createConnection } from "gnim";
-import { logObject } from "../../utils/log";
+import { createBinding } from "gnim";
 import Pango from "gi://Pango";
 
-type SliderProps = { device: AstalWp.Device; icon: string };
+type SliderProps = { device: AstalWp.Endpoint; icon: string };
 
 function Slider(props: SliderProps) {
   const { icon, device } = props;
@@ -48,12 +47,10 @@ function Slider(props: SliderProps) {
 
 export function VolumeSliders() {
   const Wp = AstalWp.get_default();
-  const speaker = Wp.audio.defaultSpeaker;
-  const mic = Wp.audio.default_microphone;
   return (
     <box hexpand spacing={18} orientation={Gtk.Orientation.VERTICAL}>
-      <Slider device={speaker} icon="" />
-      <Slider device={mic} icon="" />
+      <Slider device={Wp.audio.defaultSpeaker} icon="" />
+      <Slider device={Wp.audio.defaultMicrophone} icon="" />
     </box>
   );
 }

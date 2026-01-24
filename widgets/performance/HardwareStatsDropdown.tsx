@@ -2,8 +2,8 @@ import { Gtk } from "ags/gtk4";
 import { execAsync } from "ags/process";
 import { createPoll } from "ags/time";
 import { Accessor, createComputed } from "ags";
-import { getCpuTempInfo, readCpuTemp } from "./cpu-temp";
-import { getCpuStats, initialCpuStats } from "./cpu-usage";
+import { readCpuTemp } from "./cpu-temp";
+import { CpuStats, getCpuStats, initialCpuStats } from "./cpu-usage";
 import { formatBytes, getStorageUsage } from "./storage-usage";
 import { Dropdown } from "../../styles/components/Dropdown";
 
@@ -49,11 +49,13 @@ const interval = 3000;
 export function HardwareStatsDropdown() {
   const cpuTemp = createPoll(0, interval, () => readCpuTemp() / 100);
 
-  const cpuStats = createPoll(initialCpuStats, interval, (prev) =>
-    getCpuStats(prev.current),
+  const cpuStats = createPoll(
+    initialCpuStats,
+    interval,
+    (prev) => getCpuStats(prev.current),
   );
 
-  const cpuUsage = createComputed([cpuStats], ({ current, previous }) => {
+  const cpuUsage = cpuStats(({ current, previous }) => {
     const totalDiff = current.total - previous.total;
     const idleDiff = current.idle - previous.idle;
     return totalDiff > 0 ? (totalDiff - idleDiff) / totalDiff : 0;
@@ -103,7 +105,10 @@ export function HardwareStatsDropdown() {
             icon=""
             title="CPU Usage"
             value={cpuUsage}
-            label={createComputed([cpuUsage], (v) => `${(v * 100).toFixed(0)}%`)}
+            label={createComputed(
+              [cpuUsage],
+              (v) => `${(v * 100).toFixed(0)}%`,
+            )}
           />
           <Stat
             icon=""
@@ -123,7 +128,10 @@ export function HardwareStatsDropdown() {
             value={storage((s) => s.percentage / 100)}
             label={createComputed(
               [storage],
-              (s) => `${s.percentage}% (${formatBytes(s.used)}/${formatBytes(s.total)})`,
+              (s) =>
+                `${s.percentage}% (${formatBytes(s.used)}/${
+                  formatBytes(s.total)
+                })`,
             )}
           />
         </box>
