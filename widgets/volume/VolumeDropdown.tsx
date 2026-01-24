@@ -18,20 +18,27 @@ function MediaTabs() {
     Media.players.at(0)?.identity ?? null,
   );
 
-  const stackClassNames = createComputed([activePlayer, players], (active, all) => {
-    const first = all.at(0)?.identity ?? null;
-    return first === active ? "" : "rounded-top-left";
-  });
+  const stackClassNames = createComputed(
+    [activePlayer, players],
+    (active, all) => {
+      const first = all.at(0)?.identity ?? null;
+      return first === active ? "" : "rounded-top-left";
+    },
+  );
 
   return (
-    <box class="tabs" visible={hasPlayers} orientation={Gtk.Orientation.VERTICAL}>
+    <box
+      class="tabs"
+      visible={hasPlayers}
+      orientation={Gtk.Orientation.VERTICAL}
+    >
       <box>
         <For each={players}>
           {(player: Mpris.Player) => (
             <button
               onClicked={() => setActivePlayer(player.identity)}
               class={activePlayer.as((p) =>
-                p === player.identity ? "tab active" : "tab",
+                p === player.identity ? "tab active" : "tab"
               )}
             >
               {player.identity}
