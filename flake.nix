@@ -31,7 +31,6 @@
         btop
         impala
         wiremix
-        blueman
         libgtop
         scripts.screenshot
       ];
