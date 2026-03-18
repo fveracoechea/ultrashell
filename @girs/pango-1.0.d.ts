@@ -31,31 +31,20 @@ declare module 'gi://Pango?version=1.0' {
          * Pango-1.0
          */
 
-        /**
-         * `PangoAlignment` describes how to align the lines of a `PangoLayout`
-         * within the available space.
-         *
-         * If the `PangoLayout` is set to justify using [method`Pango`.Layout.set_justify],
-         * this only affects partial lines.
-         *
-         * See [method`Pango`.Layout.set_auto_dir] for how text direction affects
-         * the interpretation of `PangoAlignment` values.
-         */
-
-        /**
-         * `PangoAlignment` describes how to align the lines of a `PangoLayout`
-         * within the available space.
-         *
-         * If the `PangoLayout` is set to justify using [method`Pango`.Layout.set_justify],
-         * this only affects partial lines.
-         *
-         * See [method`Pango`.Layout.set_auto_dir] for how text direction affects
-         * the interpretation of `PangoAlignment` values.
-         */
         export namespace Alignment {
             export const $gtype: GObject.GType<Alignment>;
         }
 
+        /**
+         * `PangoAlignment` describes how to align the lines of a `PangoLayout`
+         * within the available space.
+         *
+         * If the `PangoLayout` is set to justify using [method`Pango`.Layout.set_justify],
+         * this only affects partial lines.
+         *
+         * See [method`Pango`.Layout.set_auto_dir] for how text direction affects
+         * the interpretation of `PangoAlignment` values.
+         */
         enum Alignment {
             /**
              * Put all available space on the right
@@ -70,27 +59,19 @@ declare module 'gi://Pango?version=1.0' {
              */
             RIGHT,
         }
-        /**
-         * The `PangoAttrType` distinguishes between different types of attributes.
-         *
-         * Along with the predefined values, it is possible to allocate additional
-         * values for custom attributes using [func`AttrType`.register]. The predefined
-         * values are given below. The type of structure used to store the attribute is
-         * listed in parentheses after the description.
-         */
 
-        /**
-         * The `PangoAttrType` distinguishes between different types of attributes.
-         *
-         * Along with the predefined values, it is possible to allocate additional
-         * values for custom attributes using [func`AttrType`.register]. The predefined
-         * values are given below. The type of structure used to store the attribute is
-         * listed in parentheses after the description.
-         */
         export namespace AttrType {
             export const $gtype: GObject.GType<AttrType>;
         }
 
+        /**
+         * The `PangoAttrType` distinguishes between different types of attributes.
+         *
+         * Along with the predefined values, it is possible to allocate additional
+         * values for custom attributes using [func`AttrType`.register]. The predefined
+         * values are given below. The type of structure used to store the attribute is
+         * listed in parentheses after the description.
+         */
         enum AttrType {
             /**
              * does not happen
@@ -242,17 +223,14 @@ declare module 'gi://Pango?version=1.0' {
              */
             FONT_SCALE,
         }
-        /**
-         * An enumeration that affects baseline shifts between runs.
-         */
 
-        /**
-         * An enumeration that affects baseline shifts between runs.
-         */
         export namespace BaselineShift {
             export const $gtype: GObject.GType<BaselineShift>;
         }
 
+        /**
+         * An enumeration that affects baseline shifts between runs.
+         */
         enum BaselineShift {
             /**
              * Leave the baseline unchanged
@@ -269,25 +247,18 @@ declare module 'gi://Pango?version=1.0' {
              */
             SUBSCRIPT,
         }
-        /**
-         * `PangoBidiType` represents the bidirectional character
-         * type of a Unicode character.
-         *
-         * The values in this enumeration are specified by the
-         * [Unicode bidirectional algorithm](http://www.unicode.org/reports/tr9/).
-         */
 
-        /**
-         * `PangoBidiType` represents the bidirectional character
-         * type of a Unicode character.
-         *
-         * The values in this enumeration are specified by the
-         * [Unicode bidirectional algorithm](http://www.unicode.org/reports/tr9/).
-         */
         export namespace BidiType {
             export const $gtype: GObject.GType<BidiType>;
         }
 
+        /**
+         * `PangoBidiType` represents the bidirectional character
+         * type of a Unicode character.
+         *
+         * The values in this enumeration are specified by the
+         * [Unicode bidirectional algorithm](http://www.unicode.org/reports/tr9/).
+         */
         enum BidiType {
             /**
              * Left-to-Right
@@ -382,25 +353,18 @@ declare module 'gi://Pango?version=1.0' {
              */
             PDI,
         }
-        /**
-         * `PangoCoverageLevel` is used to indicate how well a font can
-         * represent a particular Unicode character for a particular script.
-         *
-         * Since 1.44, only %PANGO_COVERAGE_NONE and %PANGO_COVERAGE_EXACT
-         * will be returned.
-         */
 
-        /**
-         * `PangoCoverageLevel` is used to indicate how well a font can
-         * represent a particular Unicode character for a particular script.
-         *
-         * Since 1.44, only %PANGO_COVERAGE_NONE and %PANGO_COVERAGE_EXACT
-         * will be returned.
-         */
         export namespace CoverageLevel {
             export const $gtype: GObject.GType<CoverageLevel>;
         }
 
+        /**
+         * `PangoCoverageLevel` is used to indicate how well a font can
+         * represent a particular Unicode character for a particular script.
+         *
+         * Since 1.44, only %PANGO_COVERAGE_NONE and %PANGO_COVERAGE_EXACT
+         * will be returned.
+         */
         enum CoverageLevel {
             /**
              * The character is not representable with
@@ -427,51 +391,31 @@ declare module 'gi://Pango?version=1.0' {
              */
             EXACT,
         }
-        /**
-         * `PangoDirection` represents a direction in the Unicode bidirectional
-         * algorithm.
-         *
-         * Not every value in this enumeration makes sense for every usage of
-         * `PangoDirection`; for example, the return value of [func`unichar_direction]`
-         * and [func`find_base_dir]` cannot be `PANGO_DIRECTION_WEAK_LTR` or
-         * `PANGO_DIRECTION_WEAK_RTL`, since every character is either neutral
-         * or has a strong direction; on the other hand `PANGO_DIRECTION_NEUTRAL`
-         * doesn't make sense to pass to [func`itemize_with_base_dir]`.
-         *
-         * The `PANGO_DIRECTION_TTB_LTR`, `PANGO_DIRECTION_TTB_RTL` values come from
-         * an earlier interpretation of this enumeration as the writing direction
-         * of a block of text and are no longer used. See `PangoGravity` for how
-         * vertical text is handled in Pango.
-         *
-         * If you are interested in text direction, you should really use fribidi
-         * directly. `PangoDirection` is only retained because it is used in some
-         * public apis.
-         */
 
-        /**
-         * `PangoDirection` represents a direction in the Unicode bidirectional
-         * algorithm.
-         *
-         * Not every value in this enumeration makes sense for every usage of
-         * `PangoDirection`; for example, the return value of [func`unichar_direction]`
-         * and [func`find_base_dir]` cannot be `PANGO_DIRECTION_WEAK_LTR` or
-         * `PANGO_DIRECTION_WEAK_RTL`, since every character is either neutral
-         * or has a strong direction; on the other hand `PANGO_DIRECTION_NEUTRAL`
-         * doesn't make sense to pass to [func`itemize_with_base_dir]`.
-         *
-         * The `PANGO_DIRECTION_TTB_LTR`, `PANGO_DIRECTION_TTB_RTL` values come from
-         * an earlier interpretation of this enumeration as the writing direction
-         * of a block of text and are no longer used. See `PangoGravity` for how
-         * vertical text is handled in Pango.
-         *
-         * If you are interested in text direction, you should really use fribidi
-         * directly. `PangoDirection` is only retained because it is used in some
-         * public apis.
-         */
         export namespace Direction {
             export const $gtype: GObject.GType<Direction>;
         }
 
+        /**
+         * `PangoDirection` represents a direction in the Unicode bidirectional
+         * algorithm.
+         *
+         * Not every value in this enumeration makes sense for every usage of
+         * `PangoDirection`; for example, the return value of [func`unichar_direction]`
+         * and [func`find_base_dir]` cannot be `PANGO_DIRECTION_WEAK_LTR` or
+         * `PANGO_DIRECTION_WEAK_RTL`, since every character is either neutral
+         * or has a strong direction; on the other hand `PANGO_DIRECTION_NEUTRAL`
+         * doesn't make sense to pass to [func`itemize_with_base_dir]`.
+         *
+         * The `PANGO_DIRECTION_TTB_LTR`, `PANGO_DIRECTION_TTB_RTL` values come from
+         * an earlier interpretation of this enumeration as the writing direction
+         * of a block of text and are no longer used. See `PangoGravity` for how
+         * vertical text is handled in Pango.
+         *
+         * If you are interested in text direction, you should really use fribidi
+         * directly. `PangoDirection` is only retained because it is used in some
+         * public apis.
+         */
         enum Direction {
             /**
              * A strong left-to-right direction
@@ -504,27 +448,19 @@ declare module 'gi://Pango?version=1.0' {
              */
             NEUTRAL,
         }
-        /**
-         * `PangoEllipsizeMode` describes what sort of ellipsization
-         * should be applied to text.
-         *
-         * In the ellipsization process characters are removed from the
-         * text in order to make it fit to a given width and replaced
-         * with an ellipsis.
-         */
 
-        /**
-         * `PangoEllipsizeMode` describes what sort of ellipsization
-         * should be applied to text.
-         *
-         * In the ellipsization process characters are removed from the
-         * text in order to make it fit to a given width and replaced
-         * with an ellipsis.
-         */
         export namespace EllipsizeMode {
             export const $gtype: GObject.GType<EllipsizeMode>;
         }
 
+        /**
+         * `PangoEllipsizeMode` describes what sort of ellipsization
+         * should be applied to text.
+         *
+         * In the ellipsization process characters are removed from the
+         * text in order to make it fit to a given width and replaced
+         * with an ellipsis.
+         */
         enum EllipsizeMode {
             /**
              * No ellipsization
@@ -543,17 +479,14 @@ declare module 'gi://Pango?version=1.0' {
              */
             END,
         }
-        /**
-         * Specifies whether a font should or should not have color glyphs.
-         */
 
-        /**
-         * Specifies whether a font should or should not have color glyphs.
-         */
         export namespace FontColor {
             export const $gtype: GObject.GType<FontColor>;
         }
 
+        /**
+         * Specifies whether a font should or should not have color glyphs.
+         */
         enum FontColor {
             /**
              * The font should not have color glyphs
@@ -568,19 +501,15 @@ declare module 'gi://Pango?version=1.0' {
              */
             DONT_CARE,
         }
-        /**
-         * An enumeration that affects font sizes for superscript
-         * and subscript positioning and for (emulated) Small Caps.
-         */
 
-        /**
-         * An enumeration that affects font sizes for superscript
-         * and subscript positioning and for (emulated) Small Caps.
-         */
         export namespace FontScale {
             export const $gtype: GObject.GType<FontScale>;
         }
 
+        /**
+         * An enumeration that affects font sizes for superscript
+         * and subscript positioning and for (emulated) Small Caps.
+         */
         enum FontScale {
             /**
              * Leave the font size unchanged
@@ -599,41 +528,26 @@ declare module 'gi://Pango?version=1.0' {
              */
             SMALL_CAPS,
         }
-        /**
-         * `PangoGravity` represents the orientation of glyphs in a segment
-         * of text.
-         *
-         * This is useful when rendering vertical text layouts. In those situations,
-         * the layout is rotated using a non-identity [struct`Pango`.Matrix], and then
-         * glyph orientation is controlled using `PangoGravity`.
-         *
-         * Not every value in this enumeration makes sense for every usage of
-         * `PangoGravity`; for example, %PANGO_GRAVITY_AUTO only can be passed to
-         * [method`Pango`.Context.set_base_gravity] and can only be returned by
-         * [method`Pango`.Context.get_base_gravity].
-         *
-         * See also: [enum`Pango`.GravityHint]
-         */
 
-        /**
-         * `PangoGravity` represents the orientation of glyphs in a segment
-         * of text.
-         *
-         * This is useful when rendering vertical text layouts. In those situations,
-         * the layout is rotated using a non-identity [struct`Pango`.Matrix], and then
-         * glyph orientation is controlled using `PangoGravity`.
-         *
-         * Not every value in this enumeration makes sense for every usage of
-         * `PangoGravity`; for example, %PANGO_GRAVITY_AUTO only can be passed to
-         * [method`Pango`.Context.set_base_gravity] and can only be returned by
-         * [method`Pango`.Context.get_base_gravity].
-         *
-         * See also: [enum`Pango`.GravityHint]
-         */
         export namespace Gravity {
             export const $gtype: GObject.GType<Gravity>;
         }
 
+        /**
+         * `PangoGravity` represents the orientation of glyphs in a segment
+         * of text.
+         *
+         * This is useful when rendering vertical text layouts. In those situations,
+         * the layout is rotated using a non-identity [struct`Pango`.Matrix], and then
+         * glyph orientation is controlled using `PangoGravity`.
+         *
+         * Not every value in this enumeration makes sense for every usage of
+         * `PangoGravity`; for example, %PANGO_GRAVITY_AUTO only can be passed to
+         * [method`Pango`.Context.set_base_gravity] and can only be returned by
+         * [method`Pango`.Context.get_base_gravity].
+         *
+         * See also: [enum`Pango`.GravityHint]
+         */
         enum Gravity {
             /**
              * Glyphs stand upright (default) <img align="right" valign="center" src="m-south.png">
@@ -656,27 +570,19 @@ declare module 'gi://Pango?version=1.0' {
              */
             AUTO,
         }
-        /**
-         * `PangoGravityHint` defines how horizontal scripts should behave in a
-         * vertical context.
-         *
-         * That is, English excerpts in a vertical paragraph for example.
-         *
-         * See also [enum`Pango`.Gravity]
-         */
 
-        /**
-         * `PangoGravityHint` defines how horizontal scripts should behave in a
-         * vertical context.
-         *
-         * That is, English excerpts in a vertical paragraph for example.
-         *
-         * See also [enum`Pango`.Gravity]
-         */
         export namespace GravityHint {
             export const $gtype: GObject.GType<GravityHint>;
         }
 
+        /**
+         * `PangoGravityHint` defines how horizontal scripts should behave in a
+         * vertical context.
+         *
+         * That is, English excerpts in a vertical paragraph for example.
+         *
+         * See also [enum`Pango`.Gravity]
+         */
         enum GravityHint {
             /**
              * scripts will take their natural gravity based
@@ -696,11 +602,12 @@ declare module 'gi://Pango?version=1.0' {
              */
             LINE,
         }
+
         /**
          * Errors that can be returned by [func`Pango`.Layout.deserialize].
          */
         class LayoutDeserializeError extends GLib.Error {
-            static $gtype: GObject.GType<LayoutDeserializeError>;
+            static $gtype: GObject.GType<GLib.Error>;
 
             // Static fields
 
@@ -722,26 +629,20 @@ declare module 'gi://Pango?version=1.0' {
             // Constructors
 
             constructor(options: { message: string; code: number });
-            _init(...args: any[]): void;
 
             // Static methods
 
             static quark(): GLib.Quark;
         }
 
-        /**
-         * The `PangoOverline` enumeration is used to specify whether text
-         * should be overlined, and if so, the type of line.
-         */
-
-        /**
-         * The `PangoOverline` enumeration is used to specify whether text
-         * should be overlined, and if so, the type of line.
-         */
         export namespace Overline {
             export const $gtype: GObject.GType<Overline>;
         }
 
+        /**
+         * The `PangoOverline` enumeration is used to specify whether text
+         * should be overlined, and if so, the type of line.
+         */
         enum Overline {
             /**
              * no overline should be drawn
@@ -753,19 +654,15 @@ declare module 'gi://Pango?version=1.0' {
              */
             SINGLE,
         }
-        /**
-         * `PangoRenderPart` defines different items to render for such
-         * purposes as setting colors.
-         */
 
-        /**
-         * `PangoRenderPart` defines different items to render for such
-         * purposes as setting colors.
-         */
         export namespace RenderPart {
             export const $gtype: GObject.GType<RenderPart>;
         }
 
+        /**
+         * `PangoRenderPart` defines different items to render for such
+         * purposes as setting colors.
+         */
         enum RenderPart {
             /**
              * the text itself
@@ -788,35 +685,23 @@ declare module 'gi://Pango?version=1.0' {
              */
             OVERLINE,
         }
-        /**
-         * The `PangoScript` enumeration identifies different writing
-         * systems.
-         *
-         * The values correspond to the names as defined in the Unicode standard. See
-         * [Unicode Standard Annex 24: Script names](http://www.unicode.org/reports/tr24/)
-         *
-         * Note that this enumeration is deprecated and will not be updated to include values
-         * in newer versions of the Unicode standard. Applications should use the
-         * [enum`GLib`.UnicodeScript] enumeration instead,
-         * whose values are interchangeable with `PangoScript`.
-         */
 
-        /**
-         * The `PangoScript` enumeration identifies different writing
-         * systems.
-         *
-         * The values correspond to the names as defined in the Unicode standard. See
-         * [Unicode Standard Annex 24: Script names](http://www.unicode.org/reports/tr24/)
-         *
-         * Note that this enumeration is deprecated and will not be updated to include values
-         * in newer versions of the Unicode standard. Applications should use the
-         * [enum`GLib`.UnicodeScript] enumeration instead,
-         * whose values are interchangeable with `PangoScript`.
-         */
         export namespace Script {
             export const $gtype: GObject.GType<Script>;
         }
 
+        /**
+         * The `PangoScript` enumeration identifies different writing
+         * systems.
+         *
+         * The values correspond to the names as defined in the Unicode standard. See
+         * [Unicode Standard Annex 24: Script names](http://www.unicode.org/reports/tr24/)
+         *
+         * Note that this enumeration is deprecated and will not be updated to include values
+         * in newer versions of the Unicode standard. Applications should use the
+         * [enum`GLib`.UnicodeScript] enumeration instead,
+         * whose values are interchangeable with `PangoScript`.
+         */
         enum Script {
             /**
              * a value never returned from pango_script_for_unichar()
@@ -1292,19 +1177,15 @@ declare module 'gi://Pango?version=1.0' {
              */
             SIGNWRITING,
         }
-        /**
-         * An enumeration specifying the width of the font relative to other designs
-         * within a family.
-         */
 
-        /**
-         * An enumeration specifying the width of the font relative to other designs
-         * within a family.
-         */
         export namespace Stretch {
             export const $gtype: GObject.GType<Stretch>;
         }
 
+        /**
+         * An enumeration specifying the width of the font relative to other designs
+         * within a family.
+         */
         enum Stretch {
             /**
              * ultra condensed width
@@ -1343,17 +1224,14 @@ declare module 'gi://Pango?version=1.0' {
              */
             ULTRA_EXPANDED,
         }
-        /**
-         * An enumeration specifying the various slant styles possible for a font.
-         */
 
-        /**
-         * An enumeration specifying the various slant styles possible for a font.
-         */
         export namespace Style {
             export const $gtype: GObject.GType<Style>;
         }
 
+        /**
+         * An enumeration specifying the various slant styles possible for a font.
+         */
         enum Style {
             /**
              * the font is upright.
@@ -1368,19 +1246,15 @@ declare module 'gi://Pango?version=1.0' {
              */
             ITALIC,
         }
-        /**
-         * `PangoTabAlign` specifies where the text appears relative to the tab stop
-         * position.
-         */
 
-        /**
-         * `PangoTabAlign` specifies where the text appears relative to the tab stop
-         * position.
-         */
         export namespace TabAlign {
             export const $gtype: GObject.GType<TabAlign>;
         }
 
+        /**
+         * `PangoTabAlign` specifies where the text appears relative to the tab stop
+         * position.
+         */
         enum TabAlign {
             /**
              * the text appears to the right of the tab stop position
@@ -1403,17 +1277,14 @@ declare module 'gi://Pango?version=1.0' {
              */
             DECIMAL,
         }
-        /**
-         * An enumeration that affects how Pango treats characters during shaping.
-         */
 
-        /**
-         * An enumeration that affects how Pango treats characters during shaping.
-         */
         export namespace TextTransform {
             export const $gtype: GObject.GType<TextTransform>;
         }
 
+        /**
+         * An enumeration that affects how Pango treats characters during shaping.
+         */
         enum TextTransform {
             /**
              * Leave text unchanged
@@ -1433,19 +1304,15 @@ declare module 'gi://Pango?version=1.0' {
              */
             CAPITALIZE,
         }
-        /**
-         * The `PangoUnderline` enumeration is used to specify whether text
-         * should be underlined, and if so, the type of underlining.
-         */
 
-        /**
-         * The `PangoUnderline` enumeration is used to specify whether text
-         * should be underlined, and if so, the type of underlining.
-         */
         export namespace Underline {
             export const $gtype: GObject.GType<Underline>;
         }
 
+        /**
+         * The `PangoUnderline` enumeration is used to specify whether text
+         * should be underlined, and if so, the type of underlining.
+         */
         enum Underline {
             /**
              * no underline should be drawn
@@ -1498,17 +1365,14 @@ declare module 'gi://Pango?version=1.0' {
              */
             ERROR_LINE,
         }
-        /**
-         * An enumeration specifying capitalization variant of the font.
-         */
 
-        /**
-         * An enumeration specifying capitalization variant of the font.
-         */
         export namespace Variant {
             export const $gtype: GObject.GType<Variant>;
         }
 
+        /**
+         * An enumeration specifying capitalization variant of the font.
+         */
         enum Variant {
             /**
              * A normal font.
@@ -1547,23 +1411,17 @@ declare module 'gi://Pango?version=1.0' {
              */
             TITLE_CAPS,
         }
-        /**
-         * An enumeration specifying the weight (boldness) of a font.
-         *
-         * Weight is specified as a numeric value ranging from 100 to 1000.
-         * This enumeration simply provides some common, predefined values.
-         */
 
-        /**
-         * An enumeration specifying the weight (boldness) of a font.
-         *
-         * Weight is specified as a numeric value ranging from 100 to 1000.
-         * This enumeration simply provides some common, predefined values.
-         */
         export namespace Weight {
             export const $gtype: GObject.GType<Weight>;
         }
 
+        /**
+         * An enumeration specifying the weight (boldness) of a font.
+         *
+         * Weight is specified as a numeric value ranging from 100 to 1000.
+         * This enumeration simply provides some common, predefined values.
+         */
         enum Weight {
             /**
              * the thin weight (= 100) Since: 1.24
@@ -1614,29 +1472,20 @@ declare module 'gi://Pango?version=1.0' {
              */
             ULTRAHEAVY,
         }
-        /**
-         * `PangoWrapMode` describes how to wrap the lines of a `PangoLayout`
-         * to the desired width.
-         *
-         * For `PANGO_WRAP_WORD,` Pango uses break opportunities that are determined
-         * by the Unicode line breaking algorithm. For `PANGO_WRAP_CHAR,` Pango allows
-         * breaking at grapheme boundaries that are determined by the Unicode text
-         * segmentation algorithm.
-         */
 
-        /**
-         * `PangoWrapMode` describes how to wrap the lines of a `PangoLayout`
-         * to the desired width.
-         *
-         * For `PANGO_WRAP_WORD,` Pango uses break opportunities that are determined
-         * by the Unicode line breaking algorithm. For `PANGO_WRAP_CHAR,` Pango allows
-         * breaking at grapheme boundaries that are determined by the Unicode text
-         * segmentation algorithm.
-         */
         export namespace WrapMode {
             export const $gtype: GObject.GType<WrapMode>;
         }
 
+        /**
+         * `PangoWrapMode` describes how to wrap the lines of a `PangoLayout`
+         * to the desired width.
+         *
+         * For `PANGO_WRAP_WORD,` Pango uses break opportunities that are determined
+         * by the Unicode line breaking algorithm. For `PANGO_WRAP_CHAR,` Pango allows
+         * breaking at grapheme boundaries that are determined by the Unicode text
+         * segmentation algorithm.
+         */
         enum WrapMode {
             /**
              * wrap lines at word boundaries.
@@ -1656,6 +1505,7 @@ declare module 'gi://Pango?version=1.0' {
              */
             NONE,
         }
+
         /**
          * Whether the segment should be shifted to center around the baseline.
          *
@@ -2959,19 +2809,14 @@ declare module 'gi://Pango?version=1.0' {
         interface FontsetForeachFunc {
             (fontset: Fontset, font: Font): boolean;
         }
-        /**
-         * The bits in a `PangoFontMask` correspond to the set fields in a
-         * `PangoFontDescription`.
-         */
-
-        /**
-         * The bits in a `PangoFontMask` correspond to the set fields in a
-         * `PangoFontDescription`.
-         */
         export namespace FontMask {
             export const $gtype: GObject.GType<FontMask>;
         }
 
+        /**
+         * The bits in a `PangoFontMask` correspond to the set fields in a
+         * `PangoFontDescription`.
+         */
         enum FontMask {
             /**
              * the font family is specified.
@@ -3014,21 +2859,16 @@ declare module 'gi://Pango?version=1.0' {
              */
             COLOR,
         }
-        /**
-         * Flags that influence the behavior of [func`Pango`.Layout.deserialize].
-         *
-         * New members may be added to this enumeration over time.
-         */
 
-        /**
-         * Flags that influence the behavior of [func`Pango`.Layout.deserialize].
-         *
-         * New members may be added to this enumeration over time.
-         */
         export namespace LayoutDeserializeFlags {
             export const $gtype: GObject.GType<LayoutDeserializeFlags>;
         }
 
+        /**
+         * Flags that influence the behavior of [func`Pango`.Layout.deserialize].
+         *
+         * New members may be added to this enumeration over time.
+         */
         enum LayoutDeserializeFlags {
             /**
              * Default behavior
@@ -3040,21 +2880,16 @@ declare module 'gi://Pango?version=1.0' {
              */
             CONTEXT,
         }
-        /**
-         * Flags that influence the behavior of [method`Pango`.Layout.serialize].
-         *
-         * New members may be added to this enumeration over time.
-         */
 
-        /**
-         * Flags that influence the behavior of [method`Pango`.Layout.serialize].
-         *
-         * New members may be added to this enumeration over time.
-         */
         export namespace LayoutSerializeFlags {
             export const $gtype: GObject.GType<LayoutSerializeFlags>;
         }
 
+        /**
+         * Flags that influence the behavior of [method`Pango`.Layout.serialize].
+         *
+         * New members may be added to this enumeration over time.
+         */
         enum LayoutSerializeFlags {
             /**
              * Default behavior
@@ -3069,21 +2904,16 @@ declare module 'gi://Pango?version=1.0' {
              */
             OUTPUT,
         }
-        /**
-         * Flags influencing the shaping process.
-         *
-         * `PangoShapeFlags` can be passed to [func`Pango`.shape_with_flags].
-         */
 
-        /**
-         * Flags influencing the shaping process.
-         *
-         * `PangoShapeFlags` can be passed to [func`Pango`.shape_with_flags].
-         */
         export namespace ShapeFlags {
             export const $gtype: GObject.GType<ShapeFlags>;
         }
 
+        /**
+         * Flags influencing the shaping process.
+         *
+         * `PangoShapeFlags` can be passed to [func`Pango`.shape_with_flags].
+         */
         enum ShapeFlags {
             /**
              * Default value
@@ -3095,19 +2925,15 @@ declare module 'gi://Pango?version=1.0' {
              */
             ROUND_POSITIONS,
         }
-        /**
-         * These flags affect how Pango treats characters that are normally
-         * not visible in the output.
-         */
 
-        /**
-         * These flags affect how Pango treats characters that are normally
-         * not visible in the output.
-         */
         export namespace ShowFlags {
             export const $gtype: GObject.GType<ShowFlags>;
         }
 
+        /**
+         * These flags affect how Pango treats characters that are normally
+         * not visible in the output.
+         */
         enum ShowFlags {
             /**
              * No special treatment for invisible characters
@@ -3127,6 +2953,7 @@ declare module 'gi://Pango?version=1.0' {
              */
             IGNORABLES,
         }
+
         namespace Context {
             // Signal signatures
             interface SignalSignatures extends GObject.Object.SignalSignatures {}
@@ -3901,8 +3728,7 @@ declare module 'gi://Pango?version=1.0' {
             // Constructor properties interface
 
             interface ConstructorProps<A extends GObject.Object = GObject.Object>
-                extends GObject.Object.ConstructorProps,
-                    Gio.ListModel.ConstructorProps {
+                extends GObject.Object.ConstructorProps, Gio.ListModel.ConstructorProps {
                 is_monospace: boolean;
                 isMonospace: boolean;
                 is_variable: boolean;
@@ -4631,8 +4457,7 @@ declare module 'gi://Pango?version=1.0' {
             // Constructor properties interface
 
             interface ConstructorProps<A extends GObject.Object = GObject.Object>
-                extends GObject.Object.ConstructorProps,
-                    Gio.ListModel.ConstructorProps {
+                extends GObject.Object.ConstructorProps, Gio.ListModel.ConstructorProps {
                 item_type: GObject.GType;
                 itemType: GObject.GType;
                 n_items: number;
@@ -6804,10 +6629,6 @@ declare module 'gi://Pango?version=1.0' {
             flags: number;
             script: number;
             extra_attrs: any[];
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -6823,10 +6644,6 @@ declare module 'gi://Pango?version=1.0' {
             // Fields
 
             type: AttrType;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -6839,10 +6656,6 @@ declare module 'gi://Pango?version=1.0' {
             // Fields
 
             color: Color;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -6855,10 +6668,6 @@ declare module 'gi://Pango?version=1.0' {
             // Fields
 
             value: number;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -6867,10 +6676,6 @@ declare module 'gi://Pango?version=1.0' {
          */
         class AttrFontDesc {
             static $gtype: GObject.GType<AttrFontDesc>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
 
             // Static methods
 
@@ -6895,10 +6700,6 @@ declare module 'gi://Pango?version=1.0' {
 
             features: string;
 
-            // Constructors
-
-            _init(...args: any[]): void;
-
             // Static methods
 
             /**
@@ -6921,10 +6722,6 @@ declare module 'gi://Pango?version=1.0' {
             // Fields
 
             value: number;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -6938,10 +6735,6 @@ declare module 'gi://Pango?version=1.0' {
          */
         abstract class AttrIterator {
             static $gtype: GObject.GType<AttrIterator>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
 
             // Methods
 
@@ -7000,10 +6793,6 @@ declare module 'gi://Pango?version=1.0' {
         class AttrLanguage {
             static $gtype: GObject.GType<AttrLanguage>;
 
-            // Constructors
-
-            _init(...args: any[]): void;
-
             // Static methods
 
             /**
@@ -7032,7 +6821,6 @@ declare module 'gi://Pango?version=1.0' {
             // Constructors
 
             constructor(properties?: Partial<{}>);
-            _init(...args: any[]): void;
 
             static ['new'](): AttrList;
 
@@ -7230,10 +7018,6 @@ declare module 'gi://Pango?version=1.0' {
             copy_func: AttrDataCopyFunc;
             destroy_func: GLib.DestroyNotify;
 
-            // Constructors
-
-            _init(...args: any[]): void;
-
             // Static methods
 
             /**
@@ -7280,10 +7064,6 @@ declare module 'gi://Pango?version=1.0' {
             size: number;
             absolute: number;
 
-            // Constructors
-
-            _init(...args: any[]): void;
-
             // Static methods
 
             /**
@@ -7308,10 +7088,6 @@ declare module 'gi://Pango?version=1.0' {
             // Fields
 
             value: string;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -7331,10 +7107,6 @@ declare module 'gi://Pango?version=1.0' {
 
             start_index: number;
             end_index: number;
-
-            // Constructors
-
-            _init(...args: any[]): void;
 
             // Methods
 
@@ -7452,7 +7224,6 @@ declare module 'gi://Pango?version=1.0' {
                     blue: number;
                 }>,
             );
-            _init(...args: any[]): void;
 
             // Methods
 
@@ -7531,7 +7302,6 @@ declare module 'gi://Pango?version=1.0' {
             // Constructors
 
             constructor(properties?: Partial<{}>);
-            _init(...args: any[]): void;
 
             static ['new'](): FontDescription;
 
@@ -7986,7 +7756,6 @@ declare module 'gi://Pango?version=1.0' {
             // Constructors
 
             constructor(properties?: Partial<{}>);
-            _init(...args: any[]): void;
 
             // Methods
 
@@ -8117,7 +7886,6 @@ declare module 'gi://Pango?version=1.0' {
                     y_offset: GlyphUnit;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         /**
@@ -8142,7 +7910,6 @@ declare module 'gi://Pango?version=1.0' {
                     attr: GlyphVisAttr;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         /**
@@ -8162,10 +7929,6 @@ declare module 'gi://Pango?version=1.0' {
             y_offset: number;
             start_x_offset: number;
             end_x_offset: number;
-
-            // Constructors
-
-            _init(...args: any[]): void;
 
             // Methods
 
@@ -8294,10 +8057,6 @@ declare module 'gi://Pango?version=1.0' {
             end_index: number;
             end_char: number;
 
-            // Constructors
-
-            _init(...args: any[]): void;
-
             // Methods
 
             /**
@@ -8369,7 +8128,6 @@ declare module 'gi://Pango?version=1.0' {
                     log_clusters: number;
                 }>,
             );
-            _init(...args: any[]): void;
 
             static ['new'](): GlyphString;
 
@@ -8520,7 +8278,6 @@ declare module 'gi://Pango?version=1.0' {
                     is_color: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         /**
@@ -8548,7 +8305,6 @@ declare module 'gi://Pango?version=1.0' {
                     analysis: Analysis;
                 }>,
             );
-            _init(...args: any[]): void;
 
             static ['new'](): Item;
 
@@ -8617,10 +8373,6 @@ declare module 'gi://Pango?version=1.0' {
          */
         abstract class Language {
             static $gtype: GObject.GType<Language>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
 
             // Static methods
 
@@ -8789,10 +8541,6 @@ declare module 'gi://Pango?version=1.0' {
          */
         abstract class LayoutIter {
             static $gtype: GObject.GType<LayoutIter>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
 
             // Methods
 
@@ -8985,10 +8733,6 @@ declare module 'gi://Pango?version=1.0' {
             runs: LayoutRun[];
             resolved_dir: number;
 
-            // Constructors
-
-            _init(...args: any[]): void;
-
             // Methods
 
             /**
@@ -9133,7 +8877,6 @@ declare module 'gi://Pango?version=1.0' {
                     reserved: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         /**
@@ -9171,7 +8914,6 @@ declare module 'gi://Pango?version=1.0' {
                     y0: number;
                 }>,
             );
-            _init(...args: any[]): void;
 
             // Methods
 
@@ -9337,16 +9079,11 @@ declare module 'gi://Pango?version=1.0' {
                     height: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         type RendererClass = typeof Renderer;
         abstract class RendererPrivate {
             static $gtype: GObject.GType<RendererPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -9359,7 +9096,6 @@ declare module 'gi://Pango?version=1.0' {
             // Constructors
 
             constructor(text: string, length: number);
-            _init(...args: any[]): void;
 
             static ['new'](text: string, length: number): ScriptIter;
 
@@ -9404,7 +9140,6 @@ declare module 'gi://Pango?version=1.0' {
             // Constructors
 
             constructor(initial_size: number, positions_in_pixels: boolean);
-            _init(...args: any[]): void;
 
             static ['new'](initial_size: number, positions_in_pixels: boolean): TabArray;
 

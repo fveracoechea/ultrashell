@@ -102,6 +102,7 @@ declare module 'gi://Astal?version=3.0' {
              */
             ON_DEMAND,
         }
+
         const MAJOR_VERSION: number;
         const MINOR_VERSION: number;
         const MICRO_VERSION: number;
@@ -115,7 +116,6 @@ declare module 'gi://Astal?version=3.0' {
         function widget_get_cursor(widget: Gtk.Widget): string;
         function widget_set_click_through(widget: Gtk.Widget, click_through: boolean): void;
         function widget_get_click_through(widget: Gtk.Widget): boolean;
-
         export namespace WindowAnchor {
             export const $gtype: GObject.GType<WindowAnchor>;
         }
@@ -127,6 +127,7 @@ declare module 'gi://Astal?version=3.0' {
             LEFT,
             BOTTOM,
         }
+
         namespace Box {
             // Signal signatures
             interface SignalSignatures extends Gtk.Box.SignalSignatures {
@@ -3045,127 +3046,71 @@ declare module 'gi://Astal?version=3.0' {
         type BoxClass = typeof Box;
         abstract class BoxPrivate {
             static $gtype: GObject.GType<BoxPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type ButtonClass = typeof Button;
         abstract class ButtonPrivate {
             static $gtype: GObject.GType<ButtonPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type CenterBoxClass = typeof CenterBox;
         abstract class CenterBoxPrivate {
             static $gtype: GObject.GType<CenterBoxPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type CircularProgressClass = typeof CircularProgress;
         abstract class CircularProgressPrivate {
             static $gtype: GObject.GType<CircularProgressPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type EventBoxClass = typeof EventBox;
         abstract class EventBoxPrivate {
             static $gtype: GObject.GType<EventBoxPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type IconClass = typeof Icon;
         abstract class IconPrivate {
             static $gtype: GObject.GType<IconPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type LabelClass = typeof Label;
         abstract class LabelPrivate {
             static $gtype: GObject.GType<LabelPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type LevelBarClass = typeof LevelBar;
         abstract class LevelBarPrivate {
             static $gtype: GObject.GType<LevelBarPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type OverlayClass = typeof Overlay;
         abstract class OverlayPrivate {
             static $gtype: GObject.GType<OverlayPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type ScrollableClass = typeof Scrollable;
         abstract class ScrollablePrivate {
             static $gtype: GObject.GType<ScrollablePrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type SliderClass = typeof Slider;
         abstract class SliderPrivate {
             static $gtype: GObject.GType<SliderPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type StackClass = typeof Stack;
         abstract class StackPrivate {
             static $gtype: GObject.GType<StackPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type WindowClass = typeof Window;
         abstract class WindowPrivate {
             static $gtype: GObject.GType<WindowPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type ApplicationClass = typeof Application;
         abstract class ApplicationPrivate {
             static $gtype: GObject.GType<ApplicationPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -3182,10 +3127,6 @@ declare module 'gi://Astal?version=3.0' {
             y: number;
             modifier: Gdk.ModifierType;
             button: MouseButton;
-
-            // Constructors
-
-            _init(...args: any[]): void;
 
             // Methods
 
@@ -3208,10 +3149,6 @@ declare module 'gi://Astal?version=3.0' {
             mode: Gdk.CrossingMode;
             detail: Gdk.NotifyType;
 
-            // Constructors
-
-            _init(...args: any[]): void;
-
             // Methods
 
             init(event: Gdk.EventCrossing): void;
@@ -3233,10 +3170,6 @@ declare module 'gi://Astal?version=3.0' {
             delta_x: number;
             delta_y: number;
 
-            // Constructors
-
-            _init(...args: any[]): void;
-
             // Methods
 
             init(event: Gdk.EventScroll): void;
@@ -3254,10 +3187,6 @@ declare module 'gi://Astal?version=3.0' {
             x: number;
             y: number;
             modifier: Gdk.ModifierType;
-
-            // Constructors
-
-            _init(...args: any[]): void;
 
             // Methods
 

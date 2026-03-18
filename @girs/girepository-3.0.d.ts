@@ -27,14 +27,6 @@ declare module 'gi://GIRepository?version=3.0' {
         /**
          * The type of array in a [class`GIRepository`.TypeInfo].
          */
-
-        /**
-         * The type of array in a [class`GIRepository`.TypeInfo].
-         */
-        export namespace ArrayType {
-            export const $gtype: GObject.GType<ArrayType>;
-        }
-
         enum ArrayType {
             /**
              * a C array, `char[]` for instance
@@ -53,17 +45,10 @@ declare module 'gi://GIRepository?version=3.0' {
              */
             BYTE_ARRAY,
         }
-        /**
-         * The direction of a [class`GIRepository`.ArgInfo].
-         */
 
         /**
          * The direction of a [class`GIRepository`.ArgInfo].
          */
-        export namespace Direction {
-            export const $gtype: GObject.GType<Direction>;
-        }
-
         enum Direction {
             /**
              * ‘in’ argument.
@@ -78,12 +63,13 @@ declare module 'gi://GIRepository?version=3.0' {
              */
             INOUT,
         }
+
         /**
          * An error occurring while invoking a function via
          * [method`GIRepository`.FunctionInfo.invoke].
          */
         class InvokeError extends GLib.Error {
-            static $gtype: GObject.GType<InvokeError>;
+            static $gtype: GObject.GType<GLib.Error>;
 
             // Static fields
 
@@ -105,22 +91,12 @@ declare module 'gi://GIRepository?version=3.0' {
             // Constructors
 
             constructor(options: { message: string; code: number });
-            _init(...args: any[]): void;
         }
 
         /**
          * An error code used with `GI_REPOSITORY_ERROR` in a [type`GLib`.Error]
          * returned from a [class`GIRepository`.Repository] routine.
          */
-
-        /**
-         * An error code used with `GI_REPOSITORY_ERROR` in a [type`GLib`.Error]
-         * returned from a [class`GIRepository`.Repository] routine.
-         */
-        export namespace RepositoryError {
-            export const $gtype: GObject.GType<RepositoryError>;
-        }
-
         enum RepositoryError {
             /**
              * the typelib could not be found.
@@ -142,21 +118,12 @@ declare module 'gi://GIRepository?version=3.0' {
              */
             LIBRARY_NOT_FOUND,
         }
-        /**
-         * Scope type of a [class`GIRepository`.ArgInfo] representing callback,
-         * determines how the callback is invoked and is used to decided when the invoke
-         * structs can be freed.
-         */
 
         /**
          * Scope type of a [class`GIRepository`.ArgInfo] representing callback,
          * determines how the callback is invoked and is used to decided when the invoke
          * structs can be freed.
          */
-        export namespace ScopeType {
-            export const $gtype: GObject.GType<ScopeType>;
-        }
-
         enum ScopeType {
             /**
              * The argument is not of callback type.
@@ -185,22 +152,6 @@ declare module 'gi://GIRepository?version=3.0' {
              */
             FOREVER,
         }
-        /**
-         * `GITransfer` specifies who’s responsible for freeing the resources after an
-         * ownership transfer is complete.
-         *
-         * The transfer is the exchange of data between two parts, from the callee to
-         * the caller.
-         *
-         * The callee is either a function/method/signal or an object/interface where a
-         * property is defined. The caller is the side accessing a property or calling a
-         * function.
-         *
-         * In the case of a containing type such as a list, an array or a hash table the
-         * container itself is specified differently from the items within the
-         * container. Each container is freed differently, check the documentation for
-         * the types themselves for information on how to free them.
-         */
 
         /**
          * `GITransfer` specifies who’s responsible for freeing the resources after an
@@ -218,10 +169,6 @@ declare module 'gi://GIRepository?version=3.0' {
          * container. Each container is freed differently, check the documentation for
          * the types themselves for information on how to free them.
          */
-        export namespace Transfer {
-            export const $gtype: GObject.GType<Transfer>;
-        }
-
         enum Transfer {
             /**
              * Transfer nothing from the callee (function or the type
@@ -246,17 +193,10 @@ declare module 'gi://GIRepository?version=3.0' {
              */
             EVERYTHING,
         }
-        /**
-         * The type tag of a [class`GIRepository`.TypeInfo].
-         */
 
         /**
          * The type tag of a [class`GIRepository`.TypeInfo].
          */
-        export namespace TypeTag {
-            export const $gtype: GObject.GType<TypeTag>;
-        }
-
         enum TypeTag {
             /**
              * void
@@ -348,6 +288,7 @@ declare module 'gi://GIRepository?version=3.0' {
              */
             UNICHAR,
         }
+
         /**
          * Number of entries in [enum`GIRepository`.TypeTag].
          */
@@ -407,14 +348,6 @@ declare module 'gi://GIRepository?version=3.0' {
         /**
          * Flags for a [class`GIRepository`.FieldInfo].
          */
-
-        /**
-         * Flags for a [class`GIRepository`.FieldInfo].
-         */
-        export namespace FieldInfoFlags {
-            export const $gtype: GObject.GType<FieldInfoFlags>;
-        }
-
         enum FieldInfoFlags {
             /**
              * no flags set (since: 2.86)
@@ -429,17 +362,10 @@ declare module 'gi://GIRepository?version=3.0' {
              */
             IS_WRITABLE,
         }
-        /**
-         * Flags for a [class`GIRepository`.FunctionInfo] struct.
-         */
 
         /**
          * Flags for a [class`GIRepository`.FunctionInfo] struct.
          */
-        export namespace FunctionInfoFlags {
-            export const $gtype: GObject.GType<FunctionInfoFlags>;
-        }
-
         enum FunctionInfoFlags {
             /**
              * no flags set (since: 2.86)
@@ -467,17 +393,10 @@ declare module 'gi://GIRepository?version=3.0' {
             WRAPS_VFUNC,
             IS_ASYNC,
         }
-        /**
-         * Flags that control how a typelib is loaded.
-         */
 
         /**
          * Flags that control how a typelib is loaded.
          */
-        export namespace RepositoryLoadFlags {
-            export const $gtype: GObject.GType<RepositoryLoadFlags>;
-        }
-
         enum RepositoryLoadFlags {
             /**
              * No flags set.
@@ -488,17 +407,10 @@ declare module 'gi://GIRepository?version=3.0' {
              */
             LAZY,
         }
-        /**
-         * Flags of a [class`GIRepository`.VFuncInfo] struct.
-         */
 
         /**
          * Flags of a [class`GIRepository`.VFuncInfo] struct.
          */
-        export namespace VFuncInfoFlags {
-            export const $gtype: GObject.GType<VFuncInfoFlags>;
-        }
-
         enum VFuncInfoFlags {
             /**
              * no flags set (since: 2.86)
@@ -517,6 +429,7 @@ declare module 'gi://GIRepository?version=3.0' {
              */
             MUST_NOT_OVERRIDE,
         }
+
         namespace ArgInfo {
             // Signal signatures
             interface SignalSignatures extends BaseInfo.SignalSignatures {}
@@ -2970,16 +2883,11 @@ declare module 'gi://GIRepository?version=3.0' {
             // Constructors
 
             constructor(properties?: Partial<{}>);
-            _init(...args: any[]): void;
         }
 
         type BaseInfoClass = typeof BaseInfo;
         class BaseInfoStack {
             static $gtype: GObject.GType<BaseInfoStack>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type RepositoryClass = typeof Repository;
@@ -2993,7 +2901,6 @@ declare module 'gi://GIRepository?version=3.0' {
             // Constructors
 
             constructor(bytes: GLib.Bytes | Uint8Array);
-            _init(...args: any[]): void;
 
             static new_from_bytes(bytes: GLib.Bytes | Uint8Array): Typelib;
 
@@ -3080,7 +2987,6 @@ declare module 'gi://GIRepository?version=3.0' {
                     v_pointer: any;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         /**

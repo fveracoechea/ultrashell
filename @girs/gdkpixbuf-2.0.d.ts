@@ -24,56 +24,38 @@ declare module 'gi://GdkPixbuf?version=2.0' {
          * GdkPixbuf-2.0
          */
 
-        /**
-         * This enumeration defines the color spaces that are supported by
-         * the gdk-pixbuf library.
-         *
-         * Currently only RGB is supported.
-         */
-
-        /**
-         * This enumeration defines the color spaces that are supported by
-         * the gdk-pixbuf library.
-         *
-         * Currently only RGB is supported.
-         */
         export namespace Colorspace {
             export const $gtype: GObject.GType<Colorspace>;
         }
 
+        /**
+         * This enumeration defines the color spaces that are supported by
+         * the gdk-pixbuf library.
+         *
+         * Currently only RGB is supported.
+         */
         enum Colorspace {
             /**
              * Indicates a red/green/blue additive color space.
              */
             RGB,
         }
-        /**
-         * Interpolation modes for scaling functions.
-         *
-         * The `GDK_INTERP_NEAREST` mode is the fastest scaling method, but has
-         * horrible quality when scaling down; `GDK_INTERP_BILINEAR` is the best
-         * choice if you aren't sure what to choose, it has a good speed/quality
-         * balance.
-         *
-         * **Note**: Cubic filtering is missing from the list; hyperbolic
-         * interpolation is just as fast and results in higher quality.
-         */
 
-        /**
-         * Interpolation modes for scaling functions.
-         *
-         * The `GDK_INTERP_NEAREST` mode is the fastest scaling method, but has
-         * horrible quality when scaling down; `GDK_INTERP_BILINEAR` is the best
-         * choice if you aren't sure what to choose, it has a good speed/quality
-         * balance.
-         *
-         * **Note**: Cubic filtering is missing from the list; hyperbolic
-         * interpolation is just as fast and results in higher quality.
-         */
         export namespace InterpType {
             export const $gtype: GObject.GType<InterpType>;
         }
 
+        /**
+         * Interpolation modes for scaling functions.
+         *
+         * The `GDK_INTERP_NEAREST` mode is the fastest scaling method, but has
+         * horrible quality when scaling down; `GDK_INTERP_BILINEAR` is the best
+         * choice if you aren't sure what to choose, it has a good speed/quality
+         * balance.
+         *
+         * **Note**: Cubic filtering is missing from the list; hyperbolic
+         * interpolation is just as fast and results in higher quality.
+         */
         enum InterpType {
             /**
              * Nearest neighbor sampling; this is the fastest
@@ -109,39 +91,25 @@ declare module 'gi://GdkPixbuf?version=2.0' {
              */
             HYPER,
         }
-        /**
-         * Control the alpha channel for drawables.
-         *
-         * These values can be passed to gdk_pixbuf_xlib_render_to_drawable_alpha()
-         * in gdk-pixbuf-xlib to control how the alpha channel of an image should
-         * be handled.
-         *
-         * This function can create a bilevel clipping mask (black and white) and use
-         * it while painting the image.
-         *
-         * In the future, when the X Window System gets an alpha channel extension,
-         * it will be possible to do full alpha compositing onto arbitrary drawables.
-         * For now both cases fall back to a bilevel clipping mask.
-         */
 
-        /**
-         * Control the alpha channel for drawables.
-         *
-         * These values can be passed to gdk_pixbuf_xlib_render_to_drawable_alpha()
-         * in gdk-pixbuf-xlib to control how the alpha channel of an image should
-         * be handled.
-         *
-         * This function can create a bilevel clipping mask (black and white) and use
-         * it while painting the image.
-         *
-         * In the future, when the X Window System gets an alpha channel extension,
-         * it will be possible to do full alpha compositing onto arbitrary drawables.
-         * For now both cases fall back to a bilevel clipping mask.
-         */
         export namespace PixbufAlphaMode {
             export const $gtype: GObject.GType<PixbufAlphaMode>;
         }
 
+        /**
+         * Control the alpha channel for drawables.
+         *
+         * These values can be passed to gdk_pixbuf_xlib_render_to_drawable_alpha()
+         * in gdk-pixbuf-xlib to control how the alpha channel of an image should
+         * be handled.
+         *
+         * This function can create a bilevel clipping mask (black and white) and use
+         * it while painting the image.
+         *
+         * In the future, when the X Window System gets an alpha channel extension,
+         * it will be possible to do full alpha compositing onto arbitrary drawables.
+         * For now both cases fall back to a bilevel clipping mask.
+         */
         enum PixbufAlphaMode {
             /**
              * A bilevel clipping mask (black and white)
@@ -156,6 +124,7 @@ declare module 'gi://GdkPixbuf?version=2.0' {
              */
             FULL,
         }
+
         /**
          * An error code in the `GDK_PIXBUF_ERROR` domain.
          *
@@ -163,7 +132,7 @@ declare module 'gi://GdkPixbuf?version=2.0' {
          * the `G_FILE_ERROR` domain.
          */
         class PixbufError extends GLib.Error {
-            static $gtype: GObject.GType<PixbufError>;
+            static $gtype: GObject.GType<GLib.Error>;
 
             // Static fields
 
@@ -200,28 +169,21 @@ declare module 'gi://GdkPixbuf?version=2.0' {
             // Constructors
 
             constructor(options: { message: string; code: number });
-            _init(...args: any[]): void;
 
             // Static methods
 
             static quark(): GLib.Quark;
         }
 
-        /**
-         * The possible rotations which can be passed to gdk_pixbuf_rotate_simple().
-         *
-         * To make them easier to use, their numerical values are the actual degrees.
-         */
-
-        /**
-         * The possible rotations which can be passed to gdk_pixbuf_rotate_simple().
-         *
-         * To make them easier to use, their numerical values are the actual degrees.
-         */
         export namespace PixbufRotation {
             export const $gtype: GObject.GType<PixbufRotation>;
         }
 
+        /**
+         * The possible rotations which can be passed to gdk_pixbuf_rotate_simple().
+         *
+         * To make them easier to use, their numerical values are the actual degrees.
+         */
         enum PixbufRotation {
             /**
              * No rotation.
@@ -240,6 +202,7 @@ declare module 'gi://GdkPixbuf?version=2.0' {
              */
             CLOCKWISE,
         }
+
         /**
          * Major version of gdk-pixbuf library, that is the "0" in
          * "0.8.2" for example.
@@ -309,15 +272,6 @@ declare module 'gi://GdkPixbuf?version=2.0' {
          * Flags which allow a module to specify further details about the supported
          * operations.
          */
-
-        /**
-         * Flags which allow a module to specify further details about the supported
-         * operations.
-         */
-        export namespace PixbufFormatFlags {
-            export const $gtype: GObject.GType<PixbufFormatFlags>;
-        }
-
         enum PixbufFormatFlags {
             /**
              * the module can write out images in the format.
@@ -333,6 +287,7 @@ declare module 'gi://GdkPixbuf?version=2.0' {
              */
             THREADSAFE,
         }
+
         namespace Pixbuf {
             // Signal signatures
             interface SignalSignatures extends GObject.Object.SignalSignatures {
@@ -350,9 +305,7 @@ declare module 'gi://GdkPixbuf?version=2.0' {
             // Constructor properties interface
 
             interface ConstructorProps
-                extends GObject.Object.ConstructorProps,
-                    Gio.Icon.ConstructorProps,
-                    Gio.LoadableIcon.ConstructorProps {
+                extends GObject.Object.ConstructorProps, Gio.Icon.ConstructorProps, Gio.LoadableIcon.ConstructorProps {
                 bits_per_sample: number;
                 bitsPerSample: number;
                 colorspace: Colorspace;
@@ -2754,7 +2707,6 @@ declare module 'gi://GdkPixbuf?version=2.0' {
                     license: string;
                 }>,
             );
-            _init(...args: any[]): void;
 
             // Methods
 
@@ -2903,10 +2855,6 @@ declare module 'gi://GdkPixbuf?version=2.0' {
             load_animation: PixbufModuleLoadAnimationFunc;
             save: PixbufModuleSaveFunc;
             is_save_option_supported: PixbufModuleSaveOptionSupportedFunc;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -2959,7 +2907,6 @@ declare module 'gi://GdkPixbuf?version=2.0' {
                     relevance: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         type PixbufSimpleAnimClass = typeof PixbufSimpleAnim;

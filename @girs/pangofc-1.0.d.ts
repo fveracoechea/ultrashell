@@ -366,8 +366,7 @@ declare module 'gi://PangoFc?version=1.0' {
             // Constructor properties interface
 
             interface ConstructorProps<A extends GObject.Object = GObject.Object>
-                extends Pango.FontMap.ConstructorProps,
-                    Gio.ListModel.ConstructorProps {}
+                extends Pango.FontMap.ConstructorProps, Gio.ListModel.ConstructorProps {}
         }
 
         /**
@@ -1030,10 +1029,6 @@ declare module 'gi://PangoFc?version=1.0' {
         type FontMapClass = typeof FontMap;
         abstract class FontMapPrivate {
             static $gtype: GObject.GType<FontMapPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**

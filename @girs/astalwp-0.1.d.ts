@@ -121,6 +121,7 @@ declare module 'gi://AstalWp?version=0.1' {
             LINEAR,
             CUBIC,
         }
+
         const MAJOR_VERSION: number;
         const MICRO_VERSION: number;
         const MINOR_VERSION: number;

@@ -347,85 +347,46 @@ declare module 'gi://cairo?version=1.0' {
             OUT,
             PART,
         }
+
         function image_surface_create(): void;
         class Context {
             static $gtype: GObject.GType<Context>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         class Device {
             static $gtype: GObject.GType<Device>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         class Surface {
             static $gtype: GObject.GType<Surface>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         class Matrix {
             static $gtype: GObject.GType<Matrix>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         class Pattern {
             static $gtype: GObject.GType<Pattern>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         class Region {
             static $gtype: GObject.GType<Region>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         class FontOptions {
             static $gtype: GObject.GType<FontOptions>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         class FontFace {
             static $gtype: GObject.GType<FontFace>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         class ScaledFont {
             static $gtype: GObject.GType<ScaledFont>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         class Path {
             static $gtype: GObject.GType<Path>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         class Rectangle {
@@ -448,7 +409,6 @@ declare module 'gi://cairo?version=1.0' {
                     height: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class RectangleInt {
@@ -471,7 +431,6 @@ declare module 'gi://cairo?version=1.0' {
                     height: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class Glyph {
@@ -492,7 +451,6 @@ declare module 'gi://cairo?version=1.0' {
                     y: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class TextCluster {
@@ -511,7 +469,6 @@ declare module 'gi://cairo?version=1.0' {
                     num_glyphs: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         /**

@@ -69,6 +69,7 @@ declare module 'gi://AstalMpris?version=0.1' {
              */
             OFF,
         }
+
         const MAJOR_VERSION: number;
         const MINOR_VERSION: number;
         const MICRO_VERSION: number;
@@ -88,8 +89,7 @@ declare module 'gi://AstalMpris?version=0.1' {
             // Constructor properties interface
 
             interface ConstructorProps<A extends GObject.Object = GObject.Object>
-                extends GObject.Object.ConstructorProps,
-                    Gio.ListModel.ConstructorProps {
+                extends GObject.Object.ConstructorProps, Gio.ListModel.ConstructorProps {
                 players: Player[];
             }
         }
@@ -1232,19 +1232,11 @@ declare module 'gi://AstalMpris?version=0.1' {
         type MprisClass = typeof Mpris;
         abstract class MprisPrivate {
             static $gtype: GObject.GType<MprisPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type PlayerClass = typeof Player;
         abstract class PlayerPrivate {
             static $gtype: GObject.GType<PlayerPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**

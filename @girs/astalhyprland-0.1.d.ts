@@ -59,12 +59,12 @@ declare module 'gi://AstalHyprland?version=0.1' {
              */
             FLIPPED_ROTATE_270_DEG,
         }
+
         const MAJOR_VERSION: number;
         const MINOR_VERSION: number;
         const MICRO_VERSION: number;
         const VERSION: string;
         function get_default(): Hyprland;
-
         export namespace Fullscreen {
             export const $gtype: GObject.GType<Fullscreen>;
         }
@@ -75,6 +75,7 @@ declare module 'gi://AstalHyprland?version=0.1' {
             MAXIMIZED,
             FULLSCREEN,
         }
+
         namespace Client {
             // Signal signatures
             interface SignalSignatures extends GObject.Object.SignalSignatures {
@@ -947,55 +948,31 @@ declare module 'gi://AstalHyprland?version=0.1' {
         type ClientClass = typeof Client;
         abstract class ClientPrivate {
             static $gtype: GObject.GType<ClientPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type HyprlandClass = typeof Hyprland;
         abstract class HyprlandPrivate {
             static $gtype: GObject.GType<HyprlandPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type MonitorClass = typeof Monitor;
         abstract class MonitorPrivate {
             static $gtype: GObject.GType<MonitorPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type BindClass = typeof Bind;
         abstract class BindPrivate {
             static $gtype: GObject.GType<BindPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type PositionClass = typeof Position;
         abstract class PositionPrivate {
             static $gtype: GObject.GType<PositionPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type WorkspaceClass = typeof Workspace;
         abstract class WorkspacePrivate {
             static $gtype: GObject.GType<WorkspacePrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**

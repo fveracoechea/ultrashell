@@ -20,10 +20,6 @@ declare module 'gi://win32?version=1.0' {
 
         class MSG {
             static $gtype: GObject.GType<MSG>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type HWND = number;

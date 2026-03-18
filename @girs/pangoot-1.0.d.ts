@@ -42,16 +42,6 @@ declare module 'gi://PangoOT?version=1.0' {
          * identify the various OpenType tables in the
          * pango_ot_info_… functions.
          */
-
-        /**
-         * The PangoOTTableType enumeration values are used to
-         * identify the various OpenType tables in the
-         * pango_ot_info_… functions.
-         */
-        export namespace TableType {
-            export const $gtype: GObject.GType<TableType>;
-        }
-
         enum TableType {
             /**
              * The GSUB table.
@@ -62,6 +52,7 @@ declare module 'gi://PangoOT?version=1.0' {
              */
             GPOS,
         }
+
         /**
          * This is used as the property bit in pango_ot_ruleset_add_feature() when a
          * feature should be applied to all glyphs.
@@ -418,7 +409,6 @@ declare module 'gi://PangoOT?version=1.0' {
             // Constructors
 
             constructor(font: PangoFc.Font);
-            _init(...args: any[]): void;
 
             static ['new'](font: PangoFc.Font): Buffer;
 
@@ -498,7 +488,6 @@ declare module 'gi://PangoOT?version=1.0' {
                     property_bit: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         /**
@@ -530,7 +519,6 @@ declare module 'gi://PangoOT?version=1.0' {
                     internal: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         /**
@@ -553,10 +541,6 @@ declare module 'gi://PangoOT?version=1.0' {
             n_static_gpos_features: number;
             other_features: FeatureMap;
             n_other_features: number;
-
-            // Constructors
-
-            _init(...args: any[]): void;
 
             // Methods
 

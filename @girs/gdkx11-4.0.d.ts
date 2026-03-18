@@ -41,15 +41,12 @@ declare module 'gi://GdkX11?version=4.0' {
          * GdkX11-4.0
          */
 
-        export namespace X11DeviceType {
-            export const $gtype: GObject.GType<X11DeviceType>;
-        }
-
         enum X11DeviceType {
             LOGICAL,
             PHYSICAL,
             FLOATING,
         }
+
         /**
          * Returns the device ID as seen by XInput2.
          * @param device a `GdkDevice`

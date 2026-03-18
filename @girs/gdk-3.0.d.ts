@@ -35,29 +35,19 @@ declare module 'gi://Gdk?version=3.0' {
          * Gdk-3.0
          */
 
-        /**
-         * An enumeration describing the way in which a device
-         * axis (valuator) maps onto the predefined valuator
-         * types that GTK+ understands.
-         *
-         * Note that the X and Y axes are not really needed; pointer devices
-         * report their location via the x/y members of events regardless. Whether
-         * X and Y are present as axes depends on the GDK backend.
-         */
-
-        /**
-         * An enumeration describing the way in which a device
-         * axis (valuator) maps onto the predefined valuator
-         * types that GTK+ understands.
-         *
-         * Note that the X and Y axes are not really needed; pointer devices
-         * report their location via the x/y members of events regardless. Whether
-         * X and Y are present as axes depends on the GDK backend.
-         */
         export namespace AxisUse {
             export const $gtype: GObject.GType<AxisUse>;
         }
 
+        /**
+         * An enumeration describing the way in which a device
+         * axis (valuator) maps onto the predefined valuator
+         * types that GTK+ understands.
+         *
+         * Note that the X and Y axes are not really needed; pointer devices
+         * report their location via the x/y members of events regardless. Whether
+         * X and Y are present as axes depends on the GDK backend.
+         */
         enum AxisUse {
             /**
              * the axis is ignored.
@@ -104,19 +94,15 @@ declare module 'gi://Gdk?version=3.0' {
              */
             LAST,
         }
-        /**
-         * A set of values describing the possible byte-orders
-         * for storing pixel values in memory.
-         */
 
-        /**
-         * A set of values describing the possible byte-orders
-         * for storing pixel values in memory.
-         */
         export namespace ByteOrder {
             export const $gtype: GObject.GType<ByteOrder>;
         }
 
+        /**
+         * A set of values describing the possible byte-orders
+         * for storing pixel values in memory.
+         */
         enum ByteOrder {
             /**
              * The values are stored with the least-significant byte
@@ -131,17 +117,14 @@ declare module 'gi://Gdk?version=3.0' {
              */
             MSB_FIRST,
         }
-        /**
-         * Specifies the crossing mode for #GdkEventCrossing.
-         */
 
-        /**
-         * Specifies the crossing mode for #GdkEventCrossing.
-         */
         export namespace CrossingMode {
             export const $gtype: GObject.GType<CrossingMode>;
         }
 
+        /**
+         * Specifies the crossing mode for #GdkEventCrossing.
+         */
         enum CrossingMode {
             /**
              * crossing because of pointer motion.
@@ -185,27 +168,19 @@ declare module 'gi://Gdk?version=3.0' {
              */
             DEVICE_SWITCH,
         }
-        /**
-         * Predefined cursors.
-         *
-         * Note that these IDs are directly taken from the X cursor font, and many
-         * of these cursors are either not useful, or are not available on other platforms.
-         *
-         * The recommended way to create cursors is to use gdk_cursor_new_from_name().
-         */
 
-        /**
-         * Predefined cursors.
-         *
-         * Note that these IDs are directly taken from the X cursor font, and many
-         * of these cursors are either not useful, or are not available on other platforms.
-         *
-         * The recommended way to create cursors is to use gdk_cursor_new_from_name().
-         */
         export namespace CursorType {
             export const $gtype: GObject.GType<CursorType>;
         }
 
+        /**
+         * Predefined cursors.
+         *
+         * Note that these IDs are directly taken from the X cursor font, and many
+         * of these cursors are either not useful, or are not available on other platforms.
+         *
+         * The recommended way to create cursors is to use gdk_cursor_new_from_name().
+         */
         enum CursorType {
             /**
              * ![](X_cursor.png)
@@ -529,17 +504,14 @@ declare module 'gi://Gdk?version=3.0' {
              */
             CURSOR_IS_PIXMAP,
         }
-        /**
-         * A pad feature.
-         */
 
-        /**
-         * A pad feature.
-         */
         export namespace DevicePadFeature {
             export const $gtype: GObject.GType<DevicePadFeature>;
         }
 
+        /**
+         * A pad feature.
+         */
         enum DevicePadFeature {
             /**
              * a button
@@ -554,19 +526,15 @@ declare module 'gi://Gdk?version=3.0' {
              */
             STRIP,
         }
-        /**
-         * Indicates the specific type of tool being used being a tablet. Such as an
-         * airbrush, pencil, etc.
-         */
 
-        /**
-         * Indicates the specific type of tool being used being a tablet. Such as an
-         * airbrush, pencil, etc.
-         */
         export namespace DeviceToolType {
             export const $gtype: GObject.GType<DeviceToolType>;
         }
 
+        /**
+         * Indicates the specific type of tool being used being a tablet. Such as an
+         * airbrush, pencil, etc.
+         */
         enum DeviceToolType {
             /**
              * Tool is of an unknown type.
@@ -601,19 +569,15 @@ declare module 'gi://Gdk?version=3.0' {
              */
             LENS,
         }
-        /**
-         * Indicates the device type. See [above][GdkDeviceManager.description]
-         * for more information about the meaning of these device types.
-         */
 
-        /**
-         * Indicates the device type. See [above][GdkDeviceManager.description]
-         * for more information about the meaning of these device types.
-         */
         export namespace DeviceType {
             export const $gtype: GObject.GType<DeviceType>;
         }
 
+        /**
+         * Indicates the device type. See [above][GdkDeviceManager.description]
+         * for more information about the meaning of these device types.
+         */
         enum DeviceType {
             /**
              * Device is a master (or virtual) device. There will
@@ -630,17 +594,14 @@ declare module 'gi://Gdk?version=3.0' {
              */
             FLOATING,
         }
-        /**
-         * Used in #GdkDragContext to the reason of a cancelled DND operation.
-         */
 
-        /**
-         * Used in #GdkDragContext to the reason of a cancelled DND operation.
-         */
         export namespace DragCancelReason {
             export const $gtype: GObject.GType<DragCancelReason>;
         }
 
+        /**
+         * Used in #GdkDragContext to the reason of a cancelled DND operation.
+         */
         enum DragCancelReason {
             /**
              * There is no suitable drop target.
@@ -655,19 +616,15 @@ declare module 'gi://Gdk?version=3.0' {
              */
             ERROR,
         }
-        /**
-         * Used in #GdkDragContext to indicate the protocol according to
-         * which DND is done.
-         */
 
-        /**
-         * Used in #GdkDragContext to indicate the protocol according to
-         * which DND is done.
-         */
         export namespace DragProtocol {
             export const $gtype: GObject.GType<DragProtocol>;
         }
 
+        /**
+         * Used in #GdkDragContext to indicate the protocol according to
+         * which DND is done.
+         */
         enum DragProtocol {
             /**
              * no protocol.
@@ -703,39 +660,25 @@ declare module 'gi://Gdk?version=3.0' {
              */
             WAYLAND,
         }
-        /**
-         * Specifies the type of the event.
-         *
-         * Do not confuse these events with the signals that GTK+ widgets emit.
-         * Although many of these events result in corresponding signals being emitted,
-         * the events are often transformed or filtered along the way.
-         *
-         * In some language bindings, the values %GDK_2BUTTON_PRESS and
-         * %GDK_3BUTTON_PRESS would translate into something syntactically
-         * invalid (eg `Gdk.EventType.2ButtonPress`, where a
-         * symbol is not allowed to start with a number). In that case, the
-         * aliases %GDK_DOUBLE_BUTTON_PRESS and %GDK_TRIPLE_BUTTON_PRESS can
-         * be used instead.
-         */
 
-        /**
-         * Specifies the type of the event.
-         *
-         * Do not confuse these events with the signals that GTK+ widgets emit.
-         * Although many of these events result in corresponding signals being emitted,
-         * the events are often transformed or filtered along the way.
-         *
-         * In some language bindings, the values %GDK_2BUTTON_PRESS and
-         * %GDK_3BUTTON_PRESS would translate into something syntactically
-         * invalid (eg `Gdk.EventType.2ButtonPress`, where a
-         * symbol is not allowed to start with a number). In that case, the
-         * aliases %GDK_DOUBLE_BUTTON_PRESS and %GDK_TRIPLE_BUTTON_PRESS can
-         * be used instead.
-         */
         export namespace EventType {
             export const $gtype: GObject.GType<EventType>;
         }
 
+        /**
+         * Specifies the type of the event.
+         *
+         * Do not confuse these events with the signals that GTK+ widgets emit.
+         * Although many of these events result in corresponding signals being emitted,
+         * the events are often transformed or filtered along the way.
+         *
+         * In some language bindings, the values %GDK_2BUTTON_PRESS and
+         * %GDK_3BUTTON_PRESS would translate into something syntactically
+         * invalid (eg `Gdk.EventType.2ButtonPress`, where a
+         * symbol is not allowed to start with a number). In that case, the
+         * aliases %GDK_DOUBLE_BUTTON_PRESS and %GDK_TRIPLE_BUTTON_PRESS can
+         * be used instead.
+         */
         enum EventType {
             /**
              * a special code to indicate a null event.
@@ -968,17 +911,14 @@ declare module 'gi://Gdk?version=3.0' {
              */
             EVENT_LAST,
         }
-        /**
-         * Specifies the result of applying a #GdkFilterFunc to a native event.
-         */
 
-        /**
-         * Specifies the result of applying a #GdkFilterFunc to a native event.
-         */
         export namespace FilterReturn {
             export const $gtype: GObject.GType<FilterReturn>;
         }
 
+        /**
+         * Specifies the result of applying a #GdkFilterFunc to a native event.
+         */
         enum FilterReturn {
             /**
              * event not handled, continue processing.
@@ -994,19 +934,15 @@ declare module 'gi://Gdk?version=3.0' {
              */
             REMOVE,
         }
-        /**
-         * Indicates which monitor (in a multi-head setup) a window should span over
-         * when in fullscreen mode.
-         */
 
-        /**
-         * Indicates which monitor (in a multi-head setup) a window should span over
-         * when in fullscreen mode.
-         */
         export namespace FullscreenMode {
             export const $gtype: GObject.GType<FullscreenMode>;
         }
 
+        /**
+         * Indicates which monitor (in a multi-head setup) a window should span over
+         * when in fullscreen mode.
+         */
         enum FullscreenMode {
             /**
              * Fullscreen on current monitor only.
@@ -1017,11 +953,12 @@ declare module 'gi://Gdk?version=3.0' {
              */
             ALL_MONITORS,
         }
+
         /**
          * Error enumeration for #GdkGLContext.
          */
         class GLError extends GLib.Error {
-            static $gtype: GObject.GType<GLError>;
+            static $gtype: GObject.GType<GLib.Error>;
 
             // Static fields
 
@@ -1041,24 +978,19 @@ declare module 'gi://Gdk?version=3.0' {
             // Constructors
 
             constructor(options: { message: string; code: number });
-            _init(...args: any[]): void;
 
             // Static methods
 
             static quark(): GLib.Quark;
         }
 
-        /**
-         * Defines how device grabs interact with other devices.
-         */
-
-        /**
-         * Defines how device grabs interact with other devices.
-         */
         export namespace GrabOwnership {
             export const $gtype: GObject.GType<GrabOwnership>;
         }
 
+        /**
+         * Defines how device grabs interact with other devices.
+         */
         enum GrabOwnership {
             /**
              * All other devices’ events are allowed.
@@ -1073,19 +1005,15 @@ declare module 'gi://Gdk?version=3.0' {
              */
             APPLICATION,
         }
-        /**
-         * Returned by gdk_device_grab(), gdk_pointer_grab() and gdk_keyboard_grab() to
-         * indicate success or the reason for the failure of the grab attempt.
-         */
 
-        /**
-         * Returned by gdk_device_grab(), gdk_pointer_grab() and gdk_keyboard_grab() to
-         * indicate success or the reason for the failure of the grab attempt.
-         */
         export namespace GrabStatus {
             export const $gtype: GObject.GType<GrabStatus>;
         }
 
+        /**
+         * Returned by gdk_device_grab(), gdk_pointer_grab() and gdk_keyboard_grab() to
+         * indicate success or the reason for the failure of the grab attempt.
+         */
         enum GrabStatus {
             /**
              * the resource was successfully grabbed.
@@ -1114,25 +1042,18 @@ declare module 'gi://Gdk?version=3.0' {
              */
             FAILED,
         }
-        /**
-         * Defines the reference point of a window and the meaning of coordinates
-         * passed to gtk_window_move(). See gtk_window_move() and the "implementation
-         * notes" section of the
-         * [Extended Window Manager Hints](http://www.freedesktop.org/Standards/wm-spec)
-         * specification for more details.
-         */
 
-        /**
-         * Defines the reference point of a window and the meaning of coordinates
-         * passed to gtk_window_move(). See gtk_window_move() and the "implementation
-         * notes" section of the
-         * [Extended Window Manager Hints](http://www.freedesktop.org/Standards/wm-spec)
-         * specification for more details.
-         */
         export namespace Gravity {
             export const $gtype: GObject.GType<Gravity>;
         }
 
+        /**
+         * Defines the reference point of a window and the meaning of coordinates
+         * passed to gtk_window_move(). See gtk_window_move() and the "implementation
+         * notes" section of the
+         * [Extended Window Manager Hints](http://www.freedesktop.org/Standards/wm-spec)
+         * specification for more details.
+         */
         enum Gravity {
             /**
              * the reference point is at the top left corner.
@@ -1176,17 +1097,14 @@ declare module 'gi://Gdk?version=3.0' {
              */
             STATIC,
         }
-        /**
-         * An enumeration that describes the mode of an input device.
-         */
 
-        /**
-         * An enumeration that describes the mode of an input device.
-         */
         export namespace InputMode {
             export const $gtype: GObject.GType<InputMode>;
         }
 
+        /**
+         * An enumeration that describes the mode of an input device.
+         */
         enum InputMode {
             /**
              * the device is disabled and will not report any events.
@@ -1205,17 +1123,14 @@ declare module 'gi://Gdk?version=3.0' {
              */
             WINDOW,
         }
-        /**
-         * An enumeration describing the type of an input device in general terms.
-         */
 
-        /**
-         * An enumeration describing the type of an input device in general terms.
-         */
         export namespace InputSource {
             export const $gtype: GObject.GType<InputSource>;
         }
 
+        /**
+         * An enumeration describing the type of an input device in general terms.
+         */
         enum InputSource {
             /**
              * the device is a mouse. (This will be reported for the core
@@ -1261,29 +1176,20 @@ declare module 'gi://Gdk?version=3.0' {
              */
             TABLET_PAD,
         }
-        /**
-         * This enum is used with gdk_keymap_get_modifier_mask()
-         * in order to determine what modifiers the
-         * currently used windowing system backend uses for particular
-         * purposes. For example, on X11/Windows, the Control key is used for
-         * invoking menu shortcuts (accelerators), whereas on Apple computers
-         * it’s the Command key (which correspond to %GDK_CONTROL_MASK and
-         * %GDK_MOD2_MASK, respectively).
-         */
 
-        /**
-         * This enum is used with gdk_keymap_get_modifier_mask()
-         * in order to determine what modifiers the
-         * currently used windowing system backend uses for particular
-         * purposes. For example, on X11/Windows, the Control key is used for
-         * invoking menu shortcuts (accelerators), whereas on Apple computers
-         * it’s the Command key (which correspond to %GDK_CONTROL_MASK and
-         * %GDK_MOD2_MASK, respectively).
-         */
         export namespace ModifierIntent {
             export const $gtype: GObject.GType<ModifierIntent>;
         }
 
+        /**
+         * This enum is used with gdk_keymap_get_modifier_mask()
+         * in order to determine what modifiers the
+         * currently used windowing system backend uses for particular
+         * purposes. For example, on X11/Windows, the Control key is used for
+         * invoking menu shortcuts (accelerators), whereas on Apple computers
+         * it’s the Command key (which correspond to %GDK_CONTROL_MASK and
+         * %GDK_MOD2_MASK, respectively).
+         */
         enum ModifierIntent {
             /**
              * the primary modifier used to invoke
@@ -1326,23 +1232,17 @@ declare module 'gi://Gdk?version=3.0' {
              */
             DEFAULT_MOD_MASK,
         }
-        /**
-         * Specifies the kind of crossing for #GdkEventCrossing.
-         *
-         * See the X11 protocol specification of LeaveNotify for
-         * full details of crossing event generation.
-         */
 
-        /**
-         * Specifies the kind of crossing for #GdkEventCrossing.
-         *
-         * See the X11 protocol specification of LeaveNotify for
-         * full details of crossing event generation.
-         */
         export namespace NotifyType {
             export const $gtype: GObject.GType<NotifyType>;
         }
 
+        /**
+         * Specifies the kind of crossing for #GdkEventCrossing.
+         *
+         * See the X11 protocol specification of LeaveNotify for
+         * full details of crossing event generation.
+         */
         enum NotifyType {
             /**
              * the window is entered from an ancestor or
@@ -1376,17 +1276,14 @@ declare module 'gi://Gdk?version=3.0' {
              */
             UNKNOWN,
         }
-        /**
-         * Specifies why a selection ownership was changed.
-         */
 
-        /**
-         * Specifies why a selection ownership was changed.
-         */
         export namespace OwnerChange {
             export const $gtype: GObject.GType<OwnerChange>;
         }
 
+        /**
+         * Specifies why a selection ownership was changed.
+         */
         enum OwnerChange {
             /**
              * some other app claimed the ownership
@@ -1401,19 +1298,15 @@ declare module 'gi://Gdk?version=3.0' {
              */
             CLOSE,
         }
-        /**
-         * Describes how existing data is combined with new data when
-         * using gdk_property_change().
-         */
 
-        /**
-         * Describes how existing data is combined with new data when
-         * using gdk_property_change().
-         */
         export namespace PropMode {
             export const $gtype: GObject.GType<PropMode>;
         }
 
+        /**
+         * Describes how existing data is combined with new data when
+         * using gdk_property_change().
+         */
         enum PropMode {
             /**
              * the new data replaces the existing data.
@@ -1428,17 +1321,14 @@ declare module 'gi://Gdk?version=3.0' {
              */
             APPEND,
         }
-        /**
-         * Specifies the type of a property change for a #GdkEventProperty.
-         */
 
-        /**
-         * Specifies the type of a property change for a #GdkEventProperty.
-         */
         export namespace PropertyState {
             export const $gtype: GObject.GType<PropertyState>;
         }
 
+        /**
+         * Specifies the type of a property change for a #GdkEventProperty.
+         */
         enum PropertyState {
             /**
              * the property value was changed.
@@ -1449,17 +1339,14 @@ declare module 'gi://Gdk?version=3.0' {
              */
             DELETE,
         }
-        /**
-         * Specifies the direction for #GdkEventScroll.
-         */
 
-        /**
-         * Specifies the direction for #GdkEventScroll.
-         */
         export namespace ScrollDirection {
             export const $gtype: GObject.GType<ScrollDirection>;
         }
 
+        /**
+         * Specifies the direction for #GdkEventScroll.
+         */
         enum ScrollDirection {
             /**
              * the window is scrolled up.
@@ -1483,19 +1370,15 @@ declare module 'gi://Gdk?version=3.0' {
              */
             SMOOTH,
         }
-        /**
-         * Specifies the kind of modification applied to a setting in a
-         * #GdkEventSetting.
-         */
 
-        /**
-         * Specifies the kind of modification applied to a setting in a
-         * #GdkEventSetting.
-         */
         export namespace SettingAction {
             export const $gtype: GObject.GType<SettingAction>;
         }
 
+        /**
+         * Specifies the kind of modification applied to a setting in a
+         * #GdkEventSetting.
+         */
         enum SettingAction {
             /**
              * a setting was added.
@@ -1522,19 +1405,15 @@ declare module 'gi://Gdk?version=3.0' {
             ERROR_FILE,
             ERROR_MEM,
         }
-        /**
-         * This enumeration describes how the red, green and blue components
-         * of physical pixels on an output device are laid out.
-         */
 
-        /**
-         * This enumeration describes how the red, green and blue components
-         * of physical pixels on an output device are laid out.
-         */
         export namespace SubpixelLayout {
             export const $gtype: GObject.GType<SubpixelLayout>;
         }
 
+        /**
+         * This enumeration describes how the red, green and blue components
+         * of physical pixels on an output device are laid out.
+         */
         enum SubpixelLayout {
             /**
              * The layout is not known
@@ -1561,51 +1440,31 @@ declare module 'gi://Gdk?version=3.0' {
              */
             VERTICAL_BGR,
         }
-        /**
-         * Specifies the current state of a touchpad gesture. All gestures are
-         * guaranteed to begin with an event with phase %GDK_TOUCHPAD_GESTURE_PHASE_BEGIN,
-         * followed by 0 or several events with phase %GDK_TOUCHPAD_GESTURE_PHASE_UPDATE.
-         *
-         * A finished gesture may have 2 possible outcomes, an event with phase
-         * %GDK_TOUCHPAD_GESTURE_PHASE_END will be emitted when the gesture is
-         * considered successful, this should be used as the hint to perform any
-         * permanent changes.
-         *
-         * Cancelled gestures may be so for a variety of reasons, due to hardware
-         * or the compositor, or due to the gesture recognition layers hinting the
-         * gesture did not finish resolutely (eg. a 3rd finger being added during
-         * a pinch gesture). In these cases, the last event will report the phase
-         * %GDK_TOUCHPAD_GESTURE_PHASE_CANCEL, this should be used as a hint
-         * to undo any visible/permanent changes that were done throughout the
-         * progress of the gesture.
-         *
-         * See also #GdkEventTouchpadSwipe and #GdkEventTouchpadPinch.
-         */
 
-        /**
-         * Specifies the current state of a touchpad gesture. All gestures are
-         * guaranteed to begin with an event with phase %GDK_TOUCHPAD_GESTURE_PHASE_BEGIN,
-         * followed by 0 or several events with phase %GDK_TOUCHPAD_GESTURE_PHASE_UPDATE.
-         *
-         * A finished gesture may have 2 possible outcomes, an event with phase
-         * %GDK_TOUCHPAD_GESTURE_PHASE_END will be emitted when the gesture is
-         * considered successful, this should be used as the hint to perform any
-         * permanent changes.
-         *
-         * Cancelled gestures may be so for a variety of reasons, due to hardware
-         * or the compositor, or due to the gesture recognition layers hinting the
-         * gesture did not finish resolutely (eg. a 3rd finger being added during
-         * a pinch gesture). In these cases, the last event will report the phase
-         * %GDK_TOUCHPAD_GESTURE_PHASE_CANCEL, this should be used as a hint
-         * to undo any visible/permanent changes that were done throughout the
-         * progress of the gesture.
-         *
-         * See also #GdkEventTouchpadSwipe and #GdkEventTouchpadPinch.
-         */
         export namespace TouchpadGesturePhase {
             export const $gtype: GObject.GType<TouchpadGesturePhase>;
         }
 
+        /**
+         * Specifies the current state of a touchpad gesture. All gestures are
+         * guaranteed to begin with an event with phase %GDK_TOUCHPAD_GESTURE_PHASE_BEGIN,
+         * followed by 0 or several events with phase %GDK_TOUCHPAD_GESTURE_PHASE_UPDATE.
+         *
+         * A finished gesture may have 2 possible outcomes, an event with phase
+         * %GDK_TOUCHPAD_GESTURE_PHASE_END will be emitted when the gesture is
+         * considered successful, this should be used as the hint to perform any
+         * permanent changes.
+         *
+         * Cancelled gestures may be so for a variety of reasons, due to hardware
+         * or the compositor, or due to the gesture recognition layers hinting the
+         * gesture did not finish resolutely (eg. a 3rd finger being added during
+         * a pinch gesture). In these cases, the last event will report the phase
+         * %GDK_TOUCHPAD_GESTURE_PHASE_CANCEL, this should be used as a hint
+         * to undo any visible/permanent changes that were done throughout the
+         * progress of the gesture.
+         *
+         * See also #GdkEventTouchpadSwipe and #GdkEventTouchpadPinch.
+         */
         enum TouchpadGesturePhase {
             /**
              * The gesture has begun.
@@ -1626,17 +1485,14 @@ declare module 'gi://Gdk?version=3.0' {
              */
             CANCEL,
         }
-        /**
-         * Specifies the visiblity status of a window for a #GdkEventVisibility.
-         */
 
-        /**
-         * Specifies the visiblity status of a window for a #GdkEventVisibility.
-         */
         export namespace VisibilityState {
             export const $gtype: GObject.GType<VisibilityState>;
         }
 
+        /**
+         * Specifies the visiblity status of a window for a #GdkEventVisibility.
+         */
         enum VisibilityState {
             /**
              * the window is completely visible.
@@ -1651,19 +1507,15 @@ declare module 'gi://Gdk?version=3.0' {
              */
             FULLY_OBSCURED,
         }
-        /**
-         * A set of values that describe the manner in which the pixel values
-         * for a visual are converted into RGB values for display.
-         */
 
-        /**
-         * A set of values that describe the manner in which the pixel values
-         * for a visual are converted into RGB values for display.
-         */
         export namespace VisualType {
             export const $gtype: GObject.GType<VisualType>;
         }
 
+        /**
+         * A set of values that describe the manner in which the pixel values
+         * for a visual are converted into RGB values for display.
+         */
         enum VisualType {
             /**
              * Each pixel value indexes a grayscale value
@@ -1702,17 +1554,14 @@ declare module 'gi://Gdk?version=3.0' {
              */
             DIRECT_COLOR,
         }
-        /**
-         * Determines a window edge or corner.
-         */
 
-        /**
-         * Determines a window edge or corner.
-         */
         export namespace WindowEdge {
             export const $gtype: GObject.GType<WindowEdge>;
         }
 
+        /**
+         * Determines a window edge or corner.
+         */
         enum WindowEdge {
             /**
              * the top left corner.
@@ -1747,17 +1596,14 @@ declare module 'gi://Gdk?version=3.0' {
              */
             SOUTH_EAST,
         }
-        /**
-         * Describes the kind of window.
-         */
 
-        /**
-         * Describes the kind of window.
-         */
         export namespace WindowType {
             export const $gtype: GObject.GType<WindowType>;
         }
 
+        /**
+         * Describes the kind of window.
+         */
         enum WindowType {
             /**
              * root window; this window has no parent, covers the entire
@@ -1793,27 +1639,19 @@ declare module 'gi://Gdk?version=3.0' {
              */
             SUBSURFACE,
         }
-        /**
-         * These are hints for the window manager that indicate what type of function
-         * the window has. The window manager can use this when determining decoration
-         * and behaviour of the window. The hint must be set before mapping the window.
-         *
-         * See the [Extended Window Manager Hints](http://www.freedesktop.org/Standards/wm-spec)
-         * specification for more details about window types.
-         */
 
-        /**
-         * These are hints for the window manager that indicate what type of function
-         * the window has. The window manager can use this when determining decoration
-         * and behaviour of the window. The hint must be set before mapping the window.
-         *
-         * See the [Extended Window Manager Hints](http://www.freedesktop.org/Standards/wm-spec)
-         * specification for more details about window types.
-         */
         export namespace WindowTypeHint {
             export const $gtype: GObject.GType<WindowTypeHint>;
         }
 
+        /**
+         * These are hints for the window manager that indicate what type of function
+         * the window has. The window manager can use this when determining decoration
+         * and behaviour of the window. The hint must be set before mapping the window.
+         *
+         * See the [Extended Window Manager Hints](http://www.freedesktop.org/Standards/wm-spec)
+         * specification for more details about window types.
+         */
         enum WindowTypeHint {
             /**
              * Normal toplevel window.
@@ -1878,25 +1716,18 @@ declare module 'gi://Gdk?version=3.0' {
              */
             DND,
         }
-        /**
-         * `GDK_INPUT_OUTPUT` windows are the standard kind of window you might expect.
-         * Such windows receive events and are also displayed on screen.
-         * `GDK_INPUT_ONLY` windows are invisible; they are usually placed above other
-         * windows in order to trap or filter the events. You can’t draw on
-         * `GDK_INPUT_ONLY` windows.
-         */
 
-        /**
-         * `GDK_INPUT_OUTPUT` windows are the standard kind of window you might expect.
-         * Such windows receive events and are also displayed on screen.
-         * `GDK_INPUT_ONLY` windows are invisible; they are usually placed above other
-         * windows in order to trap or filter the events. You can’t draw on
-         * `GDK_INPUT_ONLY` windows.
-         */
         export namespace WindowWindowClass {
             export const $gtype: GObject.GType<WindowWindowClass>;
         }
 
+        /**
+         * `GDK_INPUT_OUTPUT` windows are the standard kind of window you might expect.
+         * Such windows receive events and are also displayed on screen.
+         * `GDK_INPUT_ONLY` windows are invisible; they are usually placed above other
+         * windows in order to trap or filter the events. You can’t draw on
+         * `GDK_INPUT_ONLY` windows.
+         */
         enum WindowWindowClass {
             /**
              * window for graphics and events
@@ -1907,6 +1738,7 @@ declare module 'gi://Gdk?version=3.0' {
              */
             INPUT_ONLY,
         }
+
         /**
          * The middle button.
          */
@@ -5600,45 +5432,27 @@ declare module 'gi://Gdk?version=3.0' {
         interface WindowInvalidateHandlerFunc {
             (window: Window, region: cairo.Region): void;
         }
-        /**
-         * Positioning hints for aligning a window relative to a rectangle.
-         *
-         * These hints determine how the window should be positioned in the case that
-         * the window would fall off-screen if placed in its ideal position.
-         *
-         * For example, %GDK_ANCHOR_FLIP_X will replace %GDK_GRAVITY_NORTH_WEST with
-         * %GDK_GRAVITY_NORTH_EAST and vice versa if the window extends beyond the left
-         * or right edges of the monitor.
-         *
-         * If %GDK_ANCHOR_SLIDE_X is set, the window can be shifted horizontally to fit
-         * on-screen. If %GDK_ANCHOR_RESIZE_X is set, the window can be shrunken
-         * horizontally to fit.
-         *
-         * In general, when multiple flags are set, flipping should take precedence over
-         * sliding, which should take precedence over resizing.
-         */
-
-        /**
-         * Positioning hints for aligning a window relative to a rectangle.
-         *
-         * These hints determine how the window should be positioned in the case that
-         * the window would fall off-screen if placed in its ideal position.
-         *
-         * For example, %GDK_ANCHOR_FLIP_X will replace %GDK_GRAVITY_NORTH_WEST with
-         * %GDK_GRAVITY_NORTH_EAST and vice versa if the window extends beyond the left
-         * or right edges of the monitor.
-         *
-         * If %GDK_ANCHOR_SLIDE_X is set, the window can be shifted horizontally to fit
-         * on-screen. If %GDK_ANCHOR_RESIZE_X is set, the window can be shrunken
-         * horizontally to fit.
-         *
-         * In general, when multiple flags are set, flipping should take precedence over
-         * sliding, which should take precedence over resizing.
-         */
         export namespace AnchorHints {
             export const $gtype: GObject.GType<AnchorHints>;
         }
 
+        /**
+         * Positioning hints for aligning a window relative to a rectangle.
+         *
+         * These hints determine how the window should be positioned in the case that
+         * the window would fall off-screen if placed in its ideal position.
+         *
+         * For example, %GDK_ANCHOR_FLIP_X will replace %GDK_GRAVITY_NORTH_WEST with
+         * %GDK_GRAVITY_NORTH_EAST and vice versa if the window extends beyond the left
+         * or right edges of the monitor.
+         *
+         * If %GDK_ANCHOR_SLIDE_X is set, the window can be shifted horizontally to fit
+         * on-screen. If %GDK_ANCHOR_RESIZE_X is set, the window can be shrunken
+         * horizontally to fit.
+         *
+         * In general, when multiple flags are set, flipping should take precedence over
+         * sliding, which should take precedence over resizing.
+         */
         enum AnchorHints {
             /**
              * allow flipping anchors horizontally
@@ -5677,17 +5491,14 @@ declare module 'gi://Gdk?version=3.0' {
              */
             RESIZE,
         }
-        /**
-         * Flags describing the current capabilities of a device/tool.
-         */
 
-        /**
-         * Flags describing the current capabilities of a device/tool.
-         */
         export namespace AxisFlags {
             export const $gtype: GObject.GType<AxisFlags>;
         }
 
+        /**
+         * Flags describing the current capabilities of a device/tool.
+         */
         enum AxisFlags {
             /**
              * X axis is present
@@ -5726,19 +5537,15 @@ declare module 'gi://Gdk?version=3.0' {
              */
             SLIDER,
         }
-        /**
-         * Used in #GdkDragContext to indicate what the destination
-         * should do with the dropped data.
-         */
 
-        /**
-         * Used in #GdkDragContext to indicate what the destination
-         * should do with the dropped data.
-         */
         export namespace DragAction {
             export const $gtype: GObject.GType<DragAction>;
         }
 
+        /**
+         * Used in #GdkDragContext to indicate what the destination
+         * should do with the dropped data.
+         */
         enum DragAction {
             /**
              * Means nothing, and should not be used.
@@ -5768,67 +5575,39 @@ declare module 'gi://Gdk?version=3.0' {
              */
             ASK,
         }
-        /**
-         * A set of bit-flags to indicate which events a window is to receive.
-         * Most of these masks map onto one or more of the #GdkEventType event types
-         * above.
-         *
-         * See the [input handling overview][chap-input-handling] for details of
-         * [event masks][event-masks] and [event propagation][event-propagation].
-         *
-         * %GDK_POINTER_MOTION_HINT_MASK is deprecated. It is a special mask
-         * to reduce the number of %GDK_MOTION_NOTIFY events received. When using
-         * %GDK_POINTER_MOTION_HINT_MASK, fewer %GDK_MOTION_NOTIFY events will
-         * be sent, some of which are marked as a hint (the is_hint member is
-         * %TRUE). To receive more motion events after a motion hint event,
-         * the application needs to asks for more, by calling
-         * gdk_event_request_motions().
-         *
-         * Since GTK 3.8, motion events are already compressed by default, independent
-         * of this mechanism. This compression can be disabled with
-         * gdk_window_set_event_compression(). See the documentation of that function
-         * for details.
-         *
-         * If %GDK_TOUCH_MASK is enabled, the window will receive touch events
-         * from touch-enabled devices. Those will come as sequences of #GdkEventTouch
-         * with type %GDK_TOUCH_UPDATE, enclosed by two events with
-         * type %GDK_TOUCH_BEGIN and %GDK_TOUCH_END (or %GDK_TOUCH_CANCEL).
-         * gdk_event_get_event_sequence() returns the event sequence for these
-         * events, so different sequences may be distinguished.
-         */
 
-        /**
-         * A set of bit-flags to indicate which events a window is to receive.
-         * Most of these masks map onto one or more of the #GdkEventType event types
-         * above.
-         *
-         * See the [input handling overview][chap-input-handling] for details of
-         * [event masks][event-masks] and [event propagation][event-propagation].
-         *
-         * %GDK_POINTER_MOTION_HINT_MASK is deprecated. It is a special mask
-         * to reduce the number of %GDK_MOTION_NOTIFY events received. When using
-         * %GDK_POINTER_MOTION_HINT_MASK, fewer %GDK_MOTION_NOTIFY events will
-         * be sent, some of which are marked as a hint (the is_hint member is
-         * %TRUE). To receive more motion events after a motion hint event,
-         * the application needs to asks for more, by calling
-         * gdk_event_request_motions().
-         *
-         * Since GTK 3.8, motion events are already compressed by default, independent
-         * of this mechanism. This compression can be disabled with
-         * gdk_window_set_event_compression(). See the documentation of that function
-         * for details.
-         *
-         * If %GDK_TOUCH_MASK is enabled, the window will receive touch events
-         * from touch-enabled devices. Those will come as sequences of #GdkEventTouch
-         * with type %GDK_TOUCH_UPDATE, enclosed by two events with
-         * type %GDK_TOUCH_BEGIN and %GDK_TOUCH_END (or %GDK_TOUCH_CANCEL).
-         * gdk_event_get_event_sequence() returns the event sequence for these
-         * events, so different sequences may be distinguished.
-         */
         export namespace EventMask {
             export const $gtype: GObject.GType<EventMask>;
         }
 
+        /**
+         * A set of bit-flags to indicate which events a window is to receive.
+         * Most of these masks map onto one or more of the #GdkEventType event types
+         * above.
+         *
+         * See the [input handling overview][chap-input-handling] for details of
+         * [event masks][event-masks] and [event propagation][event-propagation].
+         *
+         * %GDK_POINTER_MOTION_HINT_MASK is deprecated. It is a special mask
+         * to reduce the number of %GDK_MOTION_NOTIFY events received. When using
+         * %GDK_POINTER_MOTION_HINT_MASK, fewer %GDK_MOTION_NOTIFY events will
+         * be sent, some of which are marked as a hint (the is_hint member is
+         * %TRUE). To receive more motion events after a motion hint event,
+         * the application needs to asks for more, by calling
+         * gdk_event_request_motions().
+         *
+         * Since GTK 3.8, motion events are already compressed by default, independent
+         * of this mechanism. This compression can be disabled with
+         * gdk_window_set_event_compression(). See the documentation of that function
+         * for details.
+         *
+         * If %GDK_TOUCH_MASK is enabled, the window will receive touch events
+         * from touch-enabled devices. Those will come as sequences of #GdkEventTouch
+         * with type %GDK_TOUCH_UPDATE, enclosed by two events with
+         * type %GDK_TOUCH_BEGIN and %GDK_TOUCH_END (or %GDK_TOUCH_CANCEL).
+         * gdk_event_get_event_sequence() returns the event sequence for these
+         * events, so different sequences may be distinguished.
+         */
         enum EventMask {
             /**
              * receive expose events
@@ -5936,21 +5715,16 @@ declare module 'gi://Gdk?version=3.0' {
              */
             ALL_EVENTS_MASK,
         }
-        /**
-         * #GdkFrameClockPhase is used to represent the different paint clock
-         * phases that can be requested. The elements of the enumeration
-         * correspond to the signals of #GdkFrameClock.
-         */
 
-        /**
-         * #GdkFrameClockPhase is used to represent the different paint clock
-         * phases that can be requested. The elements of the enumeration
-         * correspond to the signals of #GdkFrameClock.
-         */
         export namespace FrameClockPhase {
             export const $gtype: GObject.GType<FrameClockPhase>;
         }
 
+        /**
+         * #GdkFrameClockPhase is used to represent the different paint clock
+         * phases that can be requested. The elements of the enumeration
+         * correspond to the signals of #GdkFrameClock.
+         */
         enum FrameClockPhase {
             /**
              * no phase
@@ -5985,51 +5759,31 @@ declare module 'gi://Gdk?version=3.0' {
              */
             AFTER_PAINT,
         }
-        /**
-         * A set of bit-flags to indicate the state of modifier keys and mouse buttons
-         * in various event types. Typical modifier keys are Shift, Control, Meta,
-         * Super, Hyper, Alt, Compose, Apple, CapsLock or ShiftLock.
-         *
-         * Like the X Window System, GDK supports 8 modifier keys and 5 mouse buttons.
-         *
-         * Since 2.10, GDK recognizes which of the Meta, Super or Hyper keys are mapped
-         * to Mod2 - Mod5, and indicates this by setting %GDK_SUPER_MASK,
-         * %GDK_HYPER_MASK or %GDK_META_MASK in the state field of key events.
-         *
-         * Note that GDK may add internal values to events which include
-         * reserved values such as %GDK_MODIFIER_RESERVED_13_MASK.  Your code
-         * should preserve and ignore them.  You can use %GDK_MODIFIER_MASK to
-         * remove all reserved values.
-         *
-         * Also note that the GDK X backend interprets button press events for button
-         * 4-7 as scroll events, so %GDK_BUTTON4_MASK and %GDK_BUTTON5_MASK will never
-         * be set.
-         */
 
-        /**
-         * A set of bit-flags to indicate the state of modifier keys and mouse buttons
-         * in various event types. Typical modifier keys are Shift, Control, Meta,
-         * Super, Hyper, Alt, Compose, Apple, CapsLock or ShiftLock.
-         *
-         * Like the X Window System, GDK supports 8 modifier keys and 5 mouse buttons.
-         *
-         * Since 2.10, GDK recognizes which of the Meta, Super or Hyper keys are mapped
-         * to Mod2 - Mod5, and indicates this by setting %GDK_SUPER_MASK,
-         * %GDK_HYPER_MASK or %GDK_META_MASK in the state field of key events.
-         *
-         * Note that GDK may add internal values to events which include
-         * reserved values such as %GDK_MODIFIER_RESERVED_13_MASK.  Your code
-         * should preserve and ignore them.  You can use %GDK_MODIFIER_MASK to
-         * remove all reserved values.
-         *
-         * Also note that the GDK X backend interprets button press events for button
-         * 4-7 as scroll events, so %GDK_BUTTON4_MASK and %GDK_BUTTON5_MASK will never
-         * be set.
-         */
         export namespace ModifierType {
             export const $gtype: GObject.GType<ModifierType>;
         }
 
+        /**
+         * A set of bit-flags to indicate the state of modifier keys and mouse buttons
+         * in various event types. Typical modifier keys are Shift, Control, Meta,
+         * Super, Hyper, Alt, Compose, Apple, CapsLock or ShiftLock.
+         *
+         * Like the X Window System, GDK supports 8 modifier keys and 5 mouse buttons.
+         *
+         * Since 2.10, GDK recognizes which of the Meta, Super or Hyper keys are mapped
+         * to Mod2 - Mod5, and indicates this by setting %GDK_SUPER_MASK,
+         * %GDK_HYPER_MASK or %GDK_META_MASK in the state field of key events.
+         *
+         * Note that GDK may add internal values to events which include
+         * reserved values such as %GDK_MODIFIER_RESERVED_13_MASK.  Your code
+         * should preserve and ignore them.  You can use %GDK_MODIFIER_MASK to
+         * remove all reserved values.
+         *
+         * Also note that the GDK X backend interprets button press events for button
+         * 4-7 as scroll events, so %GDK_BUTTON4_MASK and %GDK_BUTTON5_MASK will never
+         * be set.
+         */
         enum ModifierType {
             /**
              * the Shift key.
@@ -6168,17 +5922,14 @@ declare module 'gi://Gdk?version=3.0' {
              */
             MODIFIER_MASK,
         }
-        /**
-         * Flags describing the seat capabilities.
-         */
 
-        /**
-         * Flags describing the seat capabilities.
-         */
         export namespace SeatCapabilities {
             export const $gtype: GObject.GType<SeatCapabilities>;
         }
 
+        /**
+         * Flags describing the seat capabilities.
+         */
         enum SeatCapabilities {
             /**
              * No input capabilities
@@ -6209,21 +5960,16 @@ declare module 'gi://Gdk?version=3.0' {
              */
             ALL,
         }
-        /**
-         * These are hints originally defined by the Motif toolkit.
-         * The window manager can use them when determining how to decorate
-         * the window. The hint must be set before mapping the window.
-         */
 
-        /**
-         * These are hints originally defined by the Motif toolkit.
-         * The window manager can use them when determining how to decorate
-         * the window. The hint must be set before mapping the window.
-         */
         export namespace WMDecoration {
             export const $gtype: GObject.GType<WMDecoration>;
         }
 
+        /**
+         * These are hints originally defined by the Motif toolkit.
+         * The window manager can use them when determining how to decorate
+         * the window. The hint must be set before mapping the window.
+         */
         enum WMDecoration {
             /**
              * all decorations should be applied.
@@ -6254,21 +6000,16 @@ declare module 'gi://Gdk?version=3.0' {
              */
             MAXIMIZE,
         }
-        /**
-         * These are hints originally defined by the Motif toolkit. The window manager
-         * can use them when determining the functions to offer for the window. The
-         * hint must be set before mapping the window.
-         */
 
-        /**
-         * These are hints originally defined by the Motif toolkit. The window manager
-         * can use them when determining the functions to offer for the window. The
-         * hint must be set before mapping the window.
-         */
         export namespace WMFunction {
             export const $gtype: GObject.GType<WMFunction>;
         }
 
+        /**
+         * These are hints originally defined by the Motif toolkit. The window manager
+         * can use them when determining the functions to offer for the window. The
+         * hint must be set before mapping the window.
+         */
         enum WMFunction {
             /**
              * all functions should be offered.
@@ -6295,27 +6036,19 @@ declare module 'gi://Gdk?version=3.0' {
              */
             CLOSE,
         }
-        /**
-         * Used to indicate which fields in the #GdkWindowAttr struct should be honored.
-         * For example, if you filled in the “cursor” and “x” fields of #GdkWindowAttr,
-         * pass “`GDK_WA_X` | `GDK_WA_CURSOR”` to gdk_window_new(). Fields in
-         * #GdkWindowAttr not covered by a bit in this enum are required; for example,
-         * the `width/``height,` `wclass,` and `window_type` fields are required, they have
-         * no corresponding flag in #GdkWindowAttributesType.
-         */
 
-        /**
-         * Used to indicate which fields in the #GdkWindowAttr struct should be honored.
-         * For example, if you filled in the “cursor” and “x” fields of #GdkWindowAttr,
-         * pass “`GDK_WA_X` | `GDK_WA_CURSOR”` to gdk_window_new(). Fields in
-         * #GdkWindowAttr not covered by a bit in this enum are required; for example,
-         * the `width/``height,` `wclass,` and `window_type` fields are required, they have
-         * no corresponding flag in #GdkWindowAttributesType.
-         */
         export namespace WindowAttributesType {
             export const $gtype: GObject.GType<WindowAttributesType>;
         }
 
+        /**
+         * Used to indicate which fields in the #GdkWindowAttr struct should be honored.
+         * For example, if you filled in the “cursor” and “x” fields of #GdkWindowAttr,
+         * pass “`GDK_WA_X` | `GDK_WA_CURSOR”` to gdk_window_new(). Fields in
+         * #GdkWindowAttr not covered by a bit in this enum are required; for example,
+         * the `width/``height,` `wclass,` and `window_type` fields are required, they have
+         * no corresponding flag in #GdkWindowAttributesType.
+         */
         enum WindowAttributesType {
             /**
              * Honor the title field
@@ -6350,31 +6083,21 @@ declare module 'gi://Gdk?version=3.0' {
              */
             TYPE_HINT,
         }
-        /**
-         * Used to indicate which fields of a #GdkGeometry struct should be paid
-         * attention to. Also, the presence/absence of `GDK_HINT_POS,`
-         * `GDK_HINT_USER_POS,` and `GDK_HINT_USER_SIZE` is significant, though they don't
-         * directly refer to #GdkGeometry fields. `GDK_HINT_USER_POS` will be set
-         * automatically by #GtkWindow if you call gtk_window_move().
-         * `GDK_HINT_USER_POS` and `GDK_HINT_USER_SIZE` should be set if the user
-         * specified a size/position using a --geometry command-line argument;
-         * gtk_window_parse_geometry() automatically sets these flags.
-         */
 
-        /**
-         * Used to indicate which fields of a #GdkGeometry struct should be paid
-         * attention to. Also, the presence/absence of `GDK_HINT_POS,`
-         * `GDK_HINT_USER_POS,` and `GDK_HINT_USER_SIZE` is significant, though they don't
-         * directly refer to #GdkGeometry fields. `GDK_HINT_USER_POS` will be set
-         * automatically by #GtkWindow if you call gtk_window_move().
-         * `GDK_HINT_USER_POS` and `GDK_HINT_USER_SIZE` should be set if the user
-         * specified a size/position using a --geometry command-line argument;
-         * gtk_window_parse_geometry() automatically sets these flags.
-         */
         export namespace WindowHints {
             export const $gtype: GObject.GType<WindowHints>;
         }
 
+        /**
+         * Used to indicate which fields of a #GdkGeometry struct should be paid
+         * attention to. Also, the presence/absence of `GDK_HINT_POS,`
+         * `GDK_HINT_USER_POS,` and `GDK_HINT_USER_SIZE` is significant, though they don't
+         * directly refer to #GdkGeometry fields. `GDK_HINT_USER_POS` will be set
+         * automatically by #GtkWindow if you call gtk_window_move().
+         * `GDK_HINT_USER_POS` and `GDK_HINT_USER_SIZE` should be set if the user
+         * specified a size/position using a --geometry command-line argument;
+         * gtk_window_parse_geometry() automatically sets these flags.
+         */
         enum WindowHints {
             /**
              * indicates that the program has positioned the window
@@ -6415,17 +6138,14 @@ declare module 'gi://Gdk?version=3.0' {
              */
             USER_SIZE,
         }
-        /**
-         * Specifies the state of a toplevel window.
-         */
 
-        /**
-         * Specifies the state of a toplevel window.
-         */
         export namespace WindowState {
             export const $gtype: GObject.GType<WindowState>;
         }
 
+        /**
+         * Specifies the state of a toplevel window.
+         */
         enum WindowState {
             /**
              * the window is not shown.
@@ -6498,6 +6218,7 @@ declare module 'gi://Gdk?version=3.0' {
              */
             LEFT_RESIZABLE,
         }
+
         namespace AppLaunchContext {
             // Signal signatures
             interface SignalSignatures extends Gio.AppLaunchContext.SignalSignatures {
@@ -11742,10 +11463,6 @@ declare module 'gi://Gdk?version=3.0' {
         abstract class Atom {
             static $gtype: GObject.GType<Atom>;
 
-            // Constructors
-
-            _init(...args: any[]): void;
-
             // Static methods
 
             /**
@@ -11802,7 +11519,6 @@ declare module 'gi://Gdk?version=3.0' {
                     blue: number;
                 }>,
             );
-            _init(...args: any[]): void;
 
             // Static methods
 
@@ -11872,10 +11588,6 @@ declare module 'gi://Gdk?version=3.0' {
             type: EventType;
             window: Window;
             send_event: number;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -11930,10 +11642,6 @@ declare module 'gi://Gdk?version=3.0' {
             device: Device;
             x_root: number;
             y_root: number;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -11951,10 +11659,6 @@ declare module 'gi://Gdk?version=3.0' {
             y: number;
             width: number;
             height: number;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -11978,10 +11682,6 @@ declare module 'gi://Gdk?version=3.0' {
             detail: NotifyType;
             focus: boolean;
             state: ModifierType;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -11999,10 +11699,6 @@ declare module 'gi://Gdk?version=3.0' {
             time: number;
             x_root: number;
             y_root: number;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -12019,10 +11715,6 @@ declare module 'gi://Gdk?version=3.0' {
             send_event: number;
             area: Rectangle;
             count: number;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -12037,10 +11729,6 @@ declare module 'gi://Gdk?version=3.0' {
             window: Window;
             send_event: number;
             'in': number;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -12061,10 +11749,6 @@ declare module 'gi://Gdk?version=3.0' {
             keyboard: boolean;
             implicit: boolean;
             grab_window: Window;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -12086,10 +11770,6 @@ declare module 'gi://Gdk?version=3.0' {
             hardware_keycode: number;
             group: number;
             is_modifier: number;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -12112,10 +11792,6 @@ declare module 'gi://Gdk?version=3.0' {
             device: Device;
             x_root: number;
             y_root: number;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -12135,10 +11811,6 @@ declare module 'gi://Gdk?version=3.0' {
             reason: OwnerChange;
             time: number;
             selection_time: number;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -12157,10 +11829,6 @@ declare module 'gi://Gdk?version=3.0' {
             index: number;
             mode: number;
             value: number;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -12178,10 +11846,6 @@ declare module 'gi://Gdk?version=3.0' {
             group: number;
             button: number;
             mode: number;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -12198,10 +11862,6 @@ declare module 'gi://Gdk?version=3.0' {
             time: number;
             group: number;
             mode: number;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -12217,10 +11877,6 @@ declare module 'gi://Gdk?version=3.0' {
             send_event: number;
             time: number;
             state: PropertyState;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -12244,10 +11900,6 @@ declare module 'gi://Gdk?version=3.0' {
             send_event: number;
             time: number;
             device: Device;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -12279,10 +11931,6 @@ declare module 'gi://Gdk?version=3.0' {
             delta_x: number;
             delta_y: number;
             is_stop: number;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -12299,18 +11947,10 @@ declare module 'gi://Gdk?version=3.0' {
             send_event: number;
             time: number;
             requestor: Window;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         abstract class EventSequence {
             static $gtype: GObject.GType<EventSequence>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -12326,10 +11966,6 @@ declare module 'gi://Gdk?version=3.0' {
             send_event: number;
             action: SettingAction;
             name: string;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -12361,10 +11997,6 @@ declare module 'gi://Gdk?version=3.0' {
             device: Device;
             x_root: number;
             y_root: number;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -12390,10 +12022,6 @@ declare module 'gi://Gdk?version=3.0' {
             x_root: number;
             y_root: number;
             state: ModifierType;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -12417,10 +12045,6 @@ declare module 'gi://Gdk?version=3.0' {
             x_root: number;
             y_root: number;
             state: ModifierType;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -12435,10 +12059,6 @@ declare module 'gi://Gdk?version=3.0' {
             window: Window;
             send_event: number;
             state: VisibilityState;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -12454,19 +12074,11 @@ declare module 'gi://Gdk?version=3.0' {
             send_event: number;
             changed_mask: WindowState;
             new_window_state: WindowState;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type FrameClockClass = typeof FrameClock;
         abstract class FrameClockPrivate {
             static $gtype: GObject.GType<FrameClockPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -12479,10 +12091,6 @@ declare module 'gi://Gdk?version=3.0' {
          */
         abstract class FrameTimings {
             static $gtype: GObject.GType<FrameTimings>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
 
             // Methods
 
@@ -12625,10 +12233,6 @@ declare module 'gi://Gdk?version=3.0' {
             min_aspect: number;
             max_aspect: number;
             win_gravity: Gravity;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -12652,7 +12256,6 @@ declare module 'gi://Gdk?version=3.0' {
                     level: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         type MonitorClass = typeof Monitor;
@@ -12675,7 +12278,6 @@ declare module 'gi://Gdk?version=3.0' {
                     y: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         /**
@@ -12702,7 +12304,6 @@ declare module 'gi://Gdk?version=3.0' {
                     alpha: number;
                 }>,
             );
-            _init(...args: any[]): void;
 
             // Methods
 
@@ -12794,7 +12395,6 @@ declare module 'gi://Gdk?version=3.0' {
                     height: number;
                 }>,
             );
-            _init(...args: any[]): void;
 
             // Methods
 
@@ -12847,7 +12447,6 @@ declare module 'gi://Gdk?version=3.0' {
                     axes: number[];
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         /**
@@ -12872,19 +12471,11 @@ declare module 'gi://Gdk?version=3.0' {
             wmclass_class: string;
             override_redirect: boolean;
             type_hint: WindowTypeHint;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type WindowClass = typeof Window;
         abstract class WindowRedirect {
             static $gtype: GObject.GType<WindowRedirect>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -12935,7 +12526,6 @@ declare module 'gi://Gdk?version=3.0' {
             // Constructors
 
             constructor(type: EventType);
-            _init(...args: any[]): void;
 
             static ['new'](type: EventType): Event;
 

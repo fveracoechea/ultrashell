@@ -10,7 +10,6 @@
   };
 
   outputs = {
-    self,
     nixpkgs,
     ags,
   }: let
@@ -31,7 +30,7 @@
         btop
         impala
         wiremix
-        blueberry
+        blueman
         libgtop
         scripts.screenshot
       ];

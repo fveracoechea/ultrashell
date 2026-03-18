@@ -1711,7 +1711,8 @@ declare module 'gi://GioUnix?version=2.0' {
             // Constructor properties interface
 
             interface ConstructorProps
-                extends Gio.InputStream.ConstructorProps,
+                extends
+                    Gio.InputStream.ConstructorProps,
                     Gio.PollableInputStream.ConstructorProps,
                     FileDescriptorBased.ConstructorProps {
                 close_fd: boolean;
@@ -3234,7 +3235,8 @@ declare module 'gi://GioUnix?version=2.0' {
             // Constructor properties interface
 
             interface ConstructorProps
-                extends Gio.OutputStream.ConstructorProps,
+                extends
+                    Gio.OutputStream.ConstructorProps,
                     Gio.PollableOutputStream.ConstructorProps,
                     FileDescriptorBased.ConstructorProps {
                 close_fd: boolean;
@@ -5147,20 +5149,12 @@ declare module 'gi://GioUnix?version=2.0' {
         type FDMessageClass = typeof FDMessage;
         abstract class FDMessagePrivate {
             static $gtype: GObject.GType<FDMessagePrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type FileDescriptorBasedIface = typeof FileDescriptorBased;
         type InputStreamClass = typeof InputStream;
         abstract class InputStreamPrivate {
             static $gtype: GObject.GType<InputStreamPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -5169,10 +5163,6 @@ declare module 'gi://GioUnix?version=2.0' {
          */
         abstract class MountEntry {
             static $gtype: GObject.GType<MountEntry>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
 
             // Static methods
 
@@ -5312,10 +5302,6 @@ declare module 'gi://GioUnix?version=2.0' {
         abstract class MountPoint {
             static $gtype: GObject.GType<MountPoint>;
 
-            // Constructors
-
-            _init(...args: any[]): void;
-
             // Static methods
 
             /**
@@ -5410,10 +5396,6 @@ declare module 'gi://GioUnix?version=2.0' {
         type OutputStreamClass = typeof OutputStream;
         abstract class OutputStreamPrivate {
             static $gtype: GObject.GType<OutputStreamPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         namespace DesktopAppInfoLookup {

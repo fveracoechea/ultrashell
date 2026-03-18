@@ -18,10 +18,6 @@ declare module 'gi://GDesktopEnums?version=3.0' {
          * GDesktopEnums-3.0
          */
 
-        export namespace AccentColor {
-            export const $gtype: GObject.GType<AccentColor>;
-        }
-
         enum AccentColor {
             BLUE,
             TEAL,
@@ -34,18 +30,10 @@ declare module 'gi://GDesktopEnums?version=3.0' {
             SLATE,
         }
 
-        export namespace BackgroundShading {
-            export const $gtype: GObject.GType<BackgroundShading>;
-        }
-
         enum BackgroundShading {
             SOLID,
             VERTICAL,
             HORIZONTAL,
-        }
-
-        export namespace BackgroundStyle {
-            export const $gtype: GObject.GType<BackgroundStyle>;
         }
 
         enum BackgroundStyle {
@@ -58,17 +46,9 @@ declare module 'gi://GDesktopEnums?version=3.0' {
             SPANNED,
         }
 
-        export namespace ClockFormat {
-            export const $gtype: GObject.GType<ClockFormat>;
-        }
-
         enum ClockFormat {
             '24H',
             '12H',
-        }
-
-        export namespace ColorScheme {
-            export const $gtype: GObject.GType<ColorScheme>;
         }
 
         enum ColorScheme {
@@ -77,18 +57,10 @@ declare module 'gi://GDesktopEnums?version=3.0' {
             PREFER_LIGHT,
         }
 
-        export namespace DeviceSendEvents {
-            export const $gtype: GObject.GType<DeviceSendEvents>;
-        }
-
         enum DeviceSendEvents {
             ENABLED,
             DISABLED,
             DISABLED_ON_EXTERNAL_MOUSE,
-        }
-
-        export namespace FocusMode {
-            export const $gtype: GObject.GType<FocusMode>;
         }
 
         enum FocusMode {
@@ -97,27 +69,15 @@ declare module 'gi://GDesktopEnums?version=3.0' {
             MOUSE,
         }
 
-        export namespace FocusNewWindows {
-            export const $gtype: GObject.GType<FocusNewWindows>;
-        }
-
         enum FocusNewWindows {
             SMART,
             STRICT,
-        }
-
-        export namespace FontAntialiasingMode {
-            export const $gtype: GObject.GType<FontAntialiasingMode>;
         }
 
         enum FontAntialiasingMode {
             NONE,
             GRAYSCALE,
             RGBA,
-        }
-
-        export namespace FontHinting {
-            export const $gtype: GObject.GType<FontHinting>;
         }
 
         enum FontHinting {
@@ -127,17 +87,9 @@ declare module 'gi://GDesktopEnums?version=3.0' {
             FULL,
         }
 
-        export namespace FontRendering {
-            export const $gtype: GObject.GType<FontRendering>;
-        }
-
         enum FontRendering {
             AUTOMATIC,
             MANUAL,
-        }
-
-        export namespace FontRgbaOrder {
-            export const $gtype: GObject.GType<FontRgbaOrder>;
         }
 
         enum FontRgbaOrder {
@@ -148,20 +100,12 @@ declare module 'gi://GDesktopEnums?version=3.0' {
             VBGR,
         }
 
-        export namespace LocationAccuracyLevel {
-            export const $gtype: GObject.GType<LocationAccuracyLevel>;
-        }
-
         enum LocationAccuracyLevel {
             COUNTRY,
             CITY,
             NEIGHBORHOOD,
             STREET,
             EXACT,
-        }
-
-        export namespace MagnifierCaretTrackingMode {
-            export const $gtype: GObject.GType<MagnifierCaretTrackingMode>;
         }
 
         enum MagnifierCaretTrackingMode {
@@ -171,10 +115,6 @@ declare module 'gi://GDesktopEnums?version=3.0' {
             PUSH,
         }
 
-        export namespace MagnifierFocusTrackingMode {
-            export const $gtype: GObject.GType<MagnifierFocusTrackingMode>;
-        }
-
         enum MagnifierFocusTrackingMode {
             NONE,
             CENTERED,
@@ -182,19 +122,11 @@ declare module 'gi://GDesktopEnums?version=3.0' {
             PUSH,
         }
 
-        export namespace MagnifierMouseTrackingMode {
-            export const $gtype: GObject.GType<MagnifierMouseTrackingMode>;
-        }
-
         enum MagnifierMouseTrackingMode {
             NONE,
             CENTERED,
             PROPORTIONAL,
             PUSH,
-        }
-
-        export namespace MagnifierScreenPosition {
-            export const $gtype: GObject.GType<MagnifierScreenPosition>;
         }
 
         enum MagnifierScreenPosition {
@@ -206,10 +138,6 @@ declare module 'gi://GDesktopEnums?version=3.0' {
             RIGHT_HALF,
         }
 
-        export namespace MouseDwellDirection {
-            export const $gtype: GObject.GType<MouseDwellDirection>;
-        }
-
         enum MouseDwellDirection {
             LEFT,
             RIGHT,
@@ -217,17 +145,9 @@ declare module 'gi://GDesktopEnums?version=3.0' {
             DOWN,
         }
 
-        export namespace MouseDwellMode {
-            export const $gtype: GObject.GType<MouseDwellMode>;
-        }
-
         enum MouseDwellMode {
             WINDOW,
             GESTURE,
-        }
-
-        export namespace PadButtonAction {
-            export const $gtype: GObject.GType<PadButtonAction>;
         }
 
         enum PadButtonAction {
@@ -237,18 +157,10 @@ declare module 'gi://GDesktopEnums?version=3.0' {
             KEYBINDING,
         }
 
-        export namespace PointerAccelProfile {
-            export const $gtype: GObject.GType<PointerAccelProfile>;
-        }
-
         enum PointerAccelProfile {
             DEFAULT,
             FLAT,
             ADAPTIVE,
-        }
-
-        export namespace PointingStickScrollMethod {
-            export const $gtype: GObject.GType<PointingStickScrollMethod>;
         }
 
         enum PointingStickScrollMethod {
@@ -257,28 +169,16 @@ declare module 'gi://GDesktopEnums?version=3.0' {
             ON_BUTTON_DOWN,
         }
 
-        export namespace ProxyMode {
-            export const $gtype: GObject.GType<ProxyMode>;
-        }
-
         enum ProxyMode {
             NONE,
             MANUAL,
             AUTO,
         }
 
-        export namespace ScreensaverMode {
-            export const $gtype: GObject.GType<ScreensaverMode>;
-        }
-
         enum ScreensaverMode {
             BLANK_ONLY,
             RANDOM,
             SINGLE,
-        }
-
-        export namespace StylusButtonAction {
-            export const $gtype: GObject.GType<StylusButtonAction>;
         }
 
         enum StylusButtonAction {
@@ -291,17 +191,9 @@ declare module 'gi://GDesktopEnums?version=3.0' {
             KEYBINDING,
         }
 
-        export namespace TabletMapping {
-            export const $gtype: GObject.GType<TabletMapping>;
-        }
-
         enum TabletMapping {
             ABSOLUTE,
             RELATIVE,
-        }
-
-        export namespace TitlebarAction {
-            export const $gtype: GObject.GType<TitlebarAction>;
         }
 
         enum TitlebarAction {
@@ -315,17 +207,9 @@ declare module 'gi://GDesktopEnums?version=3.0' {
             MENU,
         }
 
-        export namespace ToolbarIconSize {
-            export const $gtype: GObject.GType<ToolbarIconSize>;
-        }
-
         enum ToolbarIconSize {
             SMALL,
             LARGE,
-        }
-
-        export namespace ToolbarStyle {
-            export const $gtype: GObject.GType<ToolbarStyle>;
         }
 
         enum ToolbarStyle {
@@ -335,19 +219,11 @@ declare module 'gi://GDesktopEnums?version=3.0' {
             TEXT,
         }
 
-        export namespace TouchpadClickMethod {
-            export const $gtype: GObject.GType<TouchpadClickMethod>;
-        }
-
         enum TouchpadClickMethod {
             DEFAULT,
             NONE,
             AREAS,
             FINGERS,
-        }
-
-        export namespace TouchpadHandedness {
-            export const $gtype: GObject.GType<TouchpadHandedness>;
         }
 
         enum TouchpadHandedness {
@@ -356,18 +232,10 @@ declare module 'gi://GDesktopEnums?version=3.0' {
             MOUSE,
         }
 
-        export namespace TouchpadTapButtonMap {
-            export const $gtype: GObject.GType<TouchpadTapButtonMap>;
-        }
-
         enum TouchpadTapButtonMap {
             DEFAULT,
             LRM,
             LMR,
-        }
-
-        export namespace UsbProtection {
-            export const $gtype: GObject.GType<UsbProtection>;
         }
 
         enum UsbProtection {
@@ -375,14 +243,11 @@ declare module 'gi://GDesktopEnums?version=3.0' {
             ALWAYS,
         }
 
-        export namespace VisualBellType {
-            export const $gtype: GObject.GType<VisualBellType>;
-        }
-
         enum VisualBellType {
             FULLSCREEN_FLASH,
             FRAME_FLASH,
         }
+
         /**
          * Name of the imported GIR library
          * `see` https://gitlab.gnome.org/GNOME/gjs/-/blob/master/gi/ns.cpp#L188

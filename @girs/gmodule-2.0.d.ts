@@ -24,7 +24,7 @@ declare module 'gi://GModule?version=2.0' {
          * Errors returned by g_module_open_full().
          */
         class ModuleError extends GLib.Error {
-            static $gtype: GObject.GType<ModuleError>;
+            static $gtype: GObject.GType<GLib.Error>;
 
             // Static fields
 
@@ -40,7 +40,6 @@ declare module 'gi://GModule?version=2.0' {
             // Constructors
 
             constructor(options: { message: string; code: number });
-            _init(...args: any[]): void;
         }
 
         const MODULE_IMPL_AR: number;
@@ -87,15 +86,6 @@ declare module 'gi://GModule?version=2.0' {
          * Flags passed to g_module_open().
          * Note that these flags are not supported on all platforms.
          */
-
-        /**
-         * Flags passed to g_module_open().
-         * Note that these flags are not supported on all platforms.
-         */
-        export namespace ModuleFlags {
-            export const $gtype: GObject.GType<ModuleFlags>;
-        }
-
         enum ModuleFlags {
             /**
              * specifies that symbols are only resolved when
@@ -115,6 +105,7 @@ declare module 'gi://GModule?version=2.0' {
              */
             MASK,
         }
+
         /**
          * The #GModule struct is an opaque data structure to represent a
          * [dynamically-loaded module](modules.html#dynamic-loading-of-modules).
@@ -126,10 +117,6 @@ declare module 'gi://GModule?version=2.0' {
          */
         abstract class Module {
             static $gtype: GObject.GType<Module>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
 
             // Static methods
 

@@ -2676,23 +2676,16 @@ declare module 'gi://GObject?version=2.0' {
         type VariantBuilder = object | null;
         type VariantDict = object | null;
         type VariantType = object | null;
-        /**
-         * Flags to be passed to g_object_bind_property() or
-         * g_object_bind_property_full().
-         *
-         * This enumeration can be extended at later date.
-         */
-
-        /**
-         * Flags to be passed to g_object_bind_property() or
-         * g_object_bind_property_full().
-         *
-         * This enumeration can be extended at later date.
-         */
         export namespace BindingFlags {
             export const $gtype: GType<BindingFlags>;
         }
 
+        /**
+         * Flags to be passed to g_object_bind_property() or
+         * g_object_bind_property_full().
+         *
+         * This enumeration can be extended at later date.
+         */
         enum BindingFlags {
             /**
              * The default binding; if the source property
@@ -2720,19 +2713,11 @@ declare module 'gi://GObject?version=2.0' {
              */
             INVERT_BOOLEAN,
         }
-        /**
-         * The connection flags are used to specify the behaviour of a signal's
-         * connection.
-         */
 
         /**
          * The connection flags are used to specify the behaviour of a signal's
          * connection.
          */
-        export namespace ConnectFlags {
-            export const $gtype: GType<ConnectFlags>;
-        }
-
         enum ConnectFlags {
             /**
              * Default behaviour (no special flags). Since: 2.74
@@ -2763,12 +2748,6 @@ declare module 'gi://GObject?version=2.0' {
             HUP,
             NVAL,
         }
-        /**
-         * Through the #GParamFlags flag values, certain aspects of parameters
-         * can be configured.
-         *
-         * See also: %G_PARAM_STATIC_STRINGS
-         */
 
         /**
          * Through the #GParamFlags flag values, certain aspects of parameters
@@ -2776,10 +2755,6 @@ declare module 'gi://GObject?version=2.0' {
          *
          * See also: %G_PARAM_STATIC_STRINGS
          */
-        export namespace ParamFlags {
-            export const $gtype: GType<ParamFlags>;
-        }
-
         enum ParamFlags {
             /**
              * the parameter is readable
@@ -2848,17 +2823,10 @@ declare module 'gi://GObject?version=2.0' {
              */
             DEPRECATED,
         }
-        /**
-         * The signal flags are used to specify a signal's behaviour.
-         */
 
         /**
          * The signal flags are used to specify a signal's behaviour.
          */
-        export namespace SignalFlags {
-            export const $gtype: GType<SignalFlags>;
-        }
-
         enum SignalFlags {
             /**
              * Invoke the object method handler in the first emission stage.
@@ -2917,21 +2885,12 @@ declare module 'gi://GObject?version=2.0' {
              */
             ACCUMULATOR_FIRST_RUN,
         }
-        /**
-         * The match types specify what g_signal_handlers_block_matched(),
-         * g_signal_handlers_unblock_matched() and g_signal_handlers_disconnect_matched()
-         * match signals by.
-         */
 
         /**
          * The match types specify what g_signal_handlers_block_matched(),
          * g_signal_handlers_unblock_matched() and g_signal_handlers_disconnect_matched()
          * match signals by.
          */
-        export namespace SignalMatchType {
-            export const $gtype: GType<SignalMatchType>;
-        }
-
         enum SignalMatchType {
             /**
              * The signal id must be equal.
@@ -2958,13 +2917,6 @@ declare module 'gi://GObject?version=2.0' {
              */
             UNBLOCKED,
         }
-        /**
-         * These flags used to be passed to g_type_init_with_debug_flags() which
-         * is now deprecated.
-         *
-         * If you need to enable debugging features, use the `GOBJECT_DEBUG`
-         * environment variable.
-         */
 
         /**
          * These flags used to be passed to g_type_init_with_debug_flags() which
@@ -2973,10 +2925,6 @@ declare module 'gi://GObject?version=2.0' {
          * If you need to enable debugging features, use the `GOBJECT_DEBUG`
          * environment variable.
          */
-        export namespace TypeDebugFlags {
-            export const $gtype: GType<TypeDebugFlags>;
-        }
-
         enum TypeDebugFlags {
             /**
              * Print no messages
@@ -2999,17 +2947,10 @@ declare module 'gi://GObject?version=2.0' {
              */
             MASK,
         }
-        /**
-         * Bit masks used to check or determine characteristics of a type.
-         */
 
         /**
          * Bit masks used to check or determine characteristics of a type.
          */
-        export namespace TypeFlags {
-            export const $gtype: GType<TypeFlags>;
-        }
-
         enum TypeFlags {
             /**
              * No special flags. Since: 2.74
@@ -3038,19 +2979,11 @@ declare module 'gi://GObject?version=2.0' {
              */
             DEPRECATED,
         }
-        /**
-         * Bit masks used to check or determine specific characteristics of a
-         * fundamental type.
-         */
 
         /**
          * Bit masks used to check or determine specific characteristics of a
          * fundamental type.
          */
-        export namespace TypeFundamentalFlags {
-            export const $gtype: GType<TypeFundamentalFlags>;
-        }
-
         enum TypeFundamentalFlags {
             /**
              * Indicates a classed type
@@ -3069,6 +3002,7 @@ declare module 'gi://GObject?version=2.0' {
              */
             DEEP_DERIVABLE,
         }
+
         namespace Binding {
             // Signal signatures
             interface SignalSignatures extends Object.SignalSignatures {
@@ -5417,10 +5351,6 @@ declare module 'gi://GObject?version=2.0' {
 
             callback: any;
 
-            // Constructors
-
-            _init(...args: any[]): void;
-
             // Static methods
 
             /**
@@ -5857,10 +5787,6 @@ declare module 'gi://GObject?version=2.0' {
 
             data: any;
             notify: ClosureNotify;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -5876,10 +5802,6 @@ declare module 'gi://GObject?version=2.0' {
             maximum: number;
             n_values: number;
             values: EnumValue;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -5904,7 +5826,6 @@ declare module 'gi://GObject?version=2.0' {
                     value_nick: string;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         /**
@@ -5919,10 +5840,6 @@ declare module 'gi://GObject?version=2.0' {
             mask: number;
             n_values: number;
             values: FlagsValue;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -5947,7 +5864,6 @@ declare module 'gi://GObject?version=2.0' {
                     value_nick: string;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         type InitiallyUnownedClass = typeof InitiallyUnowned;
@@ -5963,10 +5879,6 @@ declare module 'gi://GObject?version=2.0' {
             interface_init: InterfaceInitFunc;
             interface_finalize: InterfaceFinalizeFunc;
             interface_data: any;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type ObjectClass = typeof Object;
@@ -5980,10 +5892,6 @@ declare module 'gi://GObject?version=2.0' {
             // Fields
 
             pspec: ParamSpec;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type ParamSpecClass = typeof ParamSpec;
@@ -5996,10 +5904,6 @@ declare module 'gi://GObject?version=2.0' {
          */
         abstract class ParamSpecPool {
             static $gtype: GType<ParamSpecPool>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
 
             // Methods
 
@@ -6060,10 +5964,6 @@ declare module 'gi://GObject?version=2.0' {
             instance_size: number;
             n_preallocs: number;
             value_type: GType;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -6076,10 +5976,6 @@ declare module 'gi://GObject?version=2.0' {
             // Fields
 
             name: string;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -6094,10 +5990,6 @@ declare module 'gi://GObject?version=2.0' {
             signal_id: number;
             detail: GLib.Quark;
             run_type: SignalFlags;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -6117,10 +6009,6 @@ declare module 'gi://GObject?version=2.0' {
             return_type: GType;
             n_params: number;
             param_types: GType[];
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -6128,10 +6016,6 @@ declare module 'gi://GObject?version=2.0' {
          */
         class TypeClass {
             static $gtype: GType<TypeClass>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
 
             // Static methods
 
@@ -6278,10 +6162,6 @@ declare module 'gi://GObject?version=2.0' {
             // Fields
 
             type_flags: TypeFundamentalFlags;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -6309,10 +6189,6 @@ declare module 'gi://GObject?version=2.0' {
             instance_size: number;
             n_preallocs: number;
             instance_init: InstanceInitFunc;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -6320,10 +6196,6 @@ declare module 'gi://GObject?version=2.0' {
          */
         class TypeInstance {
             static $gtype: GType<TypeInstance>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
 
             // Methods
 
@@ -6335,10 +6207,6 @@ declare module 'gi://GObject?version=2.0' {
          */
         class TypeInterface {
             static $gtype: GType<TypeInterface>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
 
             // Static methods
 
@@ -6411,10 +6279,6 @@ declare module 'gi://GObject?version=2.0' {
             unuse_plugin: TypePluginUnuse;
             complete_type_info: TypePluginCompleteTypeInfo;
             complete_interface_info: TypePluginCompleteInterfaceInfo;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -6431,10 +6295,6 @@ declare module 'gi://GObject?version=2.0' {
             type_name: string;
             class_size: number;
             instance_size: number;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -6463,10 +6323,6 @@ declare module 'gi://GObject?version=2.0' {
             collect_value: TypeValueCollectFunc;
             lcopy_format: string;
             lcopy_value: TypeValueLCopyFunc;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -6492,10 +6348,6 @@ declare module 'gi://GObject?version=2.0' {
          */
         class Value {
             static $gtype: GType<Value>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
 
             // Static methods
 
@@ -6968,7 +6820,6 @@ declare module 'gi://GObject?version=2.0' {
             // Constructors
 
             constructor(n_prealloced: number);
-            _init(...args: any[]): void;
 
             static ['new'](n_prealloced: number): ValueArray;
 
@@ -7064,10 +6915,6 @@ declare module 'gi://GObject?version=2.0' {
          */
         class WeakRef {
             static $gtype: GType<WeakRef>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -7095,7 +6942,6 @@ declare module 'gi://GObject?version=2.0' {
                     v_pointer: any;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class _Value__data__union {
@@ -7128,7 +6974,6 @@ declare module 'gi://GObject?version=2.0' {
                     v_pointer: any;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         namespace TypePlugin {

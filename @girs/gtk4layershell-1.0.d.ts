@@ -45,10 +45,6 @@ declare module 'gi://Gtk4LayerShell?version=1.0' {
          * Gtk4LayerShell-1.0
          */
 
-        export namespace Edge {
-            export const $gtype: GObject.GType<Edge>;
-        }
-
         enum Edge {
             /**
              * The left edge of the screen.
@@ -73,10 +69,6 @@ declare module 'gi://Gtk4LayerShell?version=1.0' {
             ENTRY_NUMBER,
         }
 
-        export namespace KeyboardMode {
-            export const $gtype: GObject.GType<KeyboardMode>;
-        }
-
         enum KeyboardMode {
             /**
              * This window should not receive keyboard events.
@@ -96,10 +88,6 @@ declare module 'gi://Gtk4LayerShell?version=1.0' {
              * future releases as more entries are added)
              */
             ENTRY_NUMBER,
-        }
-
-        export namespace Layer {
-            export const $gtype: GObject.GType<Layer>;
         }
 
         enum Layer {
@@ -125,6 +113,7 @@ declare module 'gi://Gtk4LayerShell?version=1.0' {
              */
             ENTRY_NUMBER,
         }
+
         /**
          * When auto exclusive zone is enabled, exclusive zone is automatically set to the
          * size of the `window` + relevant margin. To disable auto exclusive zone, just set the

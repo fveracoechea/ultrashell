@@ -486,10 +486,6 @@ declare module 'gi://GTop?version=2.0' {
             ndisk: number;
             real_ndisk: number;
 
-            // Constructors
-
-            _init(...args: any[]): void;
-
             // Static methods
 
             static close(): void;
@@ -632,7 +628,6 @@ declare module 'gi://GTop?version=2.0' {
                     parameter: number[];
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class glibtop_cpu {
@@ -685,7 +680,6 @@ declare module 'gi://GTop?version=2.0' {
                     xcpu_flags: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class glibtop_disk {
@@ -712,7 +706,6 @@ declare module 'gi://GTop?version=2.0' {
                     xdisk_flags: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class glibtop_entry {
@@ -721,10 +714,6 @@ declare module 'gi://GTop?version=2.0' {
             // Fields
 
             labels: any[];
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         class glibtop_fsusage {
@@ -757,7 +746,6 @@ declare module 'gi://GTop?version=2.0' {
                     write: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class glibtop_loadavg {
@@ -782,15 +770,10 @@ declare module 'gi://GTop?version=2.0' {
                     last_pid: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         abstract class glibtop_machine {
             static $gtype: GObject.GType<glibtop_machine>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         class glibtop_map_entry {
@@ -837,7 +820,6 @@ declare module 'gi://GTop?version=2.0' {
                     filename: number[];
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class glibtop_mem {
@@ -870,7 +852,6 @@ declare module 'gi://GTop?version=2.0' {
                     locked: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class glibtop_mountentry {
@@ -893,7 +874,6 @@ declare module 'gi://GTop?version=2.0' {
                     type: number[];
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class glibtop_mountlist {
@@ -916,7 +896,6 @@ declare module 'gi://GTop?version=2.0' {
                     size: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class glibtop_msg_limits {
@@ -947,7 +926,6 @@ declare module 'gi://GTop?version=2.0' {
                     msgtql: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class glibtop_netlist {
@@ -966,7 +944,6 @@ declare module 'gi://GTop?version=2.0' {
                     number: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class glibtop_netload {
@@ -1019,7 +996,6 @@ declare module 'gi://GTop?version=2.0' {
                     hwaddress: Uint8Array;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class glibtop_open_files_entry {
@@ -1038,7 +1014,6 @@ declare module 'gi://GTop?version=2.0' {
                     type: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class glibtop_ppp {
@@ -1061,7 +1036,6 @@ declare module 'gi://GTop?version=2.0' {
                     bytes_out: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class glibtop_proc_affinity {
@@ -1082,7 +1056,6 @@ declare module 'gi://GTop?version=2.0' {
                     all: boolean;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class glibtop_proc_args {
@@ -1101,7 +1074,6 @@ declare module 'gi://GTop?version=2.0' {
                     size: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         /**
@@ -1131,7 +1103,6 @@ declare module 'gi://GTop?version=2.0' {
                     reserved: number[];
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class glibtop_proc_kernel {
@@ -1166,7 +1137,6 @@ declare module 'gi://GTop?version=2.0' {
                     wchan: number[];
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class glibtop_proc_map {
@@ -1189,7 +1159,6 @@ declare module 'gi://GTop?version=2.0' {
                     size: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class glibtop_proc_mem {
@@ -1218,7 +1187,6 @@ declare module 'gi://GTop?version=2.0' {
                     rss_rlim: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class glibtop_proc_open_files {
@@ -1241,7 +1209,6 @@ declare module 'gi://GTop?version=2.0' {
                     size: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class glibtop_proc_segment {
@@ -1274,7 +1241,6 @@ declare module 'gi://GTop?version=2.0' {
                     start_stack: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class glibtop_proc_signal {
@@ -1299,7 +1265,6 @@ declare module 'gi://GTop?version=2.0' {
                     sigcatch: number[];
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class glibtop_proc_state {
@@ -1334,7 +1299,6 @@ declare module 'gi://GTop?version=2.0' {
                     last_processor: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         /**
@@ -1385,7 +1349,6 @@ declare module 'gi://GTop?version=2.0' {
                     xcpu_stime: number[];
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class glibtop_proc_uid {
@@ -1438,7 +1401,6 @@ declare module 'gi://GTop?version=2.0' {
                     groups: number[];
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class glibtop_proc_wd {
@@ -1461,7 +1423,6 @@ declare module 'gi://GTop?version=2.0' {
                     exe: number[];
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class glibtop_proclist {
@@ -1484,7 +1445,6 @@ declare module 'gi://GTop?version=2.0' {
                     size: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class glibtop_response {
@@ -1507,7 +1467,6 @@ declare module 'gi://GTop?version=2.0' {
                     u: glibtop_response_union;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class glibtop_sem_limits {
@@ -1544,7 +1503,6 @@ declare module 'gi://GTop?version=2.0' {
                     semaem: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class glibtop_shm_limits {
@@ -1571,7 +1529,6 @@ declare module 'gi://GTop?version=2.0' {
                     shmall: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class glibtop_signame {
@@ -1592,7 +1549,6 @@ declare module 'gi://GTop?version=2.0' {
                     label: string;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class glibtop_swap {
@@ -1619,7 +1575,6 @@ declare module 'gi://GTop?version=2.0' {
                     pageout: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class glibtop_sysdeps {
@@ -1708,7 +1663,6 @@ declare module 'gi://GTop?version=2.0' {
                     reserved7: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class glibtop_sysinfo {
@@ -1718,10 +1672,6 @@ declare module 'gi://GTop?version=2.0' {
 
             flags: number;
             ncpu: number;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         class glibtop_uptime {
@@ -1744,7 +1694,6 @@ declare module 'gi://GTop?version=2.0' {
                     boot_time: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class partition_info {
@@ -1767,7 +1716,6 @@ declare module 'gi://GTop?version=2.0' {
                     max: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class glibtop_response_union {
@@ -1786,7 +1734,6 @@ declare module 'gi://GTop?version=2.0' {
                     sysdeps: glibtop_sysdeps;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class glibtop_union {
@@ -1857,7 +1804,6 @@ declare module 'gi://GTop?version=2.0' {
                     proc_io: glibtop_proc_io;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         /**

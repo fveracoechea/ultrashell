@@ -23,34 +23,18 @@ declare module 'gi://xft?version=2.0' {
         function init(): void;
         class Color {
             static $gtype: GObject.GType<Color>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         class Draw {
             static $gtype: GObject.GType<Draw>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         class Font {
             static $gtype: GObject.GType<Font>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         class GlyphSpec {
             static $gtype: GObject.GType<GlyphSpec>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**

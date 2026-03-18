@@ -37,25 +37,17 @@ declare module 'gi://Gdk?version=4.0' {
          * Gdk-4.0
          */
 
-        /**
-         * Defines how device axes are interpreted by GTK.
-         *
-         * Note that the X and Y axes are not really needed; pointer devices
-         * report their location via the x/y members of events regardless. Whether
-         * X and Y are present as axes depends on the GDK backend.
-         */
-
-        /**
-         * Defines how device axes are interpreted by GTK.
-         *
-         * Note that the X and Y axes are not really needed; pointer devices
-         * report their location via the x/y members of events regardless. Whether
-         * X and Y are present as axes depends on the GDK backend.
-         */
         export namespace AxisUse {
             export const $gtype: GObject.GType<AxisUse>;
         }
 
+        /**
+         * Defines how device axes are interpreted by GTK.
+         *
+         * Note that the X and Y axes are not really needed; pointer devices
+         * report their location via the x/y members of events regardless. Whether
+         * X and Y are present as axes depends on the GDK backend.
+         */
         enum AxisUse {
             /**
              * the axis is ignored.
@@ -110,27 +102,19 @@ declare module 'gi://Gdk?version=4.0' {
              */
             LAST,
         }
-        /**
-         * The values of this enumeration describe whether image data uses
-         * the full range of 8-bit values.
-         *
-         * In digital broadcasting, it is common to reserve the lowest and
-         * highest values. Typically the allowed values for the narrow range
-         * are 16-235 for Y and 16-240 for u,v (when dealing with YUV data).
-         */
 
-        /**
-         * The values of this enumeration describe whether image data uses
-         * the full range of 8-bit values.
-         *
-         * In digital broadcasting, it is common to reserve the lowest and
-         * highest values. Typically the allowed values for the narrow range
-         * are 16-235 for Y and 16-240 for u,v (when dealing with YUV data).
-         */
         export namespace CicpRange {
             export const $gtype: GObject.GType<CicpRange>;
         }
 
+        /**
+         * The values of this enumeration describe whether image data uses
+         * the full range of 8-bit values.
+         *
+         * In digital broadcasting, it is common to reserve the lowest and
+         * highest values. Typically the allowed values for the narrow range
+         * are 16-235 for Y and 16-240 for u,v (when dealing with YUV data).
+         */
         enum CicpRange {
             /**
              * The values use the range of 16-235 (for Y) and 16-240 for u and v.
@@ -141,17 +125,14 @@ declare module 'gi://Gdk?version=4.0' {
              */
             FULL,
         }
-        /**
-         * Specifies the crossing mode for enter and leave events.
-         */
 
-        /**
-         * Specifies the crossing mode for enter and leave events.
-         */
         export namespace CrossingMode {
             export const $gtype: GObject.GType<CrossingMode>;
         }
 
+        /**
+         * Specifies the crossing mode for enter and leave events.
+         */
         enum CrossingMode {
             /**
              * crossing because of pointer motion.
@@ -195,17 +176,14 @@ declare module 'gi://Gdk?version=4.0' {
              */
             DEVICE_SWITCH,
         }
-        /**
-         * A pad feature.
-         */
 
-        /**
-         * A pad feature.
-         */
         export namespace DevicePadFeature {
             export const $gtype: GObject.GType<DevicePadFeature>;
         }
 
+        /**
+         * A pad feature.
+         */
         enum DevicePadFeature {
             /**
              * a button
@@ -220,19 +198,15 @@ declare module 'gi://Gdk?version=4.0' {
              */
             STRIP,
         }
-        /**
-         * Indicates the specific type of tool being used being a tablet. Such as an
-         * airbrush, pencil, etc.
-         */
 
-        /**
-         * Indicates the specific type of tool being used being a tablet. Such as an
-         * airbrush, pencil, etc.
-         */
         export namespace DeviceToolType {
             export const $gtype: GObject.GType<DeviceToolType>;
         }
 
+        /**
+         * Indicates the specific type of tool being used being a tablet. Such as an
+         * airbrush, pencil, etc.
+         */
         enum DeviceToolType {
             /**
              * Tool is of an unknown type.
@@ -267,11 +241,12 @@ declare module 'gi://Gdk?version=4.0' {
              */
             LENS,
         }
+
         /**
          * Error enumeration for `GdkDmabufTexture`.
          */
         class DmabufError extends GLib.Error {
-            static $gtype: GObject.GType<DmabufError>;
+            static $gtype: GObject.GType<GLib.Error>;
 
             // Static fields
 
@@ -293,7 +268,6 @@ declare module 'gi://Gdk?version=4.0' {
             // Constructors
 
             constructor(options: { message: string; code: number });
-            _init(...args: any[]): void;
 
             // Static methods
 
@@ -303,17 +277,13 @@ declare module 'gi://Gdk?version=4.0' {
             static quark(): GLib.Quark;
         }
 
-        /**
-         * Used in `GdkDrag` to the reason of a cancelled DND operation.
-         */
-
-        /**
-         * Used in `GdkDrag` to the reason of a cancelled DND operation.
-         */
         export namespace DragCancelReason {
             export const $gtype: GObject.GType<DragCancelReason>;
         }
 
+        /**
+         * Used in `GdkDrag` to the reason of a cancelled DND operation.
+         */
         enum DragCancelReason {
             /**
              * There is no suitable drop target.
@@ -328,17 +298,14 @@ declare module 'gi://Gdk?version=4.0' {
              */
             ERROR,
         }
-        /**
-         * Specifies the type of the event.
-         */
 
-        /**
-         * Specifies the type of the event.
-         */
         export namespace EventType {
             export const $gtype: GObject.GType<EventType>;
         }
 
+        /**
+         * Specifies the type of the event.
+         */
         enum EventType {
             /**
              * the window manager has requested that the toplevel surface be
@@ -473,17 +440,14 @@ declare module 'gi://Gdk?version=4.0' {
              */
             EVENT_LAST,
         }
-        /**
-         * Indicates which monitor a surface should span over when in fullscreen mode.
-         */
 
-        /**
-         * Indicates which monitor a surface should span over when in fullscreen mode.
-         */
         export namespace FullscreenMode {
             export const $gtype: GObject.GType<FullscreenMode>;
         }
 
+        /**
+         * Indicates which monitor a surface should span over when in fullscreen mode.
+         */
         enum FullscreenMode {
             /**
              * Fullscreen on current monitor only.
@@ -494,11 +458,12 @@ declare module 'gi://Gdk?version=4.0' {
              */
             ALL_MONITORS,
         }
+
         /**
          * Error enumeration for `GdkGLContext`.
          */
         class GLError extends GLib.Error {
-            static $gtype: GObject.GType<GLError>;
+            static $gtype: GObject.GType<GLib.Error>;
 
             // Static fields
 
@@ -526,7 +491,6 @@ declare module 'gi://Gdk?version=4.0' {
             // Constructors
 
             constructor(options: { message: string; code: number });
-            _init(...args: any[]): void;
 
             // Static methods
 
@@ -536,17 +500,13 @@ declare module 'gi://Gdk?version=4.0' {
             static quark(): GLib.Quark;
         }
 
-        /**
-         * Defines the reference point of a surface and is used in `GdkPopupLayout`.
-         */
-
-        /**
-         * Defines the reference point of a surface and is used in `GdkPopupLayout`.
-         */
         export namespace Gravity {
             export const $gtype: GObject.GType<Gravity>;
         }
 
+        /**
+         * Defines the reference point of a surface and is used in `GdkPopupLayout`.
+         */
         enum Gravity {
             /**
              * the reference point is at the top left corner.
@@ -590,17 +550,14 @@ declare module 'gi://Gdk?version=4.0' {
              */
             STATIC,
         }
-        /**
-         * An enumeration describing the type of an input device in general terms.
-         */
 
-        /**
-         * An enumeration describing the type of an input device in general terms.
-         */
         export namespace InputSource {
             export const $gtype: GObject.GType<InputSource>;
         }
 
+        /**
+         * An enumeration describing the type of an input device in general terms.
+         */
         enum InputSource {
             /**
              * the device is a mouse. (This will be reported for the core
@@ -635,21 +592,16 @@ declare module 'gi://Gdk?version=4.0' {
              */
             TABLET_PAD,
         }
-        /**
-         * Describes how well an event matches a given keyval and modifiers.
-         *
-         * `GdkKeyMatch` values are returned by [method`Gdk`.KeyEvent.matches].
-         */
 
-        /**
-         * Describes how well an event matches a given keyval and modifiers.
-         *
-         * `GdkKeyMatch` values are returned by [method`Gdk`.KeyEvent.matches].
-         */
         export namespace KeyMatch {
             export const $gtype: GObject.GType<KeyMatch>;
         }
 
+        /**
+         * Describes how well an event matches a given keyval and modifiers.
+         *
+         * `GdkKeyMatch` values are returned by [method`Gdk`.KeyEvent.matches].
+         */
         enum KeyMatch {
             /**
              * The key event does not match
@@ -665,37 +617,24 @@ declare module 'gi://Gdk?version=4.0' {
              */
             EXACT,
         }
-        /**
-         * Describes formats that image data can have in memory.
-         *
-         * It describes formats by listing the contents of the memory passed to it.
-         * So `GDK_MEMORY_A8R8G8B8` will be 1 byte (8 bits) of alpha, followed by a
-         * byte each of red, green and blue. It is not endian-dependent, so
-         * `CAIRO_FORMAT_ARGB32` is represented by different `GdkMemoryFormats`
-         * on architectures with different endiannesses.
-         *
-         * Its naming is modelled after
-         * [VkFormat](https://www.khronos.org/registry/vulkan/specs/1.0/html/vkspec.html#VkFormat)
-         * for details).
-         */
 
-        /**
-         * Describes formats that image data can have in memory.
-         *
-         * It describes formats by listing the contents of the memory passed to it.
-         * So `GDK_MEMORY_A8R8G8B8` will be 1 byte (8 bits) of alpha, followed by a
-         * byte each of red, green and blue. It is not endian-dependent, so
-         * `CAIRO_FORMAT_ARGB32` is represented by different `GdkMemoryFormats`
-         * on architectures with different endiannesses.
-         *
-         * Its naming is modelled after
-         * [VkFormat](https://www.khronos.org/registry/vulkan/specs/1.0/html/vkspec.html#VkFormat)
-         * for details).
-         */
         export namespace MemoryFormat {
             export const $gtype: GObject.GType<MemoryFormat>;
         }
 
+        /**
+         * Describes formats that image data can have in memory.
+         *
+         * It describes formats by listing the contents of the memory passed to it.
+         * So `GDK_MEMORY_A8R8G8B8` will be 1 byte (8 bits) of alpha, followed by a
+         * byte each of red, green and blue. It is not endian-dependent, so
+         * `CAIRO_FORMAT_ARGB32` is represented by different `GdkMemoryFormats`
+         * on architectures with different endiannesses.
+         *
+         * Its naming is modelled after
+         * [VkFormat](https://www.khronos.org/registry/vulkan/specs/1.0/html/vkspec.html#VkFormat)
+         * for details).
+         */
         enum MemoryFormat {
             /**
              * 4 bytes; for blue, green, red, alpha.
@@ -1356,23 +1295,17 @@ declare module 'gi://Gdk?version=4.0' {
              */
             N_FORMATS,
         }
-        /**
-         * Specifies the kind of crossing for enter and leave events.
-         *
-         * See the X11 protocol specification of LeaveNotify for
-         * full details of crossing event generation.
-         */
 
-        /**
-         * Specifies the kind of crossing for enter and leave events.
-         *
-         * See the X11 protocol specification of LeaveNotify for
-         * full details of crossing event generation.
-         */
         export namespace NotifyType {
             export const $gtype: GObject.GType<NotifyType>;
         }
 
+        /**
+         * Specifies the kind of crossing for enter and leave events.
+         *
+         * See the X11 protocol specification of LeaveNotify for
+         * full details of crossing event generation.
+         */
         enum NotifyType {
             /**
              * the surface is entered from an ancestor or
@@ -1406,17 +1339,14 @@ declare module 'gi://Gdk?version=4.0' {
              */
             UNKNOWN,
         }
-        /**
-         * Specifies the direction for scroll events.
-         */
 
-        /**
-         * Specifies the direction for scroll events.
-         */
         export namespace ScrollDirection {
             export const $gtype: GObject.GType<ScrollDirection>;
         }
 
+        /**
+         * Specifies the direction for scroll events.
+         */
         enum ScrollDirection {
             /**
              * the surface is scrolled up.
@@ -1440,19 +1370,15 @@ declare module 'gi://Gdk?version=4.0' {
              */
             SMOOTH,
         }
-        /**
-         * Used in scroll events, to announce the direction relative
-         * to physical motion.
-         */
 
-        /**
-         * Used in scroll events, to announce the direction relative
-         * to physical motion.
-         */
         export namespace ScrollRelativeDirection {
             export const $gtype: GObject.GType<ScrollRelativeDirection>;
         }
 
+        /**
+         * Used in scroll events, to announce the direction relative
+         * to physical motion.
+         */
         enum ScrollRelativeDirection {
             /**
              * Physical motion and event motion are the same
@@ -1467,47 +1393,29 @@ declare module 'gi://Gdk?version=4.0' {
              */
             UNKNOWN,
         }
-        /**
-         * Specifies the unit of scroll deltas.
-         *
-         * When you get %GDK_SCROLL_UNIT_WHEEL, a delta of 1.0 means 1 wheel detent
-         * click in the south direction, 2.0 means 2 wheel detent clicks in the south
-         * direction... This is the same logic for negative values but in the north
-         * direction.
-         *
-         * If you get %GDK_SCROLL_UNIT_SURFACE, are managing a scrollable view and get a
-         * value of 123, you have to scroll 123 surface logical pixels right if it's
-         * `delta_x` or down if it's `delta_y`. This is the same logic for negative values
-         * but you have to scroll left instead of right if it's `delta_x` and up instead
-         * of down if it's `delta_y`.
-         *
-         * 1 surface logical pixel is equal to 1 real screen pixel multiplied by the
-         * final scale factor of your graphical interface (the product of the desktop
-         * scale factor and eventually a custom scale factor in your app).
-         */
 
-        /**
-         * Specifies the unit of scroll deltas.
-         *
-         * When you get %GDK_SCROLL_UNIT_WHEEL, a delta of 1.0 means 1 wheel detent
-         * click in the south direction, 2.0 means 2 wheel detent clicks in the south
-         * direction... This is the same logic for negative values but in the north
-         * direction.
-         *
-         * If you get %GDK_SCROLL_UNIT_SURFACE, are managing a scrollable view and get a
-         * value of 123, you have to scroll 123 surface logical pixels right if it's
-         * `delta_x` or down if it's `delta_y`. This is the same logic for negative values
-         * but you have to scroll left instead of right if it's `delta_x` and up instead
-         * of down if it's `delta_y`.
-         *
-         * 1 surface logical pixel is equal to 1 real screen pixel multiplied by the
-         * final scale factor of your graphical interface (the product of the desktop
-         * scale factor and eventually a custom scale factor in your app).
-         */
         export namespace ScrollUnit {
             export const $gtype: GObject.GType<ScrollUnit>;
         }
 
+        /**
+         * Specifies the unit of scroll deltas.
+         *
+         * When you get %GDK_SCROLL_UNIT_WHEEL, a delta of 1.0 means 1 wheel detent
+         * click in the south direction, 2.0 means 2 wheel detent clicks in the south
+         * direction... This is the same logic for negative values but in the north
+         * direction.
+         *
+         * If you get %GDK_SCROLL_UNIT_SURFACE, are managing a scrollable view and get a
+         * value of 123, you have to scroll 123 surface logical pixels right if it's
+         * `delta_x` or down if it's `delta_y`. This is the same logic for negative values
+         * but you have to scroll left instead of right if it's `delta_x` and up instead
+         * of down if it's `delta_y`.
+         *
+         * 1 surface logical pixel is equal to 1 real screen pixel multiplied by the
+         * final scale factor of your graphical interface (the product of the desktop
+         * scale factor and eventually a custom scale factor in your app).
+         */
         enum ScrollUnit {
             /**
              * The delta is in number of wheel clicks.
@@ -1519,19 +1427,15 @@ declare module 'gi://Gdk?version=4.0' {
              */
             SURFACE,
         }
-        /**
-         * This enumeration describes how the red, green and blue components
-         * of physical pixels on an output device are laid out.
-         */
 
-        /**
-         * This enumeration describes how the red, green and blue components
-         * of physical pixels on an output device are laid out.
-         */
         export namespace SubpixelLayout {
             export const $gtype: GObject.GType<SubpixelLayout>;
         }
 
+        /**
+         * This enumeration describes how the red, green and blue components
+         * of physical pixels on an output device are laid out.
+         */
         enum SubpixelLayout {
             /**
              * The layout is not known
@@ -1558,17 +1462,14 @@ declare module 'gi://Gdk?version=4.0' {
              */
             VERTICAL_BGR,
         }
-        /**
-         * Determines a surface edge or corner.
-         */
 
-        /**
-         * Determines a surface edge or corner.
-         */
         export namespace SurfaceEdge {
             export const $gtype: GObject.GType<SurfaceEdge>;
         }
 
+        /**
+         * Determines a surface edge or corner.
+         */
         enum SurfaceEdge {
             /**
              * the top left corner.
@@ -1603,11 +1504,12 @@ declare module 'gi://Gdk?version=4.0' {
              */
             SOUTH_EAST,
         }
+
         /**
          * Possible errors that can be returned by `GdkTexture` constructors.
          */
         class TextureError extends GLib.Error {
-            static $gtype: GObject.GType<TextureError>;
+            static $gtype: GObject.GType<GLib.Error>;
 
             // Static fields
 
@@ -1632,7 +1534,6 @@ declare module 'gi://Gdk?version=4.0' {
             // Constructors
 
             constructor(options: { message: string; code: number });
-            _init(...args: any[]): void;
 
             // Static methods
 
@@ -1642,19 +1543,14 @@ declare module 'gi://Gdk?version=4.0' {
             static quark(): GLib.Quark;
         }
 
-        /**
-         * The kind of title bar gesture to emit with
-         * [method`Gdk`.Toplevel.titlebar_gesture].
-         */
-
-        /**
-         * The kind of title bar gesture to emit with
-         * [method`Gdk`.Toplevel.titlebar_gesture].
-         */
         export namespace TitlebarGesture {
             export const $gtype: GObject.GType<TitlebarGesture>;
         }
 
+        /**
+         * The kind of title bar gesture to emit with
+         * [method`Gdk`.Toplevel.titlebar_gesture].
+         */
         enum TitlebarGesture {
             /**
              * double click gesture
@@ -1669,51 +1565,31 @@ declare module 'gi://Gdk?version=4.0' {
              */
             MIDDLE_CLICK,
         }
-        /**
-         * Specifies the current state of a touchpad gesture.
-         *
-         * All gestures are guaranteed to begin with an event with phase
-         * %GDK_TOUCHPAD_GESTURE_PHASE_BEGIN, followed by 0 or several events
-         * with phase %GDK_TOUCHPAD_GESTURE_PHASE_UPDATE.
-         *
-         * A finished gesture may have 2 possible outcomes, an event with phase
-         * %GDK_TOUCHPAD_GESTURE_PHASE_END will be emitted when the gesture is
-         * considered successful, this should be used as the hint to perform any
-         * permanent changes.
-         *
-         * Cancelled gestures may be so for a variety of reasons, due to hardware
-         * or the compositor, or due to the gesture recognition layers hinting the
-         * gesture did not finish resolutely (eg. a 3rd finger being added during
-         * a pinch gesture). In these cases, the last event will report the phase
-         * %GDK_TOUCHPAD_GESTURE_PHASE_CANCEL, this should be used as a hint
-         * to undo any visible/permanent changes that were done throughout the
-         * progress of the gesture.
-         */
 
-        /**
-         * Specifies the current state of a touchpad gesture.
-         *
-         * All gestures are guaranteed to begin with an event with phase
-         * %GDK_TOUCHPAD_GESTURE_PHASE_BEGIN, followed by 0 or several events
-         * with phase %GDK_TOUCHPAD_GESTURE_PHASE_UPDATE.
-         *
-         * A finished gesture may have 2 possible outcomes, an event with phase
-         * %GDK_TOUCHPAD_GESTURE_PHASE_END will be emitted when the gesture is
-         * considered successful, this should be used as the hint to perform any
-         * permanent changes.
-         *
-         * Cancelled gestures may be so for a variety of reasons, due to hardware
-         * or the compositor, or due to the gesture recognition layers hinting the
-         * gesture did not finish resolutely (eg. a 3rd finger being added during
-         * a pinch gesture). In these cases, the last event will report the phase
-         * %GDK_TOUCHPAD_GESTURE_PHASE_CANCEL, this should be used as a hint
-         * to undo any visible/permanent changes that were done throughout the
-         * progress of the gesture.
-         */
         export namespace TouchpadGesturePhase {
             export const $gtype: GObject.GType<TouchpadGesturePhase>;
         }
 
+        /**
+         * Specifies the current state of a touchpad gesture.
+         *
+         * All gestures are guaranteed to begin with an event with phase
+         * %GDK_TOUCHPAD_GESTURE_PHASE_BEGIN, followed by 0 or several events
+         * with phase %GDK_TOUCHPAD_GESTURE_PHASE_UPDATE.
+         *
+         * A finished gesture may have 2 possible outcomes, an event with phase
+         * %GDK_TOUCHPAD_GESTURE_PHASE_END will be emitted when the gesture is
+         * considered successful, this should be used as the hint to perform any
+         * permanent changes.
+         *
+         * Cancelled gestures may be so for a variety of reasons, due to hardware
+         * or the compositor, or due to the gesture recognition layers hinting the
+         * gesture did not finish resolutely (eg. a 3rd finger being added during
+         * a pinch gesture). In these cases, the last event will report the phase
+         * %GDK_TOUCHPAD_GESTURE_PHASE_CANCEL, this should be used as a hint
+         * to undo any visible/permanent changes that were done throughout the
+         * progress of the gesture.
+         */
         enum TouchpadGesturePhase {
             /**
              * The gesture has begun.
@@ -1734,11 +1610,12 @@ declare module 'gi://Gdk?version=4.0' {
              */
             CANCEL,
         }
+
         /**
          * Error enumeration for `GdkVulkanContext`.
          */
         class VulkanError extends GLib.Error {
-            static $gtype: GObject.GType<VulkanError>;
+            static $gtype: GObject.GType<GLib.Error>;
 
             // Static fields
 
@@ -1755,7 +1632,6 @@ declare module 'gi://Gdk?version=4.0' {
             // Constructors
 
             constructor(options: { message: string; code: number });
-            _init(...args: any[]): void;
 
             // Static methods
 
@@ -4812,45 +4688,27 @@ declare module 'gi://Gdk?version=4.0' {
         interface CursorGetTextureCallback {
             (cursor: Cursor, cursor_size: number, scale: number, data?: any | null): Texture | null;
         }
-        /**
-         * Positioning hints for aligning a surface relative to a rectangle.
-         *
-         * These hints determine how the surface should be positioned in the case that
-         * the surface would fall off-screen if placed in its ideal position.
-         *
-         * For example, %GDK_ANCHOR_FLIP_X will replace %GDK_GRAVITY_NORTH_WEST with
-         * %GDK_GRAVITY_NORTH_EAST and vice versa if the surface extends beyond the left
-         * or right edges of the monitor.
-         *
-         * If %GDK_ANCHOR_SLIDE_X is set, the surface can be shifted horizontally to fit
-         * on-screen. If %GDK_ANCHOR_RESIZE_X is set, the surface can be shrunken
-         * horizontally to fit.
-         *
-         * In general, when multiple flags are set, flipping should take precedence over
-         * sliding, which should take precedence over resizing.
-         */
-
-        /**
-         * Positioning hints for aligning a surface relative to a rectangle.
-         *
-         * These hints determine how the surface should be positioned in the case that
-         * the surface would fall off-screen if placed in its ideal position.
-         *
-         * For example, %GDK_ANCHOR_FLIP_X will replace %GDK_GRAVITY_NORTH_WEST with
-         * %GDK_GRAVITY_NORTH_EAST and vice versa if the surface extends beyond the left
-         * or right edges of the monitor.
-         *
-         * If %GDK_ANCHOR_SLIDE_X is set, the surface can be shifted horizontally to fit
-         * on-screen. If %GDK_ANCHOR_RESIZE_X is set, the surface can be shrunken
-         * horizontally to fit.
-         *
-         * In general, when multiple flags are set, flipping should take precedence over
-         * sliding, which should take precedence over resizing.
-         */
         export namespace AnchorHints {
             export const $gtype: GObject.GType<AnchorHints>;
         }
 
+        /**
+         * Positioning hints for aligning a surface relative to a rectangle.
+         *
+         * These hints determine how the surface should be positioned in the case that
+         * the surface would fall off-screen if placed in its ideal position.
+         *
+         * For example, %GDK_ANCHOR_FLIP_X will replace %GDK_GRAVITY_NORTH_WEST with
+         * %GDK_GRAVITY_NORTH_EAST and vice versa if the surface extends beyond the left
+         * or right edges of the monitor.
+         *
+         * If %GDK_ANCHOR_SLIDE_X is set, the surface can be shifted horizontally to fit
+         * on-screen. If %GDK_ANCHOR_RESIZE_X is set, the surface can be shrunken
+         * horizontally to fit.
+         *
+         * In general, when multiple flags are set, flipping should take precedence over
+         * sliding, which should take precedence over resizing.
+         */
         enum AnchorHints {
             /**
              * allow flipping anchors horizontally
@@ -4889,17 +4747,14 @@ declare module 'gi://Gdk?version=4.0' {
              */
             RESIZE,
         }
-        /**
-         * Flags describing the current capabilities of a device/tool.
-         */
 
-        /**
-         * Flags describing the current capabilities of a device/tool.
-         */
         export namespace AxisFlags {
             export const $gtype: GObject.GType<AxisFlags>;
         }
 
+        /**
+         * Flags describing the current capabilities of a device/tool.
+         */
         enum AxisFlags {
             /**
              * X axis is present
@@ -4946,19 +4801,15 @@ declare module 'gi://Gdk?version=4.0' {
              */
             SLIDER,
         }
-        /**
-         * Used in `GdkDrop` and `GdkDrag` to indicate the actions that the
-         * destination can and should do with the dropped data.
-         */
 
-        /**
-         * Used in `GdkDrop` and `GdkDrag` to indicate the actions that the
-         * destination can and should do with the dropped data.
-         */
         export namespace DragAction {
             export const $gtype: GObject.GType<DragAction>;
         }
 
+        /**
+         * Used in `GdkDrop` and `GdkDrag` to indicate the actions that the
+         * destination can and should do with the dropped data.
+         */
         enum DragAction {
             /**
              * No action.
@@ -4984,21 +4835,16 @@ declare module 'gi://Gdk?version=4.0' {
              */
             ASK,
         }
-        /**
-         * Used to represent the different paint clock phases that can be requested.
-         *
-         * The elements of the enumeration correspond to the signals of `GdkFrameClock`.
-         */
 
-        /**
-         * Used to represent the different paint clock phases that can be requested.
-         *
-         * The elements of the enumeration correspond to the signals of `GdkFrameClock`.
-         */
         export namespace FrameClockPhase {
             export const $gtype: GObject.GType<FrameClockPhase>;
         }
 
+        /**
+         * Used to represent the different paint clock phases that can be requested.
+         *
+         * The elements of the enumeration correspond to the signals of `GdkFrameClock`.
+         */
         enum FrameClockPhase {
             /**
              * no phase
@@ -5033,17 +4879,14 @@ declare module 'gi://Gdk?version=4.0' {
              */
             AFTER_PAINT,
         }
-        /**
-         * The list of the different APIs that GdkGLContext can potentially support.
-         */
 
-        /**
-         * The list of the different APIs that GdkGLContext can potentially support.
-         */
         export namespace GLAPI {
             export const $gtype: GObject.GType<GLAPI>;
         }
 
+        /**
+         * The list of the different APIs that GdkGLContext can potentially support.
+         */
         enum GLAPI {
             /**
              * The OpenGL API
@@ -5054,33 +4897,22 @@ declare module 'gi://Gdk?version=4.0' {
              */
             GLES,
         }
-        /**
-         * Flags to indicate the state of modifier keys and mouse buttons
-         * in events.
-         *
-         * Typical modifier keys are Shift, Control, Meta, Super, Hyper, Alt, Compose,
-         * Apple, CapsLock or ShiftLock.
-         *
-         * Note that GDK may add internal values to events which include values outside
-         * of this enumeration. Your code should preserve and ignore them. You can use
-         * %GDK_MODIFIER_MASK to remove all private values.
-         */
 
-        /**
-         * Flags to indicate the state of modifier keys and mouse buttons
-         * in events.
-         *
-         * Typical modifier keys are Shift, Control, Meta, Super, Hyper, Alt, Compose,
-         * Apple, CapsLock or ShiftLock.
-         *
-         * Note that GDK may add internal values to events which include values outside
-         * of this enumeration. Your code should preserve and ignore them. You can use
-         * %GDK_MODIFIER_MASK to remove all private values.
-         */
         export namespace ModifierType {
             export const $gtype: GObject.GType<ModifierType>;
         }
 
+        /**
+         * Flags to indicate the state of modifier keys and mouse buttons
+         * in events.
+         *
+         * Typical modifier keys are Shift, Control, Meta, Super, Hyper, Alt, Compose,
+         * Apple, CapsLock or ShiftLock.
+         *
+         * Note that GDK may add internal values to events which include values outside
+         * of this enumeration. Your code should preserve and ignore them. You can use
+         * %GDK_MODIFIER_MASK to remove all private values.
+         */
         enum ModifierType {
             /**
              * No modifier.
@@ -5138,21 +4970,16 @@ declare module 'gi://Gdk?version=4.0' {
              */
             META_MASK,
         }
-        /**
-         * Flags about a paintable object.
-         *
-         * Implementations use these for optimizations such as caching.
-         */
 
-        /**
-         * Flags about a paintable object.
-         *
-         * Implementations use these for optimizations such as caching.
-         */
         export namespace PaintableFlags {
             export const $gtype: GObject.GType<PaintableFlags>;
         }
 
+        /**
+         * Flags about a paintable object.
+         *
+         * Implementations use these for optimizations such as caching.
+         */
         enum PaintableFlags {
             /**
              * The size is immutable.
@@ -5167,17 +4994,14 @@ declare module 'gi://Gdk?version=4.0' {
              */
             CONTENTS,
         }
-        /**
-         * Flags describing the seat capabilities.
-         */
 
-        /**
-         * Flags describing the seat capabilities.
-         */
         export namespace SeatCapabilities {
             export const $gtype: GObject.GType<SeatCapabilities>;
         }
 
+        /**
+         * Flags describing the seat capabilities.
+         */
         enum SeatCapabilities {
             /**
              * No input capabilities
@@ -5212,17 +5036,14 @@ declare module 'gi://Gdk?version=4.0' {
              */
             ALL,
         }
-        /**
-         * Reflects what features a `GdkToplevel` supports.
-         */
 
-        /**
-         * Reflects what features a `GdkToplevel` supports.
-         */
         export namespace ToplevelCapabilities {
             export const $gtype: GObject.GType<ToplevelCapabilities>;
         }
 
+        /**
+         * Reflects what features a `GdkToplevel` supports.
+         */
         enum ToplevelCapabilities {
             /**
              * Whether tiled window states are supported.
@@ -5262,29 +5083,20 @@ declare module 'gi://Gdk?version=4.0' {
              */
             LOWER,
         }
-        /**
-         * Specifies the state of a toplevel surface.
-         *
-         * On platforms that support information about individual edges, the
-         * %GDK_TOPLEVEL_STATE_TILED state will be set whenever any of the individual
-         * tiled states is set. On platforms that lack that support, the tiled state
-         * will give an indication of tiledness without any of the per-edge states
-         * being set.
-         */
 
-        /**
-         * Specifies the state of a toplevel surface.
-         *
-         * On platforms that support information about individual edges, the
-         * %GDK_TOPLEVEL_STATE_TILED state will be set whenever any of the individual
-         * tiled states is set. On platforms that lack that support, the tiled state
-         * will give an indication of tiledness without any of the per-edge states
-         * being set.
-         */
         export namespace ToplevelState {
             export const $gtype: GObject.GType<ToplevelState>;
         }
 
+        /**
+         * Specifies the state of a toplevel surface.
+         *
+         * On platforms that support information about individual edges, the
+         * %GDK_TOPLEVEL_STATE_TILED state will be set whenever any of the individual
+         * tiled states is set. On platforms that lack that support, the tiled state
+         * will give an indication of tiledness without any of the per-edge states
+         * being set.
+         */
         enum ToplevelState {
             /**
              * the surface is minimized
@@ -5355,6 +5167,7 @@ declare module 'gi://Gdk?version=4.0' {
              */
             SUSPENDED,
         }
+
         namespace AppLaunchContext {
             // Signal signatures
             interface SignalSignatures extends Gio.AppLaunchContext.SignalSignatures {
@@ -9196,7 +9009,8 @@ declare module 'gi://Gdk?version=4.0' {
             // Constructor properties interface
 
             interface ConstructorProps
-                extends Texture.ConstructorProps,
+                extends
+                    Texture.ConstructorProps,
                     Paintable.ConstructorProps,
                     Gio.Icon.ConstructorProps,
                     Gio.LoadableIcon.ConstructorProps {}
@@ -11880,7 +11694,8 @@ declare module 'gi://Gdk?version=4.0' {
             // Constructor properties interface
 
             interface ConstructorProps
-                extends Texture.ConstructorProps,
+                extends
+                    Texture.ConstructorProps,
                     Paintable.ConstructorProps,
                     Gio.Icon.ConstructorProps,
                     Gio.LoadableIcon.ConstructorProps {}
@@ -13208,7 +13023,8 @@ declare module 'gi://Gdk?version=4.0' {
             // Constructor properties interface
 
             interface ConstructorProps
-                extends Texture.ConstructorProps,
+                extends
+                    Texture.ConstructorProps,
                     Paintable.ConstructorProps,
                     Gio.Icon.ConstructorProps,
                     Gio.LoadableIcon.ConstructorProps {}
@@ -15365,7 +15181,8 @@ declare module 'gi://Gdk?version=4.0' {
             // Constructor properties interface
 
             interface ConstructorProps
-                extends GObject.Object.ConstructorProps,
+                extends
+                    GObject.Object.ConstructorProps,
                     Paintable.ConstructorProps,
                     Gio.Icon.ConstructorProps,
                     Gio.LoadableIcon.ConstructorProps {
@@ -16545,10 +16362,6 @@ declare module 'gi://Gdk?version=4.0' {
         abstract class ColorState {
             static $gtype: GObject.GType<ColorState>;
 
-            // Constructors
-
-            _init(...args: any[]): void;
-
             // Static methods
 
             /**
@@ -16695,7 +16508,6 @@ declare module 'gi://Gdk?version=4.0' {
             // Constructors
 
             constructor(mime_types?: string[] | null);
-            _init(...args: any[]): void;
 
             static ['new'](mime_types?: string[] | null): ContentFormats;
 
@@ -16846,7 +16658,6 @@ declare module 'gi://Gdk?version=4.0' {
             // Constructors
 
             constructor(properties?: Partial<{}>);
-            _init(...args: any[]): void;
 
             static ['new'](): ContentFormatsBuilder;
 
@@ -16919,10 +16730,6 @@ declare module 'gi://Gdk?version=4.0' {
         abstract class DmabufFormats {
             static $gtype: GObject.GType<DmabufFormats>;
 
-            // Constructors
-
-            _init(...args: any[]): void;
-
             // Methods
 
             /**
@@ -16978,10 +16785,6 @@ declare module 'gi://Gdk?version=4.0' {
         abstract class DragSurfaceSize {
             static $gtype: GObject.GType<DragSurfaceSize>;
 
-            // Constructors
-
-            _init(...args: any[]): void;
-
             // Methods
 
             /**
@@ -16997,10 +16800,6 @@ declare module 'gi://Gdk?version=4.0' {
          */
         abstract class EventSequence {
             static $gtype: GObject.GType<EventSequence>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -17012,7 +16811,6 @@ declare module 'gi://Gdk?version=4.0' {
             // Constructors
 
             constructor(files: Gio.File[]);
-            _init(...args: any[]): void;
 
             static new_from_array(files: Gio.File[]): FileList;
 
@@ -17032,10 +16830,6 @@ declare module 'gi://Gdk?version=4.0' {
         type FrameClockClass = typeof FrameClock;
         abstract class FrameClockPrivate {
             static $gtype: GObject.GType<FrameClockPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
@@ -17049,10 +16843,6 @@ declare module 'gi://Gdk?version=4.0' {
          */
         abstract class FrameTimings {
             static $gtype: GObject.GType<FrameTimings>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
 
             // Methods
 
@@ -17155,7 +16945,6 @@ declare module 'gi://Gdk?version=4.0' {
                     level: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         type MemoryTextureBuilderClass = typeof MemoryTextureBuilder;
@@ -17204,7 +16993,6 @@ declare module 'gi://Gdk?version=4.0' {
             // Constructors
 
             constructor(anchor_rect: Rectangle, rect_anchor: Gravity, surface_anchor: Gravity);
-            _init(...args: any[]): void;
 
             static ['new'](anchor_rect: Rectangle, rect_anchor: Gravity, surface_anchor: Gravity): PopupLayout;
 
@@ -17334,7 +17122,6 @@ declare module 'gi://Gdk?version=4.0' {
                     alpha: number;
                 }>,
             );
-            _init(...args: any[]): void;
 
             // Methods
 
@@ -17457,7 +17244,6 @@ declare module 'gi://Gdk?version=4.0' {
                     height: number;
                 }>,
             );
-            _init(...args: any[]): void;
 
             // Methods
 
@@ -17520,7 +17306,6 @@ declare module 'gi://Gdk?version=4.0' {
             // Constructors
 
             constructor(texture: Texture);
-            _init(...args: any[]): void;
 
             static ['new'](texture: Texture): TextureDownloader;
 
@@ -17621,10 +17406,6 @@ declare module 'gi://Gdk?version=4.0' {
             time: number;
             flags: AxisFlags;
             axes: number[];
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type ToplevelInterface = typeof Toplevel;
@@ -17645,7 +17426,6 @@ declare module 'gi://Gdk?version=4.0' {
             // Constructors
 
             constructor(properties?: Partial<{}>);
-            _init(...args: any[]): void;
 
             static ['new'](): ToplevelLayout;
 
@@ -17723,10 +17503,6 @@ declare module 'gi://Gdk?version=4.0' {
          */
         abstract class ToplevelSize {
             static $gtype: GObject.GType<ToplevelSize>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
 
             // Methods
 

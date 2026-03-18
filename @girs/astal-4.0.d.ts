@@ -92,11 +92,11 @@ declare module 'gi://Astal?version=4.0' {
              */
             ON_DEMAND,
         }
+
         const MAJOR_VERSION: number;
         const MINOR_VERSION: number;
         const MICRO_VERSION: number;
         const VERSION: string;
-
         export namespace WindowAnchor {
             export const $gtype: GObject.GType<WindowAnchor>;
         }
@@ -108,6 +108,7 @@ declare module 'gi://Astal?version=4.0' {
             LEFT,
             BOTTOM,
         }
+
         namespace Bin {
             // Signal signatures
             interface SignalSignatures extends Gtk.Widget.SignalSignatures {
@@ -1859,46 +1860,26 @@ declare module 'gi://Astal?version=4.0' {
         type BinClass = typeof Bin;
         abstract class BinPrivate {
             static $gtype: GObject.GType<BinPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type BoxClass = typeof Box;
         abstract class BoxPrivate {
             static $gtype: GObject.GType<BoxPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type SliderClass = typeof Slider;
         abstract class SliderPrivate {
             static $gtype: GObject.GType<SliderPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type WindowClass = typeof Window;
         abstract class WindowPrivate {
             static $gtype: GObject.GType<WindowPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type ApplicationClass = typeof Application;
         abstract class ApplicationPrivate {
             static $gtype: GObject.GType<ApplicationPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**

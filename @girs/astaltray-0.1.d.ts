@@ -46,6 +46,7 @@ declare module 'gi://AstalTray?version=0.1' {
             ACTIVE,
             NEEDS_ATTENTION,
         }
+
         const MAJOR_VERSION: number;
         const MINOR_VERSION: number;
         const MICRO_VERSION: number;
@@ -420,19 +421,11 @@ declare module 'gi://AstalTray?version=0.1' {
         type TrayItemClass = typeof TrayItem;
         abstract class TrayItemPrivate {
             static $gtype: GObject.GType<TrayItemPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type TrayClass = typeof Tray;
         abstract class TrayPrivate {
             static $gtype: GObject.GType<TrayPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         class Pixmap {
@@ -455,7 +448,6 @@ declare module 'gi://AstalTray?version=0.1' {
                     bytes_length1: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         class Tooltip {
@@ -480,7 +472,6 @@ declare module 'gi://AstalTray?version=0.1' {
                     description: string;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         /**

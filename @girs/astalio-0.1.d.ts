@@ -25,7 +25,7 @@ declare module 'gi://AstalIO?version=0.1' {
          */
 
         class AppError extends GLib.Error {
-            static $gtype: GObject.GType<AppError>;
+            static $gtype: GObject.GType<GLib.Error>;
 
             // Static fields
 
@@ -35,7 +35,6 @@ declare module 'gi://AstalIO?version=0.1' {
             // Constructors
 
             constructor(options: { message: string; code: number });
-            _init(...args: any[]): void;
         }
 
         const MAJOR_VERSION: number;
@@ -1097,46 +1096,26 @@ declare module 'gi://AstalIO?version=0.1' {
         type DaemonClass = typeof Daemon;
         abstract class DaemonPrivate {
             static $gtype: GObject.GType<DaemonPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type ProcessClass = typeof Process;
         abstract class ProcessPrivate {
             static $gtype: GObject.GType<ProcessPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type TimeClass = typeof Time;
         abstract class TimePrivate {
             static $gtype: GObject.GType<TimePrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type VariableBaseClass = typeof VariableBase;
         abstract class VariableBasePrivate {
             static $gtype: GObject.GType<VariableBasePrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type VariableClass = typeof Variable;
         abstract class VariablePrivate {
             static $gtype: GObject.GType<VariablePrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type ApplicationIface = typeof Application;

@@ -20,58 +20,30 @@ declare module 'gi://xrandr?version=1.3' {
 
         class ScreenSize {
             static $gtype: GObject.GType<ScreenSize>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         class ScreenChangeNotifyEvent {
             static $gtype: GObject.GType<ScreenChangeNotifyEvent>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         class NotifyEvent {
             static $gtype: GObject.GType<NotifyEvent>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         class ScreenResources {
             static $gtype: GObject.GType<ScreenResources>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         class OutputChangeNotifyEvent {
             static $gtype: GObject.GType<OutputChangeNotifyEvent>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         class CrtcChangeNotifyEvent {
             static $gtype: GObject.GType<CrtcChangeNotifyEvent>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         class OutputPropertyNotifyEvent {
             static $gtype: GObject.GType<OutputPropertyNotifyEvent>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**

@@ -600,28 +600,16 @@ declare module 'gi://AstalBluetooth?version=0.1' {
         type AdapterClass = typeof Adapter;
         abstract class AdapterPrivate {
             static $gtype: GObject.GType<AdapterPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type BluetoothClass = typeof Bluetooth;
         abstract class BluetoothPrivate {
             static $gtype: GObject.GType<BluetoothPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type DeviceClass = typeof Device;
         abstract class DevicePrivate {
             static $gtype: GObject.GType<DevicePrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**

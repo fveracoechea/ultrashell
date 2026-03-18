@@ -128,6 +128,7 @@ declare module 'gi://Wp?version=0.5' {
             ERROR,
             CUSTOM_START,
         }
+
         const ITERATOR_METHODS_VERSION: number;
         /**
          * A custom GLib log level for trace messages (extension of GLogLevelFlags).
@@ -404,7 +405,6 @@ declare module 'gi://Wp?version=0.5' {
         interface SettingsChangedCallback {
             (obj: Settings, setting: string, value: SpaJson): void;
         }
-
         export namespace BaseDirsFlags {
             export const $gtype: GObject.GType<BaseDirsFlags>;
         }
@@ -544,6 +544,7 @@ declare module 'gi://Wp?version=0.5' {
         enum SpaDeviceFeatures {
             ENABLED,
         }
+
         namespace AsyncEventHook {
             // Signal signatures
             interface SignalSignatures extends InterestEventHook.SignalSignatures {
@@ -6508,7 +6509,6 @@ declare module 'gi://Wp?version=0.5' {
                 source: GObject.Object,
                 subject?: GObject.Object | null,
             );
-            _init(...args: any[]): void;
 
             static ['new'](
                 type: string,
@@ -6590,10 +6590,6 @@ declare module 'gi://Wp?version=0.5' {
         type FeatureActivationTransitionClass = typeof FeatureActivationTransition;
         abstract class Global {
             static $gtype: GObject.GType<Global>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type GlobalProxyClass = typeof GlobalProxy;
@@ -6610,7 +6606,6 @@ declare module 'gi://Wp?version=0.5' {
             // Constructors
 
             constructor(methods: IteratorMethods, user_size: number);
-            _init(...args: any[]): void;
 
             static ['new'](methods: IteratorMethods, user_size: number): Iterator;
 
@@ -6671,7 +6666,6 @@ declare module 'gi://Wp?version=0.5' {
                     version: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         type LinkClass = typeof Link;
@@ -6685,10 +6679,6 @@ declare module 'gi://Wp?version=0.5' {
 
             topic_name: string;
             flags: LogTopicFlags;
-
-            // Constructors
-
-            _init(...args: any[]): void;
 
             // Methods
 
@@ -6719,10 +6709,6 @@ declare module 'gi://Wp?version=0.5' {
          */
         abstract class MetadataItem {
             static $gtype: GObject.GType<MetadataItem>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
 
             // Methods
 
@@ -6769,7 +6755,6 @@ declare module 'gi://Wp?version=0.5' {
             // Constructors
 
             constructor(gtype: GObject.GType, ___: any[]);
-            _init(...args: any[]): void;
 
             static new_type(gtype: GObject.GType): ObjectInterest;
 
@@ -6881,10 +6866,6 @@ declare module 'gi://Wp?version=0.5' {
         abstract class ProcInfo {
             static $gtype: GObject.GType<ProcInfo>;
 
-            // Constructors
-
-            _init(...args: any[]): void;
-
             // Methods
 
             /**
@@ -6937,7 +6918,6 @@ declare module 'gi://Wp?version=0.5' {
             // Constructors
 
             constructor(properties?: Partial<{}>);
-            _init(...args: any[]): void;
 
             static new_copy(props?: any | null): Properties;
 
@@ -7101,10 +7081,6 @@ declare module 'gi://Wp?version=0.5' {
         abstract class PropertiesItem {
             static $gtype: GObject.GType<PropertiesItem>;
 
-            // Constructors
-
-            _init(...args: any[]): void;
-
             // Methods
 
             /**
@@ -7137,10 +7113,6 @@ declare module 'gi://Wp?version=0.5' {
         abstract class SettingsItem {
             static $gtype: GObject.GType<SettingsItem>;
 
-            // Constructors
-
-            _init(...args: any[]): void;
-
             // Methods
 
             /**
@@ -7169,10 +7141,6 @@ declare module 'gi://Wp?version=0.5' {
          */
         abstract class SettingsSpec {
             static $gtype: GObject.GType<SettingsSpec>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
 
             // Methods
 
@@ -7236,7 +7204,6 @@ declare module 'gi://Wp?version=0.5' {
             // Constructors
 
             constructor(properties?: Partial<{}>);
-            _init(...args: any[]): void;
 
             static new_boolean(value: boolean): SpaJson;
 
@@ -7377,7 +7344,6 @@ declare module 'gi://Wp?version=0.5' {
             // Constructors
 
             constructor(properties?: Partial<{}>);
-            _init(...args: any[]): void;
 
             static new_array(): SpaJsonBuilder;
 
@@ -7452,7 +7418,6 @@ declare module 'gi://Wp?version=0.5' {
             // Constructors
 
             constructor(json: SpaJson);
-            _init(...args: any[]): void;
 
             static new_array(json: SpaJson): SpaJsonParser;
 
@@ -7513,7 +7478,6 @@ declare module 'gi://Wp?version=0.5' {
             // Constructors
 
             constructor(properties?: Partial<{}>);
-            _init(...args: any[]): void;
 
             static new_boolean(value: boolean): SpaPod;
 
@@ -7863,7 +7827,6 @@ declare module 'gi://Wp?version=0.5' {
             // Constructors
 
             constructor(properties?: Partial<{}>);
-            _init(...args: any[]): void;
 
             static new_array(): SpaPodBuilder;
 
@@ -7988,7 +7951,6 @@ declare module 'gi://Wp?version=0.5' {
             // Constructors
 
             constructor(pod: SpaPod, id_name: string);
-            _init(...args: any[]): void;
 
             static new_object(pod: SpaPod, id_name: string): SpaPodParser;
 

@@ -20,10 +20,6 @@ declare module 'gi://xfixes?version=4.0' {
 
         class XserverRegion {
             static $gtype: GObject.GType<XserverRegion>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**

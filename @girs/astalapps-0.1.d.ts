@@ -401,19 +401,11 @@ declare module 'gi://AstalApps?version=0.1' {
         type ApplicationClass = typeof Application;
         abstract class ApplicationPrivate {
             static $gtype: GObject.GType<ApplicationPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type AppsClass = typeof Apps;
         abstract class AppsPrivate {
             static $gtype: GObject.GType<AppsPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         class Score {
@@ -440,7 +432,6 @@ declare module 'gi://AstalApps?version=0.1' {
                     categories: number;
                 }>,
             );
-            _init(...args: any[]): void;
         }
 
         /**

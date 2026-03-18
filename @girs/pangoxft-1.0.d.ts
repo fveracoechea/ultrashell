@@ -267,8 +267,7 @@ declare module 'gi://PangoXft?version=1.0' {
             // Constructor properties interface
 
             interface ConstructorProps<A extends GObject.Object = GObject.Object>
-                extends PangoFc.FontMap.ConstructorProps,
-                    Gio.ListModel.ConstructorProps {}
+                extends PangoFc.FontMap.ConstructorProps, Gio.ListModel.ConstructorProps {}
         }
 
         /**
@@ -950,10 +949,6 @@ declare module 'gi://PangoXft?version=1.0' {
         type RendererClass = typeof Renderer;
         abstract class RendererPrivate {
             static $gtype: GObject.GType<RendererPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**

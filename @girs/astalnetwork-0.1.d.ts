@@ -92,6 +92,7 @@ declare module 'gi://AstalNetwork?version=0.1' {
             CONNECTING,
             DISCONNECTED,
         }
+
         const MAJOR_VERSION: number;
         const MINOR_VERSION: number;
         const MICRO_VERSION: number;
@@ -579,37 +580,21 @@ declare module 'gi://AstalNetwork?version=0.1' {
         type AccessPointClass = typeof AccessPoint;
         abstract class AccessPointPrivate {
             static $gtype: GObject.GType<AccessPointPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type NetworkClass = typeof Network;
         abstract class NetworkPrivate {
             static $gtype: GObject.GType<NetworkPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type WifiClass = typeof Wifi;
         abstract class WifiPrivate {
             static $gtype: GObject.GType<WifiPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type WiredClass = typeof Wired;
         abstract class WiredPrivate {
             static $gtype: GObject.GType<WiredPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**

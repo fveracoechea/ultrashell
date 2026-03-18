@@ -174,8 +174,7 @@ declare module 'gi://PangoFT2?version=1.0' {
             // Constructor properties interface
 
             interface ConstructorProps<A extends GObject.Object = GObject.Object>
-                extends PangoFc.FontMap.ConstructorProps<A>,
-                    Gio.ListModel.ConstructorProps {}
+                extends PangoFc.FontMap.ConstructorProps<A>, Gio.ListModel.ConstructorProps {}
         }
 
         /**

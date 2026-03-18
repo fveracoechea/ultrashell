@@ -54,6 +54,7 @@ declare module 'gi://AstalNotifd?version=0.1' {
             SENT,
             RECEIVED,
         }
+
         const MAJOR_VERSION: number;
         const MINOR_VERSION: number;
         const MICRO_VERSION: number;
@@ -631,28 +632,16 @@ declare module 'gi://AstalNotifd?version=0.1' {
         type ActionClass = typeof Action;
         abstract class ActionPrivate {
             static $gtype: GObject.GType<ActionPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type NotifdClass = typeof Notifd;
         abstract class NotifdPrivate {
             static $gtype: GObject.GType<NotifdPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         type NotificationClass = typeof Notification;
         abstract class NotificationPrivate {
             static $gtype: GObject.GType<NotificationPrivate>;
-
-            // Constructors
-
-            _init(...args: any[]): void;
         }
 
         /**
