@@ -31,6 +31,7 @@
         btop
         impala
         wiremix
+        bluetui
         libgtop
         scripts.screenshot
       ];

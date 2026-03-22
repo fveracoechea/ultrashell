@@ -37,7 +37,7 @@ export function BluetoothDropdown() {
 						valign={Gtk.Align.START}
 						onClicked={() => {
 							popover.popdown();
-							execAsync("blueman-manager");
+							execAsync("bluetui");
 						}}
 					>
 						<label label="󰒓" class="icon" />
