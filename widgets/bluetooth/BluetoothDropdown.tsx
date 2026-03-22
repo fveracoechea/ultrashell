@@ -37,7 +37,7 @@ export function BluetoothDropdown() {
 						valign={Gtk.Align.START}
 						onClicked={() => {
 							popover.popdown();
-							execAsync("bluetui");
+							execAsync("ghostty --class=TUI.float -e bluetui");
 						}}
 					>
 						<label label="󰒓" class="icon" />
